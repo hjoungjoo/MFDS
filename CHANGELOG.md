@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-09-16
+
+### Added
+
+- Single-source release version from `VERSION`, native CLI/server `--version`,
+  and additive C API `mfds_version()`; ABI 1 and MFDS1 protocol remain compatible.
+- CI checks for release version, tags, changelog and built artifacts.
+- Independent immutable `vMAJOR.MINOR.PATCH` release policy and release notes.
+
 ### Changed
 
 - Preserve compact saturated stellar cores with measurable PSF wings while masking extended clipping and wingless hot pixels or lamp plateaus. Classify before binning and avoid duplicate peak-only rejection in the PiFinder adapter; SEP fallback uses the same compact-core policy.

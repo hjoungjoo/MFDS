@@ -1,11 +1,13 @@
 // SPDX-License-Identifier: LicenseRef-Cedar-FSL-1.1-MIT-5year
 #include "mf_detect_star/detector.hpp"
 #include "mf_detect_star/c_api.h"
+#include "mfds_version.hpp"
 #include <algorithm>
 #include <exception>
 
 // Version 1: caller owns all buffers; no state or exceptions cross the ABI.
 extern "C" int mfds_abi_version() { return 1; }
+extern "C" const char* mfds_version() { return MFDS_VERSION; }
 
 static int detect_impl(const std::uint16_t* pixels, std::size_t width,
     std::size_t height, std::size_t stride, unsigned max_value, int binning,

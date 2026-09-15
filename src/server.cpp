@@ -35,6 +35,10 @@ bool read_line(std::string& line) {
 int main(int argc, char** argv) {
     static_assert(std::endian::native == std::endian::little);
     static_assert(sizeof(float) == 4 && std::numeric_limits<float>::is_iec559);
+    if (argc == 2 && std::string(argv[1]) == "--version") {
+        std::cout << "MFDS " << mfds_version() << "\n";
+        return 0;
+    }
     if (argc == 2 && std::string(argv[1]) == "--help") {
         std::cout << "mf_detect_star_server --shm-fd FD --capacity BYTES\n"
                      "Persistent MFDS1 worker: uint16 little-endian image memory,\n"

@@ -25,6 +25,16 @@ jobs:
       - name: Build
         run: make -j2
 
+      - name: Release version consistency
+        env:
+          REF_TYPE: ${{ github.ref_type }}
+          REF_NAME: ${{ github.ref_name }}
+        run: |
+          python3 tools/version.py --check-build build
+          if [ "$REF_TYPE" = tag ]; then
+            python3 tools/version.py --tag "$REF_NAME"
+          fi
+
       - name: Test
         run: make test
 
@@ -52,4 +62,7 @@ jobs:
 
       - name: Test
         run: make PKG_CONFIG=/bin/false test
+
+      - name: Release version without libpng
+        run: python3 tools/version.py --check-build build
 

@@ -7,6 +7,8 @@
 extern "C" {
 #endif
 int mfds_abi_version(void);
+// Release version, independent of ABI/protocol versions; static lifetime.
+const char* mfds_version(void);
 /* pixels: uint16 row-major RAW, stride in samples. yxf: capacity*3 floats.
  * Output triples are original sensor y, x, flux. No ownership transfers.
  * Returns count or a negative error; elapsed_ms excludes caller IO.

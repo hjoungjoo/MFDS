@@ -6,7 +6,7 @@ HAVE_LIBPNG := $(shell $(PKG_CONFIG) --exists libpng && printf 1 || printf 0)
 PNG_CFLAGS := $(shell $(PKG_CONFIG) --cflags libpng 2>/dev/null)
 PNG_LIBS := $(shell $(PKG_CONFIG) --libs libpng 2>/dev/null)
 
-CPPFLAGS += -Iinclude -Isrc -DMFDS_HAVE_LIBPNG=$(HAVE_LIBPNG) $(PNG_CFLAGS)
+CPPFLAGS += -Iinclude -Isrc -I$(BUILD_DIR) -DMFDS_HAVE_LIBPNG=$(HAVE_LIBPNG) $(PNG_CFLAGS)
 CXXFLAGS ?= -O3 -g
 CXXFLAGS += -std=c++20 -Wall -Wextra -Wpedantic -Wconversion -Wshadow
 LDLIBS += $(PNG_LIBS)
@@ -23,11 +23,11 @@ all: license-notices $(BUILD_DIR)/mf_detect_star $(BUILD_DIR)/mf_detect_star_tes
 # for development and comparisons; no additional runtime binaries are needed.
 runtime: license-notices $(BUILD_DIR)/mf_detect_star_server
 
-$(BUILD_DIR)/mf_detect_star_server: src/server.cpp src/c_api.cpp $(COMMON_OBJECTS) include/mf_detect_star/c_api.h | $(BUILD_DIR)
+$(BUILD_DIR)/mf_detect_star_server: src/server.cpp src/c_api.cpp $(COMMON_OBJECTS) include/mf_detect_star/c_api.h $(BUILD_DIR)/mfds_version.hpp | $(BUILD_DIR)
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) src/server.cpp src/c_api.cpp $(COMMON_OBJECTS) -o $@.tmp
 	mv $@.tmp $@
 
-$(BUILD_DIR)/libmf_detect_star.so: src/c_api.cpp src/detector.cpp include/mf_detect_star/detector.hpp include/mf_detect_star/c_api.h | $(BUILD_DIR)
+$(BUILD_DIR)/libmf_detect_star.so: src/c_api.cpp src/detector.cpp include/mf_detect_star/detector.hpp include/mf_detect_star/c_api.h $(BUILD_DIR)/mfds_version.hpp | $(BUILD_DIR)
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -fPIC -shared src/c_api.cpp src/detector.cpp -o $@.tmp
 	mv $@.tmp $@
 
@@ -51,7 +51,7 @@ $(BUILD_DIR)/detector.o: src/detector.cpp include/mf_detect_star/detector.hpp | 
 $(BUILD_DIR)/image_io.o: src/image_io.cpp src/image_io.hpp | $(BUILD_DIR)
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $< -o $@
 
-$(BUILD_DIR)/main.o: src/main.cpp src/image_io.hpp include/mf_detect_star/detector.hpp | $(BUILD_DIR)
+$(BUILD_DIR)/main.o: src/main.cpp src/image_io.hpp include/mf_detect_star/detector.hpp $(BUILD_DIR)/mfds_version.hpp | $(BUILD_DIR)
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $< -o $@
 
 $(BUILD_DIR)/self_test.o: tests/self_test.cpp include/mf_detect_star/detector.hpp | $(BUILD_DIR)
@@ -65,3 +65,6 @@ $(BUILD_DIR)/mf_detect_star_tests: $(TEST_OBJECTS)
 
 clean:
 	rm -rf $(BUILD_DIR)
+
+$(BUILD_DIR)/mfds_version.hpp: VERSION tools/version.py | $(BUILD_DIR)
+	python3 tools/version.py --header $@

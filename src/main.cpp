@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: LicenseRef-Cedar-FSL-1.1-MIT-5year
 #include "image_io.hpp"
+#include "mfds_version.hpp"
 #include "mf_detect_star/detector.hpp"
 
 #include <cstdlib>
@@ -37,6 +38,7 @@ void print_usage(std::ostream& output) {
         "  --height N            RAW16 height\n"
         "  --stride N            RAW16 row stride in uint16 samples\n"
         "  --max-value N         RAW16 sensor full scale (default: 4095)\n"
+        "  --version             Show MFDS release version\n"
         "  -h, --help            Show this help\n";
 }
 
@@ -57,6 +59,9 @@ bool parse_cli(int argc, char** argv, CliOptions& options, std::string& error) {
             std::string value;
             if (argument == "-h" || argument == "--help") {
                 print_usage(std::cout);
+                std::exit(0);
+            } else if (argument == "--version") {
+                std::cout << "MFDS " << MFDS_VERSION << "\n";
                 std::exit(0);
             } else if (argument == "--csv") {
                 options.csv = true;

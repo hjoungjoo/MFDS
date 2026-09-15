@@ -30,7 +30,14 @@ Public source access does not remove the license's commercial restrictions.
 See [commercial use and permission requests](COMMERCIAL_USE.md),
 [license scopes](LICENSING.md), and [publication details](docs/PUBLIC_MFDS_ko.md).
 
+## Releases
+
+The current version is tracked in [VERSION](VERSION). See the [release procedure](docs/VERSIONING_ko.md) and [changelog](CHANGELOG.md). Native CLI/server `--version` and C API `mfds_version()` report that version. ABI and protocol versions are independent.
+
 ## Build and test
+
+Build tools: a C++20 compiler, Make and Python 3 (version-header generation).
+Python is not required by the native detector at runtime.
 
 ```bash
 make -j2
