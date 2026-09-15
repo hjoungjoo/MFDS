@@ -76,3 +76,11 @@ Native detector: **Cedar Detect's five-year MIT-future FSL terms**,
 PiFinder integration retains GPL-3.0. Previous MIT notices are preserved.
 See [LICENSE](LICENSE) and [licensing scope/provenance](LICENSING.md).
 Optional libpng retains its own license.
+
+### Runtime and comparison builds
+
+`make -j2 runtime` builds the persistent process server and copies license
+notices. This is sufficient for PiFinder's default process transport.
+`make -j2 all && make test` additionally builds the CLI, ctypes library and
+native tests for development and recorded-image comparisons. The runtime
+build does not remove previously built comparison tools.

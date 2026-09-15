@@ -15,9 +15,13 @@ COMMON_OBJECTS := $(BUILD_DIR)/detector.o
 CLI_OBJECTS := $(COMMON_OBJECTS) $(BUILD_DIR)/image_io.o $(BUILD_DIR)/main.o
 TEST_OBJECTS := $(COMMON_OBJECTS) $(BUILD_DIR)/self_test.o
 
-.PHONY: all test clean info license-notices
+.PHONY: all runtime test clean info license-notices
 
 all: license-notices $(BUILD_DIR)/mf_detect_star $(BUILD_DIR)/mf_detect_star_tests $(BUILD_DIR)/libmf_detect_star.so $(BUILD_DIR)/mf_detect_star_server
+
+# Production process transport. Keep CLI, ctypes and tests in the all target
+# for development and comparisons; no additional runtime binaries are needed.
+runtime: license-notices $(BUILD_DIR)/mf_detect_star_server
 
 $(BUILD_DIR)/mf_detect_star_server: src/server.cpp src/c_api.cpp $(COMMON_OBJECTS) include/mf_detect_star/c_api.h | $(BUILD_DIR)
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) src/server.cpp src/c_api.cpp $(COMMON_OBJECTS) -o $@.tmp
