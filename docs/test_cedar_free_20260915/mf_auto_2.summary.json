@@ -1,0 +1,35 @@
+{
+  "mode": "mf2",
+  "frames": 24,
+  "input_interval_s": 0.4,
+  "raw_solved": 23,
+  "published": 20,
+  "executions": {
+    "sync": 5,
+    "async": 19
+  },
+  "counts": {
+    "raw_sep_calls": 0,
+    "preprocessed_sep_calls": 0,
+    "bias_updates": 8
+  },
+  "worker": {
+    "submitted": 8,
+    "completed": 7,
+    "skipped": 10,
+    "busy": true,
+    "pending": true
+  },
+  "sync_foreground_ms": {
+    "p50": 1318.7969109999358,
+    "p95": 2743.4322714001605
+  },
+  "async_foreground_ms": {
+    "p50": 247.16984499991668,
+    "p95": 1305.5535102998415
+  },
+  "background_ms": {
+    "p50": 1261.5575785000601,
+    "p95": 1658.3965452500706
+  }
+}

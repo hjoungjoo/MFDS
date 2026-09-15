@@ -1,0 +1,27 @@
+{
+  "frames": 36,
+  "input_interval_s": 0.4,
+  "raw_solved": 36,
+  "sources": {
+    "raw": 12,
+    "preprocessed_plus_raw_motion": 24
+  },
+  "foreground_ms": {
+    "p50": 139.21853800002282,
+    "p95": 890.062957499822
+  },
+  "background_ms": {
+    "p50": 1199.758791000022,
+    "p95": 1642.333201000156
+  },
+  "anchor_accepts": 8,
+  "worker": {
+    "submitted": 12,
+    "completed": 11,
+    "skipped": 24,
+    "busy": true,
+    "pending": false
+  },
+  "background_solver_independent": true,
+  "foreground_waits_for_preprocessing": false
+}

@@ -1,0 +1,906 @@
+{
+  "schema": 1,
+  "project": "MFDS",
+  "public_repository": "https://github.com/hjoungjoo/MFDS",
+  "snapshot_origin": "hjoungjoo/mf_detect_star",
+  "snapshot_commit": "2f556b448aa21782c478cd47215ab54899055cf7",
+  "snapshot_date": "2026-09-16",
+  "scope": "Tracked final source and aggregate documentation only; no private Git history or raw observations.",
+  "license_policy": "Existing per-path license grants and publication dates preserved. See LICENSING.md.",
+  "snapshot_files": [
+    {
+      "path": ".github/workflows/ci.yml",
+      "mode": "100644",
+      "git_blob": "f7b6dffb2d88c87a91f5934bfa3de323a7973446",
+      "sha256": "b3a878a45dad7b7b06a7978cbc3dbf743cfeb379cfd0bbca1ee5a53c509738e3"
+    },
+    {
+      "path": ".gitignore",
+      "mode": "100644",
+      "git_blob": "07205c0ad21cb5d1105663d15ade1d010686958e",
+      "sha256": "adb8e5e307692c28b20c533d5fdfc1d28bfb968b030c732da8152f5f79acc9c8"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "mode": "100644",
+      "git_blob": "d14dd7e4ea7f5a8d459c9315828609ddaa727d25",
+      "sha256": "24deb3c6bc20695fde4274ce9b47b7e0ebf11943930fc4f275a94c8ffe234899"
+    },
+    {
+      "path": "LICENSE",
+      "mode": "100644",
+      "git_blob": "9f49e330cb3212d5a344c70b42bad08a62484f33",
+      "sha256": "045fe966516225d6e57b1aed229f940cf246b7d72d1cd9905a7d3566c6c5217c"
+    },
+    {
+      "path": "LICENSE.md",
+      "mode": "120000",
+      "git_blob": "7a694c9699a986b9adf1f6cb8a18a6e923e47ed9",
+      "sha256": "c693279643b8cd5d248172d9c22cb7cf4ed163a3c98c8a3f69c2717edd3eacb7"
+    },
+    {
+      "path": "LICENSES/GPL-3.0.txt",
+      "mode": "100644",
+      "git_blob": "f288702d2fa16d3cdf0035b15a9fcbc552cd88e7",
+      "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986"
+    },
+    {
+      "path": "LICENSES/LicenseRef-Cedar-FSL-1.1-MIT-5year.txt",
+      "mode": "120000",
+      "git_blob": "ea5b60640b01f74e295037aa8a6b7d4ea278a739",
+      "sha256": "1e881ecf2862d01e6e5bc2b861e46886d2a6fb01499c0c508a209a7271b13cf2"
+    },
+    {
+      "path": "LICENSES/MIT-legacy.txt",
+      "mode": "100644",
+      "git_blob": "3a2ebc45340a50390f67e6f2ccefd95a5c8e7a6d",
+      "sha256": "64258bf747357b8d2d2a1113c681088cc47df0a247f68db66596320cf27b37e7"
+    },
+    {
+      "path": "LICENSING.md",
+      "mode": "100644",
+      "git_blob": "02c6761dd29ae3c4c18ee3951e46c61a3cb1d1e3",
+      "sha256": "f4ffcbce761f5321655651065f8013c5b47cd00b0c7bd8ef44a729b4cf793d46"
+    },
+    {
+      "path": "Makefile",
+      "mode": "100644",
+      "git_blob": "f8658eaac4085778a2013fdb28af1fa0159ee41b",
+      "sha256": "1386623808816ee535b562742dd585398e67bf413fd43bfd3e72bc8dcfbc95ff"
+    },
+    {
+      "path": "README.md",
+      "mode": "100644",
+      "git_blob": "c96885db0d090656987434e2965d569e9aeaaa19",
+      "sha256": "6d73943c271bdd89d5a9fe3f9e5298eb732cf0d1412335e7083ce490151a286d"
+    },
+    {
+      "path": "README_ko.md",
+      "mode": "100644",
+      "git_blob": "32a482dce2078a50bb951edbc82bb51401bcb9d2",
+      "sha256": "84d24b11fb49a48ea6003b90abb9440934f3275d0f1cbee839876f78205240c8"
+    },
+    {
+      "path": "VERSION",
+      "mode": "100644",
+      "git_blob": "49b49e48bfb39c47f995c303fc5dc3a53c1e5b92",
+      "sha256": "9ca90d4ac8fbe86d8aca4aa37a80e0f984c01df281f25f62c779e784fd155a21"
+    },
+    {
+      "path": "docs/CEDAR_REMOVAL_ko.md",
+      "mode": "100644",
+      "git_blob": "b980d95d026f606d0f852f693ec28b6f5f6871a6",
+      "sha256": "41869c94ea491a6c8461dc59096277f18b5002a5613215d12e2994cf804dd5fd"
+    },
+    {
+      "path": "docs/CONSOLIDATION_PLAN_ko.md",
+      "mode": "100644",
+      "git_blob": "a1f7bf3d13a96e6717258928cf875f24e23a53f6",
+      "sha256": "32a91ad7b02210eefa3afb73e1eceda95120ad48538faa12d79c90b773ad3c99"
+    },
+    {
+      "path": "docs/CONSOLIDATION_RESULTS_ko.md",
+      "mode": "100644",
+      "git_blob": "d2a9a0ec40939de6e0b62ab5abce08a725fa4d33",
+      "sha256": "f37c59acfcfef5d9a0ab1f7b9400d636270d3aaeba06c402c5362330308eb4a1"
+    },
+    {
+      "path": "docs/MAIN_FINALIZATION_ko.md",
+      "mode": "100644",
+      "git_blob": "91214e84d72a6d063a3e5bf66b2fd89b6cedf603",
+      "sha256": "6eca95d44b54b3cc3c84d988e8ab9120b7727a3d29caabcc429c93c1ee677995"
+    },
+    {
+      "path": "docs/PROCESS_PROTOCOL.md",
+      "mode": "100644",
+      "git_blob": "b6779ee9628a656e5d0b313a388f8cb944be7113",
+      "sha256": "7902c486a6e5e631841955f91f89cfeca5b47e56e234f79d1f76687a7ec09dd1"
+    },
+    {
+      "path": "docs/README.md",
+      "mode": "100644",
+      "git_blob": "8aa29927031e4b1552bb3875b756bc52f376218d",
+      "sha256": "564c663a2473d1cf4dba0547290f950854b109ea0012cca1de7b6e1cd6d4449d"
+    },
+    {
+      "path": "docs/mf_ai_star_detection_research_ko.md",
+      "mode": "100644",
+      "git_blob": "020b9b17ce5c04fa2532820b800f14fee2867cc9",
+      "sha256": "152b33164a0bd6b383b1a33d7d6a2977a8e8a7269b56dc7d75304da3a1eb21d1"
+    },
+    {
+      "path": "docs/mf_fast_sky_preprocessing_design_ko.md",
+      "mode": "100644",
+      "git_blob": "ddb93e208ca8afe3dff491ea6f78acbef02f9b77",
+      "sha256": "a7597915b09a0ea2b07de4fa9ad6a980d50e4364ee456081f0384a990aa54e3b"
+    },
+    {
+      "path": "docs/mf_native_detector_design_ko.md",
+      "mode": "100644",
+      "git_blob": "d9fece7186f68d9dc344b1cd3f19db3025c0c374",
+      "sha256": "928c098c369162e4a6221321a51f892b90ec6b6e481665e00c4c274a2ae77c4e"
+    },
+    {
+      "path": "docs/test_cedar_free_20260915/20260915_fixed_lights.manifest.json",
+      "mode": "100644",
+      "git_blob": "d3a691f18995f81dfd9532c3bb6881c51e56f10f",
+      "sha256": "76e95f00af3e03bec26d39ce584952d4d2a9f1dce09ae60f6cf1eb4983907036"
+    },
+    {
+      "path": "docs/test_cedar_free_20260915/20260915_fixed_validation.manifest.json",
+      "mode": "100644",
+      "git_blob": "874884ac55b27c4e173ce57bba232a3cf83d8077",
+      "sha256": "d52f41173f72f43b6f6667ea2e6b0a18ee9aeb1d43796b79e30be224c48f2e26"
+    },
+    {
+      "path": "docs/test_cedar_free_20260915/ANCHOR_PLAN_ko.md",
+      "mode": "100644",
+      "git_blob": "514f0b0e1eb4598cde1953276fe422ada5168f6d",
+      "sha256": "847532e87e00c3cf34b965517bf89ea3f988565a1f06f238d6256540f41a82ee"
+    },
+    {
+      "path": "docs/test_cedar_free_20260915/ANCHOR_RESULTS_ko.md",
+      "mode": "100644",
+      "git_blob": "a0639760e72783f41438438cbaa8f08294993511",
+      "sha256": "88911aec91e0e7e05d450b2f93318a475aec33adda350e78893bc630cbadad7b"
+    },
+    {
+      "path": "docs/test_cedar_free_20260915/ANCHOR_STAGE1_ko.md",
+      "mode": "100644",
+      "git_blob": "bfe6d6d4dc47d5f8e02e4177136be5bb8caff0d6",
+      "sha256": "69868e67e41082a799379f441ff702fe0194f2d9f24fe7711f773f912889a94f"
+    },
+    {
+      "path": "docs/test_cedar_free_20260915/CEDAR_AB_PLAN_ko.md",
+      "mode": "100644",
+      "git_blob": "9e56c338ae6fa2beba07f8f2a29537be7325ec5d",
+      "sha256": "1a2bfd846223fcad1e5881400ea5f6728389cfdd9186e86a4a3f908f774522f6"
+    },
+    {
+      "path": "docs/test_cedar_free_20260915/CEDAR_AB_RESULTS_ko.md",
+      "mode": "100644",
+      "git_blob": "bb4f76f3c643949cdf0e09b7b26868d0586e6864",
+      "sha256": "ba3a2264873090617dc6173bc0a72170649b631ebf1ded73fd52eabd625222f9"
+    },
+    {
+      "path": "docs/test_cedar_free_20260915/CURRENT_DEFAULTS_ko.md",
+      "mode": "100644",
+      "git_blob": "1c8df6ecf574cff69fe64601b7f066719cfb682b",
+      "sha256": "4cc8bc9b27b7fe7555ab9acfa598efdf6d4287dd0717f364d43032e350c95fc1"
+    },
+    {
+      "path": "docs/test_cedar_free_20260915/FIELD_GUIDE_ko.md",
+      "mode": "100644",
+      "git_blob": "388118cf767436c9a82ff6ddf4ebeaaa53187b4d",
+      "sha256": "cc8fa712043d1cf1944fe6f1a495775937333bf0a3398e32f08cd8876c97bebb"
+    },
+    {
+      "path": "docs/test_cedar_free_20260915/FIELD_PLAN_ko.md",
+      "mode": "100644",
+      "git_blob": "26221bb35371f694b8621d017cd3901b4009e2d6",
+      "sha256": "c387987ea4956e5833fd71c9a5268214a110b7f9a9d4035240dc4bdd6dc5a7c2"
+    },
+    {
+      "path": "docs/test_cedar_free_20260915/FIELD_RESULTS_ko.md",
+      "mode": "100644",
+      "git_blob": "7910982c5b03547acc09ddba0d49d15b40530951",
+      "sha256": "12799f9cde9d25d54e74c5ef92bee30082935ca5d8c173aa5c43c0846638a3b8"
+    },
+    {
+      "path": "docs/test_cedar_free_20260915/GPL_FSL_OPTIONS_ko.md",
+      "mode": "100644",
+      "git_blob": "22525cd52acc882d5ce903e973acea49fbe73225",
+      "sha256": "631e1c7a48388a3f78515343aa70489885211b7036ff70a054bbdd8ebe4263f4"
+    },
+    {
+      "path": "docs/test_cedar_free_20260915/INTEGRATED_OPTIMIZATION_PLAN_ko.md",
+      "mode": "100644",
+      "git_blob": "f112548abcc2fda0be901473728385572a5e3fb9",
+      "sha256": "bf35d67276dc3e82c1a6d56c16aa16cf0d5d6178ca4777db2f85c58de1b4eb13"
+    },
+    {
+      "path": "docs/test_cedar_free_20260915/INTEGRATED_OPTIMIZATION_RESULTS_ko.md",
+      "mode": "100644",
+      "git_blob": "12dd27f9611e5f42208418753dce00ec888e315e",
+      "sha256": "cc31fadf93dc25b64832cf037d96b7d3c4838a620125fd3f4eee2f0b31547c9b"
+    },
+    {
+      "path": "docs/test_cedar_free_20260915/LICENSE",
+      "mode": "120000",
+      "git_blob": "5da41c4b18f6ec3cac6684e555305b0ac932fc07",
+      "sha256": "0b065f7e0cedc3a4bc90bbb5a14352fcc99a6928be086168c8e5ee84585283e5"
+    },
+    {
+      "path": "docs/test_cedar_free_20260915/LICENSE_AUDIT_ko.md",
+      "mode": "100644",
+      "git_blob": "dd77ee6b9ade57d7c27f4b86f4a18eb9effbbedf",
+      "sha256": "c57309308053f00eebf0b515110d0d21fc5b6568a7cd9870909b6cf20ad74a57"
+    },
+    {
+      "path": "docs/test_cedar_free_20260915/MF_COMMERCIAL_POLICY_ko.md",
+      "mode": "100644",
+      "git_blob": "eb6270b74c3e84a9c2d4466afaaefb3dfef4c617",
+      "sha256": "d08d36096f2476d315a1e6f60a3387ab1a379f9d5d977c9680245a1a27578b5c"
+    },
+    {
+      "path": "docs/test_cedar_free_20260915/MF_PRIMARY_FLOW_ko.md",
+      "mode": "100644",
+      "git_blob": "e7eee9688d9c94ed7794007af36a2a3cfd53d428",
+      "sha256": "a556617d094dcb8c9b00de36acb63b09d03938be4ab29ab1329580f24ce674ca"
+    },
+    {
+      "path": "docs/test_cedar_free_20260915/MF_PRIMARY_PLAN_ko.md",
+      "mode": "100644",
+      "git_blob": "0df5b7247be0bbe127839b8d780f6f0906a40ab5",
+      "sha256": "9ff437c3094a1c4d85496f59dbc6297a8db35924c2b6f2b2b5c27c71ddf8a4c4"
+    },
+    {
+      "path": "docs/test_cedar_free_20260915/MF_PRIMARY_RESULTS_ko.md",
+      "mode": "100644",
+      "git_blob": "80519fcb88abb3b25d7878a250395eb7dd0101cc",
+      "sha256": "5a31f637f025432b9fa372324a4747278722bc4f7dcb3c463f605fa030cce469"
+    },
+    {
+      "path": "docs/test_cedar_free_20260915/MF_PRIMARY_STAGE1_ko.md",
+      "mode": "100644",
+      "git_blob": "26de57339bd28e9dc850137e6e3af954b9699c2e",
+      "sha256": "59bd60534f78c1b45fbe7b43a1476683c5f3828941a0d5612ae69ba5da2b7fcf"
+    },
+    {
+      "path": "docs/test_cedar_free_20260915/MOON_CITY_DIAGNOSIS_PLAN_ko.md",
+      "mode": "100644",
+      "git_blob": "0769a79afd059cb64c0a3d32da0c12d317de85cf",
+      "sha256": "e0c2764da421b15f43a880659a6a82d0e1bd432c6ff54fa5bef387abb83011d1"
+    },
+    {
+      "path": "docs/test_cedar_free_20260915/MOON_CITY_DIAGNOSIS_RESULTS_ko.md",
+      "mode": "100644",
+      "git_blob": "2d03c0cadac85c135ecc4b1f0c802ceb42704aff",
+      "sha256": "b7eae5cb6520dc92ebc33c272ebe28916b5026f2a6e926ee007faf3b18677ca3"
+    },
+    {
+      "path": "docs/test_cedar_free_20260915/MOON_LOWER_EXPOSURE_PLAN_ko.md",
+      "mode": "100644",
+      "git_blob": "5cf3367be725f4a89363fb526876cdbd72d2dfb2",
+      "sha256": "6a673d0917956cb899af7cb05563ea75d571c8e284e4491d1898ce74ded2532d"
+    },
+    {
+      "path": "docs/test_cedar_free_20260915/MOON_LOWER_EXPOSURE_RESULTS_ko.md",
+      "mode": "100644",
+      "git_blob": "26d4c1935afed631c95a3339a1d1b45eb89b7758",
+      "sha256": "3fa0fbcd2c8862636e359b2c800e11a93c10a7f91c19a5abb547ba4dd3f409bc"
+    },
+    {
+      "path": "docs/test_cedar_free_20260915/PLAN_ko.md",
+      "mode": "100644",
+      "git_blob": "e193ab07ff6a74375dec7256fe91a06f09c810cb",
+      "sha256": "06858505e6ceb6bb861b63b453397757975207e1cfdf08455ce1f1d4668c40f9"
+    },
+    {
+      "path": "docs/test_cedar_free_20260915/PREPROCESS_LICENSE_REVIEW_ko.md",
+      "mode": "100644",
+      "git_blob": "9f93b5f334c36c553d32d881b67923ee79beba51",
+      "sha256": "d76fbf050e2f1c550d7c6b421b28f6b99b7d2514413745370bb0984498510fb8"
+    },
+    {
+      "path": "docs/test_cedar_free_20260915/PREPROCESS_PLACEMENT_PLAN_ko.md",
+      "mode": "100644",
+      "git_blob": "e3cc4cffaad60b480ed1a98ca5d8592861a2b00d",
+      "sha256": "5d6888e4ae1bfbba1c8ce6f5d5feffef9dd4d13de5b4f3d38cd3c7009bd8fdf3"
+    },
+    {
+      "path": "docs/test_cedar_free_20260915/PREPROCESS_PLACEMENT_RESULTS_ko.md",
+      "mode": "100644",
+      "git_blob": "967c03a10ea05636472b5ec1b7fca1627fda0d4f",
+      "sha256": "31503cac03c9cfc4dc102b9d7fc8b400fe89a537c5ed821e52974b55e60a60c1"
+    },
+    {
+      "path": "docs/test_cedar_free_20260915/PROCESS_PLAN_ko.md",
+      "mode": "100644",
+      "git_blob": "e90aaedea70ec0be9065e617fa7e89e90042e989",
+      "sha256": "4d6257e97dc1df3868e7ce153a05868fcf0845446636e41a386f0718910cccda"
+    },
+    {
+      "path": "docs/test_cedar_free_20260915/PROCESS_RESULTS_ko.md",
+      "mode": "100644",
+      "git_blob": "4c07f27cb0045c027d860446a039988c7e6ed0d6",
+      "sha256": "42eab58efe7fe27a6979b9ef1180649c20f21ec5141657bf3b1714b7cef2efd0"
+    },
+    {
+      "path": "docs/test_cedar_free_20260915/PYRAMID_PLAN_ko.md",
+      "mode": "100644",
+      "git_blob": "206b6f219392db4002de2870051ab76863eab06e",
+      "sha256": "7627c45f5495730fc43e55b13b08f73b096a876a59af064b9d37c9c2cc4adec5"
+    },
+    {
+      "path": "docs/test_cedar_free_20260915/PYRAMID_RESULTS_ko.md",
+      "mode": "100644",
+      "git_blob": "35ef0c146ba2b6709a205b577f433655fc6c04a0",
+      "sha256": "8c755e475ffec86fbbc10d4424e5ce649859b44c4dec929ff87ee8ce7505ca41"
+    },
+    {
+      "path": "docs/test_cedar_free_20260915/PYRAMID_STAGE1_ko.md",
+      "mode": "100644",
+      "git_blob": "e66a5023d7330943438a7dd589976e5ca3287216",
+      "sha256": "26e88cff973e8434d3c22a9d6363d9de4a4c71205b0cdcd6a1b761ea0c435a86"
+    },
+    {
+      "path": "docs/test_cedar_free_20260915/RESULTS_ko.md",
+      "mode": "100644",
+      "git_blob": "d55b6f3b4330fbc66e3950de1e5f62e07549a2c0",
+      "sha256": "7b07760a2cd6bbcce31532f48728079a805602f3d937413705104cf7a7b0087d"
+    },
+    {
+      "path": "docs/test_cedar_free_20260915/REVIEW_FIX_PLAN_ko.md",
+      "mode": "100644",
+      "git_blob": "c736a670cd036992c37101aed16eaf3fdb8d6263",
+      "sha256": "56a948cf21b3a738eea67d2fe3b24592845d7baa698dc78c243727cb95aefb7f"
+    },
+    {
+      "path": "docs/test_cedar_free_20260915/REVIEW_FIX_RESULTS_ko.md",
+      "mode": "100644",
+      "git_blob": "8225647733f37737598d9fb01363b9dae3a59351",
+      "sha256": "503bdaadf8b68b83c280115b2aa2c3b5beceab28d3d046d121086e39666b47ea"
+    },
+    {
+      "path": "docs/test_cedar_free_20260915/SATURN_GOTO_AGGREGATE.json",
+      "mode": "100644",
+      "git_blob": "ee43a53c4b4a3d520e607cea1df6ca9e809844e2",
+      "sha256": "a3433a6fd358aaa72d1fc4e24501737bf711f06e16b357980105ff7341daee21"
+    },
+    {
+      "path": "docs/test_cedar_free_20260915/SATURN_GOTO_PLAN_ko.md",
+      "mode": "100644",
+      "git_blob": "e2927d847fa2fb039e0391ad206c505fd35b6867",
+      "sha256": "407260c6447b7cf1dd0a7b4f7a422597de72bee5a7505f2bbaba8d752d808519"
+    },
+    {
+      "path": "docs/test_cedar_free_20260915/SATURN_GOTO_RESULTS_ko.md",
+      "mode": "100644",
+      "git_blob": "dc87799cb25ac1313c18e4a38470f2d73212a280",
+      "sha256": "2548677c346361ee3f1bf83a3395db7068205b1d94295c46bbfac4ad82ac11a6"
+    },
+    {
+      "path": "docs/test_cedar_free_20260915/SPEED_PLAN_ko.md",
+      "mode": "100644",
+      "git_blob": "99deada3fab3db4e30c2d19782157600903d90f4",
+      "sha256": "abbb14360cb662fcead29a696727569d6dcbf7b37569272815ecc159c1bc49a7"
+    },
+    {
+      "path": "docs/test_cedar_free_20260915/SPEED_RESULTS_ko.md",
+      "mode": "100644",
+      "git_blob": "0f60ad127871a1dc0523389d391e6652e3a171a6",
+      "sha256": "c557411bf2c5d002a04badfb521f439eb8f920c97da841a5842a69be256af5c3"
+    },
+    {
+      "path": "docs/test_cedar_free_20260915/STAGE1_ko.md",
+      "mode": "100644",
+      "git_blob": "c68682b574c64d6166fa58b6193b147b6fb89667",
+      "sha256": "8f537d3191cc537a14b4dbef513fc3944526faa5bd017c9585d8b5b12e04a1c7"
+    },
+    {
+      "path": "docs/test_cedar_free_20260915/STAGE2_ko.md",
+      "mode": "100644",
+      "git_blob": "4a473b24ba0b9ad4c87687f47033035d41ebad4e",
+      "sha256": "6f5c125848b265fc114703462c33f944232dffaab725cd66547bb51d61806463"
+    },
+    {
+      "path": "docs/test_cedar_free_20260915/UPSTREAM_LICENSE_DISTRIBUTION_ko.md",
+      "mode": "100644",
+      "git_blob": "1c8144687691a4df47c51df8fbc6222804858c6c",
+      "sha256": "b08769e389ab424037049172268cf97c30abe1408cc5171ff1257c253fdc0436"
+    },
+    {
+      "path": "docs/test_cedar_free_20260915/anchor_pipeline.summary.json",
+      "mode": "100644",
+      "git_blob": "a13ce0522000df458fe465dcebb5677ab9d8c622",
+      "sha256": "4113bab649e2a45bd1d8f738df01ac8ad992b6b3af0cf2c9c8288eb926784c83"
+    },
+    {
+      "path": "docs/test_cedar_free_20260915/anchor_synthetic.summary.json",
+      "mode": "100644",
+      "git_blob": "c6c299609464e5b76eb776c3dd8d1723e614eb07",
+      "sha256": "416ccd0d7cb6a3c1066040a47a2fc6646ede02d27a29c3ade71280a120ad31b6"
+    },
+    {
+      "path": "docs/test_cedar_free_20260915/anchor_validation.summary.json",
+      "mode": "100644",
+      "git_blob": "f4a28055d492d207d14f3d84b8f6562eb08b32e1",
+      "sha256": "cd93e45c6266c556177e2ef7ff4f9a5ffdee52c3da60e7402fd4562861c8c223"
+    },
+    {
+      "path": "docs/test_cedar_free_20260915/anchor_validation_slow.summary.json",
+      "mode": "100644",
+      "git_blob": "337bbb857d7d9dfed2793a451acb3610f066491c",
+      "sha256": "d9a42ed781832bce694c74a4007cd6ad37d686c310af86b10c64f5dd61fdfd66"
+    },
+    {
+      "path": "docs/test_cedar_free_20260915/cedar_mf_direct.summary.json",
+      "mode": "100644",
+      "git_blob": "7a5b8571eec610817c85370283d919e795fbbf2a",
+      "sha256": "bcfa267cd8bea038c443807cd46cd3902c707d0cff1585b6ce25664093b2aaf0"
+    },
+    {
+      "path": "docs/test_cedar_free_20260915/field_suite_summary.json",
+      "mode": "100644",
+      "git_blob": "369d6c6cc370b8c1af9ca3945c648613de0946c5",
+      "sha256": "5c2efbc0adb5fb20b26d64ac93f230446a74bacd882a09e97b7c6239e70287fb"
+    },
+    {
+      "path": "docs/test_cedar_free_20260915/history/STAGE1_ko_native_before_consolidation.md",
+      "mode": "100644",
+      "git_blob": "4b0a2d35ccde1a93420029d9fbcd302ab151eaae",
+      "sha256": "b8a21fc50fd3c95c738fdaeb6767304ff4f69ebc9da1181ce678c7697ea9fab8"
+    },
+    {
+      "path": "docs/test_cedar_free_20260915/integrated_optimization.summary.json",
+      "mode": "100644",
+      "git_blob": "fdbbc8b67142ffc388b14e350f90126f86b38955",
+      "sha256": "121260a95f5aa52af950a9f3d2298df95a5c9aeeefafd6cfde0ed6399fe23209"
+    },
+    {
+      "path": "docs/test_cedar_free_20260915/mf_auto_2.summary.json",
+      "mode": "100644",
+      "git_blob": "37fff6b64a8033765863ef5e8744045c3b40e4da",
+      "sha256": "d77dafa7d657246e73103b61643dd1b3ff724eb022b8c75f6f3597f5fbb737a4"
+    },
+    {
+      "path": "docs/test_cedar_free_20260915/mf_auto_4p.summary.json",
+      "mode": "100644",
+      "git_blob": "53826c1781f6a5492605b1d67bbc2fbb857b38be",
+      "sha256": "fa5cf8ef336d854e153fbcd280b6ea7735967f222dbdc7c06b7b80be51c93ad6"
+    },
+    {
+      "path": "docs/test_cedar_free_20260915/mf_primary_cloud.summary.json",
+      "mode": "100644",
+      "git_blob": "e2ee38ef67cb7d2ca0a897e2d9bba5e049fba5f2",
+      "sha256": "ff21556fb8bce95d63bf6570f921f1dde732827bdecd4be88fd1cba24b86e844"
+    },
+    {
+      "path": "docs/test_cedar_free_20260915/mf_primary_train.summary.json",
+      "mode": "100644",
+      "git_blob": "4325075d5238d168af99bd05f169f65f8053de58",
+      "sha256": "35d6d048a7d8d164d26838fdb648f70e65e60a33fcdf21fd3680a1ae94bc3ccb"
+    },
+    {
+      "path": "docs/test_cedar_free_20260915/mf_primary_validation.summary.json",
+      "mode": "100644",
+      "git_blob": "57c587ff2381d5bd9182e56a41218c051c2fc6ce",
+      "sha256": "c7ff0ce6c369d688a8a5e722a908b7f1f32ba87a0e154bfca2a8ef76773a9985"
+    },
+    {
+      "path": "docs/test_cedar_free_20260915/moon_city_diagnosis.summary.json",
+      "mode": "100644",
+      "git_blob": "dcd0cb0b42e5324b1b197f33d3325cc0243c5947",
+      "sha256": "0074356015b6ded58914aefa8e1b3cbe4711010de2b2ed9ab227a24ae8dea61a"
+    },
+    {
+      "path": "docs/test_cedar_free_20260915/moon_lower_exposure.summary.json",
+      "mode": "100644",
+      "git_blob": "f8730b1b266fd583de145c29b309d820461346b4",
+      "sha256": "13939f6c3e328d8d359a8d15552eacef76e0be586eb0d7bc2dc4420975a77f4c"
+    },
+    {
+      "path": "docs/test_cedar_free_20260915/native_optimization.summary.json",
+      "mode": "100644",
+      "git_blob": "393e99b8def9fffaade02741a1fb422646814bb3",
+      "sha256": "d4bdf196b282630b447d02e1c40fb9e00ab08f3de6b2cc4f03e08e1e74457145"
+    },
+    {
+      "path": "docs/test_cedar_free_20260915/native_response_cloud.summary.json",
+      "mode": "100644",
+      "git_blob": "afeafb8ffbebdaa3d0a5ceaee41b894f51aabeb6",
+      "sha256": "68396c4a63ae31be4eb718a54333c04f770521ce9dcdb509ce95002e0d58a796"
+    },
+    {
+      "path": "docs/test_cedar_free_20260915/native_response_current.summary.json",
+      "mode": "100644",
+      "git_blob": "4c3450667fe593eaf2a44b22806c2ed304d135ac",
+      "sha256": "47cab841e4335af50e274094a02d826d6318df3b6b1412065e5e5dc2b702242c"
+    },
+    {
+      "path": "docs/test_cedar_free_20260915/native_response_train.summary.json",
+      "mode": "100644",
+      "git_blob": "23e2173afb9608cf2f6e8464cf1d43f9f03d611f",
+      "sha256": "9ea5a1d5048518200f128a3671fc7b3eb26c2966f4ef1ec2cd92cde11e4d62ef"
+    },
+    {
+      "path": "docs/test_cedar_free_20260915/native_validation.summary.json",
+      "mode": "100644",
+      "git_blob": "42feb94070b1073994c3d099ee5a408d10d78d87",
+      "sha256": "bc65a7e8aa1e7cc570eb0bf03e72b3960bc7156672532a6f3abacf794542ccd6"
+    },
+    {
+      "path": "docs/test_cedar_free_20260915/pipeline_latency.summary.json",
+      "mode": "100644",
+      "git_blob": "8adb8e69a3cb0694051d53bae36662ff467f9cbd",
+      "sha256": "2b8fd20c98c0fc0c566f9c3a16f03b68db68581b725e79f5a2d248e1b8244ff4"
+    },
+    {
+      "path": "docs/test_cedar_free_20260915/preprocess_optimization_final.summary.json",
+      "mode": "100644",
+      "git_blob": "bef2812c9277e619bb2e09f23e3d501c6dbd19f0",
+      "sha256": "fc947f4859ea9bcb774ba6c667096c1271cf119b26c0d06ab18e6fc9352419f0"
+    },
+    {
+      "path": "docs/test_cedar_free_20260915/preprocess_placement.summary.json",
+      "mode": "100644",
+      "git_blob": "a550407c16650168d28c4fa2a6c525a4b46f66a9",
+      "sha256": "0ef24ac8949fb2840b83b432d04739d78e0d7b5b235c943f577962ea4291cea5"
+    },
+    {
+      "path": "docs/test_cedar_free_20260915/process_transport.summary.json",
+      "mode": "100644",
+      "git_blob": "7074a8a99841249c22a8e3015d4f8d758152bcbf",
+      "sha256": "a3c561b03d8acb22ef1d355ee3a1eb4ed8795d5dcf7adbca92e066cf31f143c1"
+    },
+    {
+      "path": "docs/test_cedar_free_20260915/pyramid_baseline_regression.summary.json",
+      "mode": "100644",
+      "git_blob": "ee7ce3b38decc44adf0cc4114abc5a919dc504a8",
+      "sha256": "41a742b9a009ecaf6c7835b58812d402eb32b43aca722c0b0ffdbfc22220bd81"
+    },
+    {
+      "path": "docs/test_cedar_free_20260915/pyramid_cloud.summary.json",
+      "mode": "100644",
+      "git_blob": "b2d49cb1ab81ab930d9ce2ac442b74c785aefeb0",
+      "sha256": "6bdfb1ad5268ce26197ae6951e831f8d787de3d5c74a14a5e60220964dc66a70"
+    },
+    {
+      "path": "docs/test_cedar_free_20260915/pyramid_pipeline.summary.json",
+      "mode": "100644",
+      "git_blob": "88c559e52137d64599dcfe62eab1a4ead5d130bd",
+      "sha256": "c7053321f1df264b13dfc05b6414445ab2cbe4bd58f4d2bcfd6a168cda6c82de"
+    },
+    {
+      "path": "docs/test_cedar_free_20260915/pyramid_train.summary.json",
+      "mode": "100644",
+      "git_blob": "77cba4dcaa85a235aba46e63c36a83696e357ac6",
+      "sha256": "48958b80d54041215bb6d27463fa482a18bef511054c81488a7d9ea0611fa26d"
+    },
+    {
+      "path": "docs/test_cedar_free_20260915/pyramid_validation.summary.json",
+      "mode": "100644",
+      "git_blob": "16b55091444ce7e62a7291a854522fb267f558a5",
+      "sha256": "364d8b0132c91ce57681be4e22b5be91c793af020efc797f780dc81f0038e79f"
+    },
+    {
+      "path": "docs/test_cedar_free_20260915/review_fixes.summary.json",
+      "mode": "100644",
+      "git_blob": "bc4173191986c1bc05ea34a4f2cd60defb052010",
+      "sha256": "28fd70f53366dce0b3073dfb057466f20e7ef1738df01079292886c7c10bc6b2"
+    },
+    {
+      "path": "docs/test_cedar_free_20260915/sep_cloud.summary.json",
+      "mode": "100644",
+      "git_blob": "f809ea0f156db09247a5af19d116ef353d84de74",
+      "sha256": "0aeaa9ee7160de70486def20d010fd04912c66a656b637426a78a31fea2ead5f"
+    },
+    {
+      "path": "docs/test_cedar_free_20260915/sep_current.summary.json",
+      "mode": "100644",
+      "git_blob": "e7a7c00ba2d07f215f2469b88e262ffb954c08ed",
+      "sha256": "577f633dd49d484c0e8a2a804b5e4e3e811247a68b6d81be188aa7c416638e00"
+    },
+    {
+      "path": "docs/test_cedar_free_20260915/sep_light.summary.json",
+      "mode": "100644",
+      "git_blob": "cccc9a4c91bbe69726790c509a646a794f0ece8f",
+      "sha256": "1399f8bc9563d67217c553594433f43c18da418669fcb9fd3f11941558329452"
+    },
+    {
+      "path": "docs/test_cedar_free_20260915/sep_light_stage1.summary.json",
+      "mode": "100644",
+      "git_blob": "cccc9a4c91bbe69726790c509a646a794f0ece8f",
+      "sha256": "1399f8bc9563d67217c553594433f43c18da418669fcb9fd3f11941558329452"
+    },
+    {
+      "path": "docs/test_cedar_free_20260915/sep_validation.summary.json",
+      "mode": "100644",
+      "git_blob": "297532eea8d2066cf59eaa5b54c53455a4181113",
+      "sha256": "bf6e5a7974b749e767bcdb5c7f7525f87be5683bdad3f62cf28096f27aa2c8c5"
+    },
+    {
+      "path": "docs/test_cedar_free_20260915/speed_optimization.summary.json",
+      "mode": "100644",
+      "git_blob": "5db7706fb9baed31e5e649763a428913c50daf0e",
+      "sha256": "d9cab45bd98453e8562e261af57ec0c1a34df4f3e4b1ff81e05ca662c2491c88"
+    },
+    {
+      "path": "include/mf_detect_star/c_api.h",
+      "mode": "100644",
+      "git_blob": "770dde2b51f298b9d9290474acec0fd6bdaf797b",
+      "sha256": "7b23234a51d9e15023eff10cb9507a0e53ccc277109754be1ba9e3d5399ae42a"
+    },
+    {
+      "path": "include/mf_detect_star/detector.hpp",
+      "mode": "100644",
+      "git_blob": "bec19b8c231ddd573883e3362b487cee7553c449",
+      "sha256": "b724f6c3f95a28567cf7385a65a706f3d3a1d7accdb675c37a9279087c9a6389"
+    },
+    {
+      "path": "integrations/pifinder/LICENSE",
+      "mode": "120000",
+      "git_blob": "5da41c4b18f6ec3cac6684e555305b0ac932fc07",
+      "sha256": "0b065f7e0cedc3a4bc90bbb5a14352fcc99a6928be086168c8e5ee84585283e5"
+    },
+    {
+      "path": "integrations/pifinder/PiFinder/detector_profiles.py",
+      "mode": "100644",
+      "git_blob": "a5c371ed1aadd7e0d933f318bd8757e49159519e",
+      "sha256": "07cbf04a66fb905b4adc488752601039f320c4896066b6c5c30317a127e3b8a2"
+    },
+    {
+      "path": "integrations/pifinder/PiFinder/mf_cloud_gate.py",
+      "mode": "100644",
+      "git_blob": "223b2ec8ae27ebcf70cd357ab9628222b9666863",
+      "sha256": "34eb6a38992f4ba1d70d01fbd31db02348407ba3bbcab077b319935b00d63001"
+    },
+    {
+      "path": "integrations/pifinder/PiFinder/mf_detect_process.py",
+      "mode": "100644",
+      "git_blob": "60451467ba423460b8360cddc8908c287e39a2f5",
+      "sha256": "da08f16d0bcdd60218358b94f00a02b00fac6892cee28f23cdc1806bdb23acf7"
+    },
+    {
+      "path": "integrations/pifinder/PiFinder/mf_star_only_preprocess.py",
+      "mode": "100644",
+      "git_blob": "960eeee73fe2ae19c807c3bf56ca68d158f168f0",
+      "sha256": "b4cfd1deb4fdec52b124ffc24f722c5ab8279737e10c7c1290464f4dcf4faede"
+    },
+    {
+      "path": "integrations/pifinder/PiFinder/preprocessed_anchor.py",
+      "mode": "100644",
+      "git_blob": "7c5417d022a190aa73db24203c3f3bcefc69fa7d",
+      "sha256": "2c65760edd661be466ae7db3fe0f30666e1210a8699c49a76c5c3eaa26d03905"
+    },
+    {
+      "path": "integrations/pifinder/PiFinder/sep_detect.py",
+      "mode": "100644",
+      "git_blob": "dd9c91d45f1acd97d7ca3ae4a6ae138a62b368da",
+      "sha256": "41e5746c36d57afd7bbd832c62ca29d3874cc3ca9233c67d95a70a811db51198"
+    },
+    {
+      "path": "integrations/pifinder/PiFinder/star_detect.py",
+      "mode": "100644",
+      "git_blob": "968d005fa643fdaafc02f5855725bb166b0797af",
+      "sha256": "56d69a86a2073d3cde828baf1a1786ff53d6b53a4ca00de54ad247b40ececd6c"
+    },
+    {
+      "path": "integrations/pifinder/README.md",
+      "mode": "100644",
+      "git_blob": "2cb586789d390d00f8aeb51031cf7dd89285f273",
+      "sha256": "85ffe695a4a003159c8639fd92f39a18db17868420ad9629917a4bd246a2b98a"
+    },
+    {
+      "path": "integrations/pifinder/SOURCE.json",
+      "mode": "100644",
+      "git_blob": "dc285935514f62cbca94fe243ec1766508805dae",
+      "sha256": "5c90862f5fd3bda320322b32898a476730aac46ae6fc453630c2fc6c2fba7837"
+    },
+    {
+      "path": "integrations/pifinder/scripts/benchmark_anchor_pipeline.py",
+      "mode": "100644",
+      "git_blob": "9f8994cc6dcebf237ff36e3d400961a5f19f1eee",
+      "sha256": "43be58cc59bea94185d38cf038ff6337ee690fb590353ab2b62af9a03e0c79f5"
+    },
+    {
+      "path": "integrations/pifinder/scripts/benchmark_auto_detector.py",
+      "mode": "100644",
+      "git_blob": "499e45f718e2d56f7e9e06adeae4626665318977",
+      "sha256": "d97624a4b3d94e53271457fc3e621917bdca9297413352ccc8bdca8cea7c5132"
+    },
+    {
+      "path": "integrations/pifinder/scripts/benchmark_detector_pipeline.py",
+      "mode": "100644",
+      "git_blob": "7fb8bf1149b43afe704a806db91b7395906ee95b",
+      "sha256": "77a5a79378c2c084cfdd37796c66bcdde47fd4e8eb922d8e90683deefba5dc8b"
+    },
+    {
+      "path": "integrations/pifinder/scripts/benchmark_preprocess_placement.py",
+      "mode": "100644",
+      "git_blob": "abc9b120d2254395c0cc387028eb9460ad883616",
+      "sha256": "0792e4fc750431ffc027d9e87a2b8796775841ac42318a4c9dbe1602566554cb"
+    },
+    {
+      "path": "integrations/pifinder/scripts/capture_detector_corpus.py",
+      "mode": "100644",
+      "git_blob": "1ffe3954178005caf020f46a7aa827b6b6912dfb",
+      "sha256": "a62301c62bfcafe4ce1f0a872c0bea12222d0c71b11f7b22caffadb153acac17"
+    },
+    {
+      "path": "integrations/pifinder/scripts/capture_exposure_sweep.py",
+      "mode": "100644",
+      "git_blob": "9639fd91ec2f1c4e225e3447bdf3d3898ed4c0db",
+      "sha256": "98b154a879744efa30c9d593a3f7dee3fe19a16cb390008b9039ccec10f43010"
+    },
+    {
+      "path": "integrations/pifinder/scripts/compare_cached_detectors.py",
+      "mode": "100644",
+      "git_blob": "0f6ae4370db21d1efa4db8875a05183f9e4b4833",
+      "sha256": "e8ae8f47f4c83d14064025e0fbf1c804889db26effc86758e99f5bf163c7fcad"
+    },
+    {
+      "path": "integrations/pifinder/scripts/compare_detector_transport.py",
+      "mode": "100644",
+      "git_blob": "52acf162ae4aa7dd981115ec48fc433d94605ab7",
+      "sha256": "fa9d27b4b6057b61569f1f1ed0d9e91058396fd57d5fdd0de2e43c85c02032bf"
+    },
+    {
+      "path": "integrations/pifinder/scripts/compare_raw_preprocessed_detectors.py",
+      "mode": "100644",
+      "git_blob": "e1ec0d68d55f6a752fb51e7e27708cab7ef43d84",
+      "sha256": "c95c0424f307f27549d19aa4b84ad7c6e2f499cfc084a36678e9e4c7a2fbe5d3"
+    },
+    {
+      "path": "integrations/pifinder/scripts/compare_scene_solve_order.py",
+      "mode": "100644",
+      "git_blob": "0d7343d304d7003b6dee42cb4d1654e421b3735c",
+      "sha256": "b3ac9e5e35b594f7d5eb0636b9429568738428ea8148ca861a805d58045d7202"
+    },
+    {
+      "path": "integrations/pifinder/scripts/compare_search_speed.py",
+      "mode": "100644",
+      "git_blob": "27418d28c8874b8f627fa81df75286ca21ddd204",
+      "sha256": "88d489600c33d86055c82f634448ce55de4818402d5ae291faa277599d051a3f"
+    },
+    {
+      "path": "integrations/pifinder/scripts/diagnose_moon_city.py",
+      "mode": "100644",
+      "git_blob": "da778023736dec856f37301f04e2f0a2c6823f25",
+      "sha256": "e8df633c9042141622a107e3cdbd550385b01e8ffd0248e676abc3a5772db027"
+    },
+    {
+      "path": "integrations/pifinder/scripts/evaluate_preprocessed_anchor.py",
+      "mode": "100644",
+      "git_blob": "9625e2463106292eb57839da98ce13a1dc4c2c54",
+      "sha256": "6995e2e78fe19200acfc56046a479d981644b7aed76a8a2bad7f0c0ef11b0a9d"
+    },
+    {
+      "path": "integrations/pifinder/scripts/field_compare.py",
+      "mode": "100644",
+      "git_blob": "f64d74206e2eacb965a76bf25028394d26daf55c",
+      "sha256": "c84064cdbe4a1c893f9739feb0274973249f2d92f2371891874af9b54f9f79d4"
+    },
+    {
+      "path": "integrations/pifinder/scripts/replay_star_preprocess_ab.py",
+      "mode": "100644",
+      "git_blob": "d9be8b1ca5a1af097d5381d65ee5c111c9cf53f2",
+      "sha256": "5c26a98ea91cac8d502b4526e70f5dba2e64b15c2b87e13c8b8f8fb81f689364"
+    },
+    {
+      "path": "integrations/pifinder/scripts/summarize_detector_coordinates.py",
+      "mode": "100644",
+      "git_blob": "22ee537cfdaf5ed3547d01cf4eac629231b08d02",
+      "sha256": "ce0754f9b257d3749e7f53b8eb3cb4d6273df9a1c9b82e49877a252bde07113a"
+    },
+    {
+      "path": "integrations/pifinder/scripts/summarize_scene_replays.py",
+      "mode": "100644",
+      "git_blob": "50225581f870b2f017a27c65164ce5339e453f3d",
+      "sha256": "a1a4d1e171c83777eb6aae6e8322ff443bf64a48569c601d2f41779a88f7b5c6"
+    },
+    {
+      "path": "integrations/pifinder/tests/test_capture_exposure_sweep.py",
+      "mode": "100644",
+      "git_blob": "09e7ca8845244f02f16b27f69f7c2f74d1839ab1",
+      "sha256": "e5a6a86fae67620b76be5e05711d5b2303c37dc24440d34885a45fc2232a2fa8"
+    },
+    {
+      "path": "integrations/pifinder/tests/test_detector_profiles.py",
+      "mode": "100644",
+      "git_blob": "fe2be7a7fe9b39f119291fbcd202e2fd4877ddf4",
+      "sha256": "78a73598a292a755da3e56f46525aefa01980b5d2359a5884de9e298525d6e10"
+    },
+    {
+      "path": "integrations/pifinder/tests/test_field_compare.py",
+      "mode": "100644",
+      "git_blob": "a2f47c46c24ad4b3ff0b69c143ead1b8d4de30c8",
+      "sha256": "dc815cfdcc8a55cc498bad7b43092e463ffa9a1ba8f12afe590bfc97c5f3be9c"
+    },
+    {
+      "path": "integrations/pifinder/tests/test_mf_cloud_gate.py",
+      "mode": "100644",
+      "git_blob": "00084f06f3fb0e4e2a285e9fe5012d8c1976dd59",
+      "sha256": "20e815c3c59e27a754508c823e556a843be4400a65c01264a02949a50c2d29b8"
+    },
+    {
+      "path": "integrations/pifinder/tests/test_mf_detect_process.py",
+      "mode": "100644",
+      "git_blob": "67d7a4ea9c800b904a4c30aa6d69bfbcf6317b22",
+      "sha256": "37aba4cb8380a60adedd2db54cc3c26983500311eac2dff40a144264413e5f96"
+    },
+    {
+      "path": "integrations/pifinder/tests/test_mf_star_only_preprocess.py",
+      "mode": "100644",
+      "git_blob": "092b3105c574353c1e23cc45c4d7eeff2b630016",
+      "sha256": "c2d41b013beb58b78f391fd8d36b54e83e683daa70d98306ea005aaa0cb7d720"
+    },
+    {
+      "path": "integrations/pifinder/tests/test_preprocessed_anchor.py",
+      "mode": "100644",
+      "git_blob": "1d035d93d10c74c6645c160981e7ee14db2c390d",
+      "sha256": "1be0c1b55dd02320297b310e84bc4e23c7b2c0c30a4d5d34ddf925fe34e895bd"
+    },
+    {
+      "path": "integrations/pifinder/tests/test_sep_detect.py",
+      "mode": "100644",
+      "git_blob": "abfceb51c43c86d6dc630e51bcd914cb8d6c9e51",
+      "sha256": "740cc8e41299a60048bd481519e585f0efd390881c1048d740855c1ef772b198"
+    },
+    {
+      "path": "integrations/pifinder/tests/test_star_detect.py",
+      "mode": "100644",
+      "git_blob": "6e0600c3756c31f9a96565b84f6537b5630f1e59",
+      "sha256": "c64267ef83a8db9d8bed8b21f8d84108c8673a231fac18e2fe25913bf6df45fa"
+    },
+    {
+      "path": "src/c_api.cpp",
+      "mode": "100644",
+      "git_blob": "3a43d961e36af3e3965c5f6aafade74b69269883",
+      "sha256": "f4aa831a634742bf507e097b5fe6fcf2f933ab742253ecdd5426ea05963ca7c9"
+    },
+    {
+      "path": "src/detector.cpp",
+      "mode": "100644",
+      "git_blob": "86e93e65bb59b18d67fcf7c59ec3bd44d6e663bf",
+      "sha256": "dfefd28628fe75b8280799773b168efd4b8b97f3902d11aaf31a9efd63f59db2"
+    },
+    {
+      "path": "src/image_io.cpp",
+      "mode": "100644",
+      "git_blob": "cc567bddc4b314d28b352dff8f818fb7ae5a8d42",
+      "sha256": "29b1540d9b5acd407725a17f036c09e8cdbef9843accd0c62d160ab784870a3c"
+    },
+    {
+      "path": "src/image_io.hpp",
+      "mode": "100644",
+      "git_blob": "8de0f193db67a93cc37ef9b3a581b0b3a6e01201",
+      "sha256": "8deae0ea8bb20c1686be5f0071e2789f058f4c528ea46208a9b2a76be52cfe52"
+    },
+    {
+      "path": "src/main.cpp",
+      "mode": "100644",
+      "git_blob": "366699b767c40a57742f6252b3a9847787961a57",
+      "sha256": "0c990e271c142c95416a5be2a90839f5b54a7ce1a4319e851e3045f8c62a82d7"
+    },
+    {
+      "path": "src/server.cpp",
+      "mode": "100644",
+      "git_blob": "4d5673dc6111657c2a24ad88ec2897bf0fe1cfa5",
+      "sha256": "2b40037f6a4459dbe0f30819cf2eeb0c51af0d309b8d3b00084685d1a7d91e2a"
+    },
+    {
+      "path": "tests/self_test.cpp",
+      "mode": "100644",
+      "git_blob": "3f0417ff77b044ab1231f44c28d8f3ce1a5b798f",
+      "sha256": "b270a879c8a7885c397cf00c3aec55170449fa1c9cfe6e406904a62150779cec"
+    },
+    {
+      "path": "tools/check_layout.py",
+      "mode": "100644",
+      "git_blob": "228c40e73ef55ef8c39d4b55ddc0b763b22af495",
+      "sha256": "d9376ed11edd5acb14fc3a9062e51f6a19c054d8a584888f28ce495e7f6b1c9a"
+    }
+  ]
+}

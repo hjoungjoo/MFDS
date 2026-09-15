@@ -1,0 +1,436 @@
+{
+  "baseline_source": {
+    "pifinder_test": "4a2e5fcb",
+    "mf": "16cdc6a"
+  },
+  "capture": {
+    "frames": 180,
+    "unique_frames": 180,
+    "elapsed_s": 180.04189760000003,
+    "settings_unchanged": true,
+    "conditions": "Fixed instrument, central Moon, city lights at bottom of display",
+    "capture": "Read-only HTTP GET; no camera controls or service writes"
+  },
+  "observation": {
+    "snapshots": 180,
+    "camera_failed": 180,
+    "distinct_attempt_timestamps": 60,
+    "exposure_ms_counts": {
+      "33.24": 48,
+      "47.01": 35,
+      "66.16": 76,
+      "83.57": 21
+    },
+    "controller_reasons": {
+      "dark_cloud_anchor_hold": 179,
+      "reacquisition_exposure_up": 1
+    },
+    "raw_cascade_ms": {
+      "n": 59,
+      "p50": 89.2,
+      "p95": 532.0799999999994,
+      "max": 1239.3
+    },
+    "preprocess_detect_ms": {
+      "n": 59,
+      "p50": 1559.8,
+      "p95": 1730.6599999999999,
+      "max": 1833.9
+    },
+    "through_preprocess_ms": {
+      "n": 59,
+      "p50": 3023.8,
+      "p95": 3535.049999999999,
+      "max": 4303.4
+    }
+  },
+  "comparison": {
+    "pre_mf2": {
+      "n": 22,
+      "solved": 0,
+      "candidates_median": 16.0,
+      "city_candidates_median": 14.0,
+      "fallback_calls": 0,
+      "reasons": {
+        "no_solution": 22
+      },
+      "detect_ms": {
+        "p50": 85.70762799996601,
+        "p95": 122.89107394999517
+      },
+      "solve_ms": {
+        "p50": 1000.7110169999578,
+        "p95": 1001.5866141999652
+      },
+      "rmse": {
+        "p50": null,
+        "p95": null
+      },
+      "matches": {
+        "p50": null,
+        "p95": null
+      }
+    },
+    "pre_mf4p": {
+      "n": 22,
+      "solved": 0,
+      "candidates_median": 20.0,
+      "city_candidates_median": 17.5,
+      "fallback_calls": 0,
+      "reasons": {
+        "no_solution": 22
+      },
+      "detect_ms": {
+        "p50": 47.22878499995886,
+        "p95": 62.39033060004431
+      },
+      "solve_ms": {
+        "p50": 1000.8528725000474,
+        "p95": 1001.7194027999949
+      },
+      "rmse": {
+        "p50": null,
+        "p95": null
+      },
+      "matches": {
+        "p50": null,
+        "p95": null
+      }
+    },
+    "pre_mf4p_mask": {
+      "n": 22,
+      "solved": 1,
+      "candidates_median": 5.0,
+      "city_candidates_median": 0.0,
+      "fallback_calls": 10,
+      "reasons": {
+        "quality_ok": 1,
+        "no_solution": 8,
+        "matches_below_7": 3,
+        "insufficient_centroids": 10
+      },
+      "detect_ms": {
+        "p50": 55.94122399998014,
+        "p95": 104.93399614996974
+      },
+      "solve_ms": {
+        "p50": 6.805879999944864,
+        "p95": 34.09306814999127
+      },
+      "rmse": {
+        "p50": 70.99409275324234,
+        "p95": 70.99409275324234
+      },
+      "matches": {
+        "p50": 7.0,
+        "p95": 7.0
+      }
+    },
+    "pre_sep": {
+      "n": 22,
+      "solved": 0,
+      "candidates_median": 14.0,
+      "city_candidates_median": 10.0,
+      "fallback_calls": 0,
+      "reasons": {
+        "no_solution": 22
+      },
+      "detect_ms": {
+        "p50": 85.92774950000148,
+        "p95": 136.23525599996924
+      },
+      "solve_ms": {
+        "p50": 1000.5627104999917,
+        "p95": 1001.5641635999259
+      },
+      "rmse": {
+        "p50": null,
+        "p95": null
+      },
+      "matches": {
+        "p50": null,
+        "p95": null
+      }
+    },
+    "raw_mf2": {
+      "n": 24,
+      "solved": 0,
+      "candidates_median": 28.0,
+      "city_candidates_median": 23.5,
+      "fallback_calls": 0,
+      "reasons": {
+        "no_solution": 24
+      },
+      "detect_ms": {
+        "p50": 80.06046000002698,
+        "p95": 118.78777924996484
+      },
+      "solve_ms": {
+        "p50": 1000.8901295000214,
+        "p95": 1006.344229950065
+      },
+      "rmse": {
+        "p50": null,
+        "p95": null
+      },
+      "matches": {
+        "p50": null,
+        "p95": null
+      }
+    },
+    "raw_mf4p": {
+      "n": 24,
+      "solved": 0,
+      "candidates_median": 17.0,
+      "city_candidates_median": 13.0,
+      "fallback_calls": 0,
+      "reasons": {
+        "no_solution": 24
+      },
+      "detect_ms": {
+        "p50": 34.686009999973066,
+        "p95": 47.27444099998479
+      },
+      "solve_ms": {
+        "p50": 1000.7440660000384,
+        "p95": 1004.3125072000009
+      },
+      "rmse": {
+        "p50": null,
+        "p95": null
+      },
+      "matches": {
+        "p50": null,
+        "p95": null
+      }
+    },
+    "raw_mf4p_mask": {
+      "n": 24,
+      "solved": 0,
+      "candidates_median": 2.5,
+      "city_candidates_median": 0.0,
+      "fallback_calls": 11,
+      "reasons": {
+        "no_solution": 2,
+        "insufficient_centroids": 22
+      },
+      "detect_ms": {
+        "p50": 90.0062425000101,
+        "p95": 176.4999886000737
+      },
+      "solve_ms": {
+        "p50": 0.0,
+        "p95": 16.189726449948655
+      },
+      "rmse": {
+        "p50": null,
+        "p95": null
+      },
+      "matches": {
+        "p50": null,
+        "p95": null
+      }
+    },
+    "raw_sep": {
+      "n": 24,
+      "solved": 0,
+      "candidates_median": 3.0,
+      "city_candidates_median": 0.0,
+      "fallback_calls": 0,
+      "reasons": {
+        "no_solution": 6,
+        "insufficient_centroids": 18
+      },
+      "detect_ms": {
+        "p50": 87.32828649999647,
+        "p95": 127.36803899994695
+      },
+      "solve_ms": {
+        "p50": 0.0,
+        "p95": 230.29123620001985
+      },
+      "rmse": {
+        "p50": null,
+        "p95": null
+      },
+      "matches": {
+        "p50": null,
+        "p95": null
+      }
+    },
+    "raw_sky_tiles": {
+      "n": 24,
+      "solved": 0,
+      "candidates_median": 46.0,
+      "city_candidates_median": 0.0,
+      "fallback_calls": 0,
+      "reasons": {
+        "no_solution": 24
+      },
+      "detect_ms": {
+        "p50": 135.89944249997643,
+        "p95": 165.4647250499181
+      },
+      "solve_ms": {
+        "p50": 2002.1045400000617,
+        "p95": 2003.221030849977
+      },
+      "rmse": {
+        "p50": null,
+        "p95": null
+      },
+      "matches": {
+        "p50": null,
+        "p95": null
+      }
+    }
+  },
+  "temporal": {
+    "5": {
+      "n": 23,
+      "solved": 5,
+      "candidates_median": 6.0,
+      "city_candidates_median": 0.0,
+      "fallback_calls": 1,
+      "reasons": {
+        "quality_ok": 5,
+        "insufficient_centroids": 1,
+        "matches_below_7": 8,
+        "no_solution": 9
+      },
+      "detect_ms": {
+        "p50": 39.548817999957464,
+        "p95": 77.09871840003188
+      },
+      "solve_ms": {
+        "p50": 9.570868000082555,
+        "p95": 39.41788839996433
+      },
+      "rmse": {
+        "p50": 65.41495560637068,
+        "p95": 70.38481977992018
+      },
+      "matches": {
+        "p50": 7.0,
+        "p95": 7.0
+      },
+      "continuity_accepted": 4,
+      "tail10_solved": 1,
+      "preprocess_ms": {
+        "p50": 1214.3096414999945,
+        "p95": 1375.481993300025
+      },
+      "pre_detect_solve_ms": {
+        "p50": 1267.6106019999906,
+        "p95": 1451.7829532999485
+      }
+    },
+    "10": {
+      "n": 23,
+      "solved": 19,
+      "candidates_median": 8.0,
+      "city_candidates_median": 0.0,
+      "fallback_calls": 1,
+      "reasons": {
+        "insufficient_centroids": 1,
+        "matches_below_7": 1,
+        "quality_ok": 19,
+        "no_solution": 2
+      },
+      "detect_ms": {
+        "p50": 41.013643000042066,
+        "p95": 62.615116199958706
+      },
+      "solve_ms": {
+        "p50": 7.425445000080799,
+        "p95": 41.921025099918545
+      },
+      "rmse": {
+        "p50": 64.53769688575554,
+        "p95": 67.29856501869494
+      },
+      "matches": {
+        "p50": 7.0,
+        "p95": 9.0
+      },
+      "continuity_accepted": 18,
+      "tail10_solved": 10,
+      "preprocess_ms": {
+        "p50": 1331.5745664999667,
+        "p95": 1618.6215593499924
+      },
+      "pre_detect_solve_ms": {
+        "p50": 1397.0278209999378,
+        "p95": 1685.9784806000107
+      }
+    },
+    "15": {
+      "n": 23,
+      "solved": 19,
+      "candidates_median": 10.0,
+      "city_candidates_median": 0.0,
+      "fallback_calls": 1,
+      "reasons": {
+        "no_solution": 2,
+        "matches_below_7": 1,
+        "quality_ok": 19,
+        "insufficient_centroids": 1
+      },
+      "detect_ms": {
+        "p50": 50.14502600010928,
+        "p95": 71.15824510001403
+      },
+      "solve_ms": {
+        "p50": 17.789078999840058,
+        "p95": 142.38519730006374
+      },
+      "rmse": {
+        "p50": 64.74705409479655,
+        "p95": 79.33495524878839
+      },
+      "matches": {
+        "p50": 10.0,
+        "p95": 13.099999999999998
+      },
+      "continuity_accepted": 17,
+      "tail10_solved": 10,
+      "preprocess_ms": {
+        "p50": 1483.731593000016,
+        "p95": 1613.9361658501002
+      },
+      "pre_detect_solve_ms": {
+        "p50": 1566.8622650000543,
+        "p95": 1800.3390995001382
+      }
+    }
+  },
+  "ablation_10": {
+    "unmasked": {
+      "n": 23,
+      "quality_solved": 2
+    },
+    "postfilter": {
+      "n": 23,
+      "quality_solved": 13
+    }
+  },
+  "window_10_vs_15_separation_arcsec": {
+    "n": 19,
+    "p50": 33.972992140916574,
+    "p95": 57.34883819931158
+  },
+  "source_sha256": {
+    "diagnose.py": "c4bab27a8fed415b6402aba28821a88c5fcbffb7f1e3a9ee05bee522932a491a",
+    "temporal_diagnose.py": "4d361957d5acf8b4b7a2566d67d08e44d1cfba1fb851c42e4cae309b4d1c56da",
+    "ablation10.py": "506e283bd938c9b457eb58797123967bd521822410857a7c199195000be54ad7"
+  },
+  "limitations": [
+    "Manual scene mask; not automatic detection",
+    "Recorded frames only; services unchanged",
+    "23 comparisons share a temporal sequence and are not statistically independent trials",
+    "RMSE is catalog residual, not independent pointing accuracy",
+    "Capture metadata bracketed, not atomic with TIFF",
+    "Exposure/gain intervention not performed",
+    "Motion/GoTo and long-duration memory/thermal behaviour untested"
+  ]
+}

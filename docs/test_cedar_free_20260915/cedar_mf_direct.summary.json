@@ -1,0 +1,373 @@
+{
+  "validation": {
+    "summary": {
+      "cedar": {
+        "raw": {
+          "attempts": 23,
+          "solved": 5,
+          "backends": {
+            "cedar": 23
+          },
+          "sep_fallback_calls": 0,
+          "detect_ms": {
+            "p50": 18.59147100003611,
+            "p95": 33.74970060031046
+          },
+          "cedar_algorithm_ms": {
+            "p50": 9.214671,
+            "p95": 12.287159899999999
+          },
+          "solve_ms": {
+            "p50": 1077.6211419997708,
+            "p95": 1560.4421953003111
+          },
+          "detect_solve_ms": {
+            "p50": 1096.6032830001495,
+            "p95": 1580.0250199006769
+          },
+          "rmse": {
+            "p50": 44.94399319987806,
+            "p95": 55.08261329867352
+          },
+          "matches": {
+            "p50": 9.0,
+            "p95": 11.0
+          },
+          "candidates": {
+            "p50": 12.0,
+            "p95": 16.9
+          }
+        },
+        "preprocessed": {
+          "attempts": 23,
+          "solved": 23,
+          "backends": {
+            "cedar": 23
+          },
+          "sep_fallback_calls": 0,
+          "detect_ms": {
+            "p50": 21.791159000713378,
+            "p95": 32.016158000078576
+          },
+          "cedar_algorithm_ms": {
+            "p50": 9.518006,
+            "p95": 12.804060399999997
+          },
+          "solve_ms": {
+            "p50": 13.333901000805781,
+            "p95": 40.91100759978871
+          },
+          "detect_solve_ms": {
+            "p50": 36.27464099918143,
+            "p95": 72.49063129984278
+          },
+          "rmse": {
+            "p50": 40.20119621371723,
+            "p95": 46.33899183769454
+          },
+          "matches": {
+            "p50": 31.0,
+            "p95": 33.0
+          },
+          "candidates": {
+            "p50": 48.0,
+            "p95": 48.0
+          }
+        }
+      },
+      "mf4p": {
+        "raw": {
+          "attempts": 23,
+          "solved": 23,
+          "backends": {
+            "mf": 23
+          },
+          "sep_fallback_calls": 0,
+          "detect_ms": {
+            "p50": 24.76245599973481,
+            "p95": 29.061705600543064
+          },
+          "cedar_algorithm_ms": {
+            "p50": null,
+            "p95": null
+          },
+          "solve_ms": {
+            "p50": 46.45990999961214,
+            "p95": 974.8387639992864
+          },
+          "detect_solve_ms": {
+            "p50": 73.63349299885158,
+            "p95": 999.6918409991843
+          },
+          "rmse": {
+            "p50": 41.50672899890119,
+            "p95": 69.2039163894666
+          },
+          "matches": {
+            "p50": 21.0,
+            "p95": 31.39999999999999
+          },
+          "candidates": {
+            "p50": 43.0,
+            "p95": 47.9
+          }
+        },
+        "preprocessed": {
+          "attempts": 23,
+          "solved": 23,
+          "backends": {
+            "mf": 23
+          },
+          "sep_fallback_calls": 0,
+          "detect_ms": {
+            "p50": 26.079982999362983,
+            "p95": 31.81047889920592
+          },
+          "cedar_algorithm_ms": {
+            "p50": null,
+            "p95": null
+          },
+          "solve_ms": {
+            "p50": 11.958114000663045,
+            "p95": 27.175867598452893
+          },
+          "detect_solve_ms": {
+            "p50": 40.703966000364744,
+            "p95": 52.524060598079814
+          },
+          "rmse": {
+            "p50": 26.17102320317197,
+            "p95": 33.742446732376884
+          },
+          "matches": {
+            "p50": 30.0,
+            "p95": 33.0
+          },
+          "candidates": {
+            "p50": 48.0,
+            "p95": 48.0
+          }
+        }
+      }
+    },
+    "conditions": {
+      "cedar": "sigma8/max_size10/binned/hotpixels; RAW>>4; inline gRPC, no SHM",
+      "mf": "mf4p defaults, native 16-bit input; SEP fallback recorded",
+      "common": "same preprocessing cache, geometry, masks, max48, >=7 matches, Tetra3 cascade",
+      "wide_raw_gate": false,
+      "input_files": 24,
+      "warmup_files_excluded": 1,
+      "time_scope": "detect includes conversion/transport/filter; cached preprocessing cost excluded",
+      "service_changed": false
+    },
+    "paired_quality": {
+      "raw": {
+        "common_solved": 5,
+        "mf_lower_rmse": 2,
+        "cedar_rmse_p50_common": 44.94399319987806,
+        "mf_rmse_p50_common": 46.800077011770874,
+        "between_detector_separation_arcsec_p50": 47.074451293732196,
+        "between_detector_separation_arcsec_max": 86.38219740155691
+      },
+      "preprocessed": {
+        "common_solved": 23,
+        "mf_lower_rmse": 23,
+        "cedar_rmse_p50_common": 40.20119621371723,
+        "mf_rmse_p50_common": 26.17102320317197,
+        "between_detector_separation_arcsec_p50": 39.09026866445291,
+        "between_detector_separation_arcsec_max": 48.24004987220392
+      }
+    }
+  },
+  "cloud": {
+    "summary": {
+      "cedar": {
+        "raw": {
+          "attempts": 24,
+          "solved": 0,
+          "backends": {
+            "cedar": 24
+          },
+          "sep_fallback_calls": 0,
+          "detect_ms": {
+            "p50": 65.96841550071986,
+            "p95": 82.5515971997447
+          },
+          "cedar_algorithm_ms": {
+            "p50": 10.356965500000001,
+            "p95": 14.455956249999995
+          },
+          "solve_ms": {
+            "p50": 0.0,
+            "p95": 0.0
+          },
+          "detect_solve_ms": {
+            "p50": 65.96841550071986,
+            "p95": 82.5515971997447
+          },
+          "rmse": {
+            "p50": null,
+            "p95": null
+          },
+          "matches": {
+            "p50": null,
+            "p95": null
+          },
+          "candidates": {
+            "p50": 1.0,
+            "p95": 2.0
+          }
+        },
+        "preprocessed": {
+          "attempts": 24,
+          "solved": 24,
+          "backends": {
+            "cedar": 24
+          },
+          "sep_fallback_calls": 0,
+          "detect_ms": {
+            "p50": 20.827013499001623,
+            "p95": 27.344792000440062
+          },
+          "cedar_algorithm_ms": {
+            "p50": 9.466671999999999,
+            "p95": 11.3898659
+          },
+          "solve_ms": {
+            "p50": 8.387619000131963,
+            "p95": 21.048627398704394
+          },
+          "detect_solve_ms": {
+            "p50": 31.49130499969033,
+            "p95": 45.61322134832153
+          },
+          "rmse": {
+            "p50": 87.35121088078641,
+            "p95": 125.18251129619848
+          },
+          "matches": {
+            "p50": 13.0,
+            "p95": 14.0
+          },
+          "candidates": {
+            "p50": 25.5,
+            "p95": 28.0
+          }
+        }
+      },
+      "mf4p": {
+        "raw": {
+          "attempts": 24,
+          "solved": 0,
+          "backends": {
+            "mf": 24
+          },
+          "sep_fallback_calls": 0,
+          "detect_ms": {
+            "p50": 81.9225280010869,
+            "p95": 109.67882929962796
+          },
+          "cedar_algorithm_ms": {
+            "p50": null,
+            "p95": null
+          },
+          "solve_ms": {
+            "p50": 1091.3657315004457,
+            "p95": 1502.627277450574
+          },
+          "detect_solve_ms": {
+            "p50": 1167.2408960012035,
+            "p95": 1582.4824950997024
+          },
+          "rmse": {
+            "p50": null,
+            "p95": null
+          },
+          "matches": {
+            "p50": null,
+            "p95": null
+          },
+          "candidates": {
+            "p50": 12.0,
+            "p95": 14.849999999999998
+          }
+        },
+        "preprocessed": {
+          "attempts": 24,
+          "solved": 24,
+          "backends": {
+            "mf": 24
+          },
+          "sep_fallback_calls": 0,
+          "detect_ms": {
+            "p50": 20.869847499852767,
+            "p95": 28.428249200078426
+          },
+          "cedar_algorithm_ms": {
+            "p50": null,
+            "p95": null
+          },
+          "solve_ms": {
+            "p50": 6.489809999948193,
+            "p95": 28.41575804986858
+          },
+          "detect_solve_ms": {
+            "p50": 28.031041000758705,
+            "p95": 57.090500449976375
+          },
+          "rmse": {
+            "p50": 81.65762715589523,
+            "p95": 101.12191910736446
+          },
+          "matches": {
+            "p50": 12.0,
+            "p95": 13.0
+          },
+          "candidates": {
+            "p50": 25.5,
+            "p95": 27.849999999999998
+          }
+        }
+      }
+    },
+    "conditions": {
+      "cedar": "sigma8/max_size10/binned/hotpixels; RAW>>4; inline gRPC, no SHM",
+      "mf": "mf4p defaults, native 16-bit input; SEP fallback recorded",
+      "common": "same preprocessing cache, geometry, masks, max48, >=7 matches, Tetra3 cascade",
+      "wide_raw_gate": true,
+      "input_files": 24,
+      "warmup_files_excluded": 0,
+      "time_scope": "detect includes conversion/transport/filter; cached preprocessing cost excluded",
+      "service_changed": false
+    },
+    "paired_quality": {
+      "raw": {
+        "common_solved": 0,
+        "mf_lower_rmse": 0,
+        "cedar_rmse_p50_common": null,
+        "mf_rmse_p50_common": null,
+        "between_detector_separation_arcsec_p50": null,
+        "between_detector_separation_arcsec_max": null
+      },
+      "preprocessed": {
+        "common_solved": 24,
+        "mf_lower_rmse": 17,
+        "cedar_rmse_p50_common": 87.35121088078641,
+        "mf_rmse_p50_common": 81.65762715589523,
+        "between_detector_separation_arcsec_p50": 66.22646402187493,
+        "between_detector_separation_arcsec_max": 169.877169550222
+      }
+    }
+  },
+  "provenance": {
+    "comparison_script_sha256": "9272263a40620e92ea2775a8002302968543d8bc6c77a8e3e0a14013202f3194",
+    "pifinder_commit": "daee379da8103fcca8fb463a3f19b1af6bbd6a56",
+    "mf_source_commit": "13684199b19a1c3b5ec67df04fe4ca6914d6e727",
+    "mf_library_sha256": "5b828db2a9b9e0bff2d91bb5eaafd40efbd5c3565ea778882a6ea11d4045267c",
+    "cedar_proto_sha256": "1f2e4250376349f78a6f1bacb4a84c5b46fc1f05ef24449f86bb308fea813f33",
+    "cedar_server": "existing localhost:50551; version not returned by this RPC",
+    "cedar_service": "cedar_detect.service, PID708, active",
+    "cedar_configured_binary": "/home/pifinder/PiFinder/bin/cedar-detect-server-aarch64",
+    "cedar_configured_binary_sha256": "dc9bb3e9ce73e47e8fbeb088513f6e901b0692a9b534ff5c39d8649ec79addfb"
+  }
+}

@@ -1,0 +1,374 @@
+{
+  "capture": {
+    "frames": 240,
+    "unique_frames": 240,
+    "start": 1789475567.9983714,
+    "end": 1789475687.4689236,
+    "sha256_verified": true,
+    "source_snapshot_counts": {
+      "CAM_FAILED": 58,
+      "CAM": 182
+    },
+    "distinct_success_snapshots": 55,
+    "distinct_attempt_snapshots": 72,
+    "attempt_interval_s": {
+      "n": 71,
+      "p50": 1.7287917137145996,
+      "p95": 3.444856286048889,
+      "max": 3.4747586250305176,
+      "min": 0.17594599723815918
+    },
+    "rmse_arcsec": {
+      "n": 55,
+      "p50": 34.79830541263445,
+      "p95": 38.423684213691885,
+      "max": 45.50380814754158,
+      "min": 28.16605734760729
+    },
+    "matches": {
+      "n": 55,
+      "p50": 17.0,
+      "p95": 21.0,
+      "max": 23.0,
+      "min": 8.0
+    },
+    "paths": {
+      "preprocessed_cedar_center": 52,
+      "sep_center": 3
+    },
+    "exposure_us": {
+      "n": 240,
+      "p50": 245555.0,
+      "p95": 250888.0,
+      "max": 250888.0,
+      "min": 245555.0
+    },
+    "gain": {
+      "n": 240,
+      "p50": 29.51209259033203,
+      "p95": 29.51209259033203,
+      "max": 29.51209259033203,
+      "min": 29.51209259033203
+    },
+    "imu_moving_samples": 0,
+    "imu_status_samples": 122,
+    "target_bound_frames": 240,
+    "target_snapshot_abs_delta_s": {
+      "n": 240,
+      "p50": 0.04820513725280762,
+      "p95": 0.10007413625717163,
+      "max": 0.12452149391174316,
+      "min": 0.00011420249938964844
+    },
+    "operating_stage_attempts": 67,
+    "raw_ms": {
+      "n": 67,
+      "p50": 99.1,
+      "p95": 161.69999999999993,
+      "max": 321.7,
+      "min": 33.6
+    },
+    "preprocess_detect_ms": {
+      "n": 67,
+      "p50": 1471.1,
+      "p95": 1541.61,
+      "max": 1653.9,
+      "min": 1084.8
+    },
+    "through_preprocess_ms": {
+      "n": 67,
+      "p50": 1642.6,
+      "p95": 1759.61,
+      "max": 1832.6,
+      "min": 1400.9
+    }
+  },
+  "tracking": {
+    "samples": 720,
+    "start": 1789475711.8479977,
+    "end": 1789475891.803829,
+    "state_counts": {
+      "enabled": 699,
+      "settling": 17,
+      "disturbed": 4
+    },
+    "source_counts": {
+      "pifinder_imu_estimate": 45,
+      "solve": 675
+    },
+    "estimated_error_arcmin": {
+      "n": 720,
+      "p50": 1.0050042577756813,
+      "p95": 8.375006723064189,
+      "max": 18.183367428862457,
+      "min": 0.16146960303188962
+    },
+    "fraction_samples_within_3_arcmin": 0.9375,
+    "solve_source_error_arcmin": {
+      "n": 675,
+      "p50": 0.9959604453320026,
+      "p95": 1.4387616853178997,
+      "max": 8.375006723064189,
+      "min": 0.16146960303188962
+    },
+    "imu_source_error_arcmin": {
+      "n": 45,
+      "p50": 8.647745854470733,
+      "p95": 18.183367428862457,
+      "max": 18.183367428862457,
+      "min": 1.010455419570917
+    },
+    "recovery_count_start": 1,
+    "recovery_count_end": 1,
+    "manual_retarget_count_start": 2,
+    "manual_retarget_count_end": 2,
+    "source_binding": "guide.pointing.selected_source from the same guide snapshot as its error; independent pointing file not joined",
+    "last60_error_arcmin": {
+      "n": 240,
+      "p50": 1.2461636052398717,
+      "p95": 1.5121032649324477,
+      "max": 1.6460951144051705,
+      "min": 0.7684202505078019
+    },
+    "last60_within_3_fraction": 1.0,
+    "solver_frames": 125,
+    "solver_execution_counts": {
+      "sync": 125
+    },
+    "solver_reason_counts": {
+      "raw_failed_same_frame_recovery": 117,
+      "confirming_raw_recovery": 4,
+      "moving": 4
+    },
+    "solver_processing_ms": {
+      "n": 125,
+      "p50": 1422.3404869999285,
+      "p95": 1486.9489044000147,
+      "max": 2407.091573999878,
+      "min": 21.16463500010468
+    },
+    "solver_accepted_frames": 117,
+    "operating_stage_attempts": 117,
+    "raw_ms": {
+      "n": 117,
+      "p50": 73.6,
+      "p95": 118.9,
+      "max": 247.2,
+      "min": 16.2
+    },
+    "preprocess_detect_ms": {
+      "n": 117,
+      "p50": 1291.3,
+      "p95": 1356.86,
+      "max": 1436.6,
+      "min": 1031.1
+    },
+    "through_preprocess_ms": {
+      "n": 117,
+      "p50": 1426.6,
+      "p95": 1488.3999999999999,
+      "max": 2407.0,
+      "min": 1316.9
+    }
+  },
+  "replay": {
+    "frame_count": 32,
+    "preprocess_ms": {
+      "n": 32,
+      "p50": 1248.3740330001183,
+      "p95": 1373.3151389002387,
+      "max": 1755.8267429999432
+    },
+    "modes": {
+      "pre_mf2": {
+        "n": 31,
+        "solved": 31,
+        "candidates_median": 45.0,
+        "city_candidates_median": 0.0,
+        "fallback_calls": 0,
+        "reasons": {
+          "quality_ok": 31
+        },
+        "detect_ms": {
+          "p50": 85.6299880001643,
+          "p95": 101.91769249991012
+        },
+        "solve_ms": {
+          "p50": 10.32767300011983,
+          "p95": 33.345965999615146
+        },
+        "rmse": {
+          "p50": 27.686854824739203,
+          "p95": 32.67803436793998
+        },
+        "matches": {
+          "p50": 18.0,
+          "p95": 21.0
+        },
+        "detect_solve_ms": {
+          "n": 31,
+          "p50": 97.59713399989778,
+          "p95": 128.8855289994899,
+          "max": 529.5373660001133
+        },
+        "compute_including_pre_ms": {
+          "n": 31,
+          "p50": 1363.790973000505,
+          "p95": 1649.9759430000722,
+          "max": 1854.6134769999298
+        },
+        "failed_frames": []
+      },
+      "pre_mf4p": {
+        "n": 31,
+        "solved": 31,
+        "candidates_median": 45.0,
+        "city_candidates_median": 0.0,
+        "fallback_calls": 0,
+        "reasons": {
+          "quality_ok": 31
+        },
+        "detect_ms": {
+          "p50": 30.98050400012653,
+          "p95": 41.581663499982824
+        },
+        "solve_ms": {
+          "p50": 12.711483000202861,
+          "p95": 27.553200499824015
+        },
+        "rmse": {
+          "p50": 27.7371357683828,
+          "p95": 32.67819379185003
+        },
+        "matches": {
+          "p50": 18.0,
+          "p95": 20.5
+        },
+        "detect_solve_ms": {
+          "n": 31,
+          "p50": 43.40731299998879,
+          "p95": 63.33394000012049,
+          "max": 969.3785400004344
+        },
+        "compute_including_pre_ms": {
+          "n": 31,
+          "p50": 1316.0728480002035,
+          "p95": 1633.2909515003848,
+          "max": 2219.1609510005037
+        },
+        "failed_frames": []
+      },
+      "raw_mf2": {
+        "n": 32,
+        "solved": 31,
+        "candidates_median": 46.0,
+        "city_candidates_median": 0.0,
+        "fallback_calls": 0,
+        "reasons": {
+          "quality_ok": 31,
+          "no_solution": 1
+        },
+        "detect_ms": {
+          "p50": 91.40534749985818,
+          "p95": 112.70835844995872
+        },
+        "solve_ms": {
+          "p50": 11.92948199991406,
+          "p95": 149.34226225009292
+        },
+        "rmse": {
+          "p50": 52.66673578518663,
+          "p95": 64.43902574264443
+        },
+        "matches": {
+          "p50": 20.0,
+          "p95": 24.0
+        },
+        "detect_solve_ms": {
+          "n": 32,
+          "p50": 107.14054650020444,
+          "p95": 247.28820980003542,
+          "max": 2076.54751400014
+        },
+        "compute_including_pre_ms": {
+          "n": 32,
+          "p50": 107.14054650020444,
+          "p95": 247.28820980003542,
+          "max": 2076.54751400014
+        },
+        "failed_frames": [
+          "raw_238.tiff"
+        ]
+      },
+      "raw_mf4p": {
+        "n": 32,
+        "solved": 31,
+        "candidates_median": 40.0,
+        "city_candidates_median": 0.0,
+        "fallback_calls": 0,
+        "reasons": {
+          "quality_ok": 31,
+          "no_solution": 1
+        },
+        "detect_ms": {
+          "p50": 45.002479000004314,
+          "p95": 69.89089974988474
+        },
+        "solve_ms": {
+          "p50": 17.69764299979215,
+          "p95": 199.25818499998508
+        },
+        "rmse": {
+          "p50": 53.45992579086365,
+          "p95": 61.77358588803074
+        },
+        "matches": {
+          "p50": 16.0,
+          "p95": 19.0
+        },
+        "detect_solve_ms": {
+          "n": 32,
+          "p50": 74.50433250028254,
+          "p95": 237.34590559997736,
+          "max": 2051.8269789999977
+        },
+        "compute_including_pre_ms": {
+          "n": 32,
+          "p50": 74.50433250028254,
+          "p95": 237.34590559997736,
+          "max": 2051.8269789999977
+        },
+        "failed_frames": [
+          "raw_238.tiff"
+        ]
+      }
+    },
+    "temporal_window": 5,
+    "scale_workers": 3,
+    "capture_cadence_s": 0.5,
+    "sequence": "last 32 of 240 RAW frames; pre starts at second frame",
+    "runtime": "offline test MF in parallel with operating service; no MF live mount control",
+    "mask": "none",
+    "timing_scope": "compute; excludes exposure, queue and accumulation window latency; sequential comparison not live RAW/pre scheduling"
+  },
+  "notes": [
+    "Live and replay use different detector/crop/scheduling paths and are not a controlled Cedar-vs-MF speed ratio.",
+    "RMSE is star fit residual in arcseconds, not independently verified Saturn pointing error.",
+    "Tracking samples are time occupancy, not independent solve trials.",
+    "Error/source share guide snapshot but a state can retain a cached error.",
+    "RAW capture does not cover the later IMU error transient or initial historical GoTo.",
+    "Per-frame target sidecars are nearest status snapshots, not atomic exposure bindings."
+  ],
+  "verification": {
+    "tiff_file_and_pixel_hashes": 240,
+    "target_sidecars": 240,
+    "settings_restored": true,
+    "config_changed_keys": [],
+    "operating_source": "c1101d9f",
+    "operating_service_pids": {
+      "pifinder": 728,
+      "cedar": 718
+    },
+    "test_service_activated": false
+  }
+}

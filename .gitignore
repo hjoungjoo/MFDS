@@ -1,0 +1,12 @@
+/build/
+/*_background.pgm
+/*_noise.pgm
+/*_z.pgm
+/*_response.pgm
+/*_mask.pgm
+
+
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/

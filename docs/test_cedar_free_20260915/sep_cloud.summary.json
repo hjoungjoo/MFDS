@@ -1,0 +1,61 @@
+{
+  "corpus": "/home/pifinder/PiFinder_data/captures/mf_replay/20260903_cloud_coordinate_jitter",
+  "frames": 120,
+  "geometry": {
+    "base_fov_degrees": 26.64811072316756,
+    "crop_width_px": 980,
+    "distortion": {
+      "k1": -0.05,
+      "k2": 0.0,
+      "k3": 0.0,
+      "p1": 0.0,
+      "p2": 0.0
+    },
+    "rotation_deg": 90.0
+  },
+  "paired": {
+    "agreement_median_deg": null,
+    "both_solved": 0,
+    "disagreements_over_2deg": 0,
+    "frames": 117,
+    "neither": 0,
+    "preprocessed_only": 117,
+    "raw_only": 0
+  },
+  "preprocessed": {
+    "attempts": 117,
+    "cedar_candidates_median": 0.0,
+    "continuity_accepted": 116,
+    "coordinate_outliers_over_2deg": 0,
+    "detector_ms_median": 3152.8343789998416,
+    "matches_median": 12.0,
+    "paths": {
+      "none": 3,
+      "preprocessed_sep_center": 116,
+      "preprocessed_sep_full": 1
+    },
+    "quality_solved": 117,
+    "rmse_median_arcsec": 61.89406924625641,
+    "sep_candidates_median": 25.0,
+    "separation_max_deg": 0.28306691820565966,
+    "separation_median_deg": 0.14571128587710538,
+    "solve_ms_median": 21.893988999863723
+  },
+  "raw": {
+    "attempts": 120,
+    "cedar_candidates_median": 0.0,
+    "continuity_accepted": 0,
+    "coordinate_outliers_over_2deg": 0,
+    "detector_ms_median": 284.1071694999755,
+    "matches_median": null,
+    "paths": {
+      "none": 120
+    },
+    "quality_solved": 0,
+    "rmse_median_arcsec": null,
+    "sep_candidates_median": 0.0,
+    "separation_max_deg": null,
+    "separation_median_deg": null,
+    "solve_ms_median": 0.0
+  }
+}

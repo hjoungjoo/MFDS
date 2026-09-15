@@ -1,0 +1,75 @@
+{
+  "delay_s": 2.5,
+  "frames": 119,
+  "common_frames": 108,
+  "rejections": {
+    "anchor_direct:confirming_preprocessed": 2,
+    "anchor_filtered:confirming_preprocessed": 2,
+    "anchor_window:confirming_preprocessed": 2
+  },
+  "modes": {
+    "raw": {
+      "available": 119,
+      "common_frames": 108,
+      "sources": {
+        "raw": 119
+      },
+      "age_s_p50": 0.0,
+      "detrended_arcsec_p50": 12.529614046349408,
+      "detrended_arcsec_p95": 32.650682005424514
+    },
+    "existing_bias": {
+      "available": 119,
+      "common_frames": 108,
+      "sources": {
+        "raw_bias": 119
+      },
+      "age_s_p50": 0.0,
+      "detrended_arcsec_p50": 14.08597052583615,
+      "detrended_arcsec_p95": 36.83183623564468
+    },
+    "preprocessed_hold": {
+      "available": 116,
+      "common_frames": 108,
+      "sources": {
+        "old_preprocessed": 116
+      },
+      "age_s_p50": 3.512974495499975,
+      "detrended_arcsec_p50": 8.766294152990518,
+      "detrended_arcsec_p95": 19.9393116619393
+    },
+    "anchor_direct": {
+      "available": 119,
+      "common_frames": 108,
+      "sources": {
+        "raw": 7,
+        "preprocessed_plus_raw_motion": 112
+      },
+      "age_s_p50": 0.0,
+      "detrended_arcsec_p50": 17.60194651420757,
+      "detrended_arcsec_p95": 46.48795414423015
+    },
+    "anchor_filtered": {
+      "available": 119,
+      "common_frames": 108,
+      "sources": {
+        "raw": 7,
+        "preprocessed_plus_raw_motion": 112
+      },
+      "age_s_p50": 0.0,
+      "detrended_arcsec_p50": 9.61662087780907,
+      "detrended_arcsec_p95": 22.72526490876945
+    },
+    "anchor_window": {
+      "available": 119,
+      "common_frames": 108,
+      "sources": {
+        "raw": 7,
+        "preprocessed_plus_raw_motion": 112
+      },
+      "age_s_p50": 0.0,
+      "detrended_arcsec_p50": 11.272514320543337,
+      "detrended_arcsec_p95": 25.824461110873287
+    }
+  }
+}

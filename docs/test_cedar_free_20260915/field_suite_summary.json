@@ -1,0 +1,513 @@
+{
+  "default": "mf4p + auto (same-frame sync recovery/alignment preserved)",
+  "profiles": {
+    "mf4p": {
+      "PIFINDER_TEST_PROFILE": "mf4p",
+      "PIFINDER_DETECTOR": "mf",
+      "MF_DETECT_BINNING": "4",
+      "MF_DETECT_PYRAMID": "2",
+      "MF_DETECT_SEP_FALLBACK": "1",
+      "MF_DETECT_RANKING": "response",
+      "MF_DETECT_REFINE": "0",
+      "MF_DETECT_SIGMA": "4.5",
+      "MF_DETECT_MAX_STARS": "48"
+    },
+    "mf2": {
+      "PIFINDER_TEST_PROFILE": "mf2",
+      "PIFINDER_DETECTOR": "mf",
+      "MF_DETECT_BINNING": "2",
+      "MF_DETECT_PYRAMID": "0",
+      "MF_DETECT_SEP_FALLBACK": "1",
+      "MF_DETECT_RANKING": "response",
+      "MF_DETECT_REFINE": "0",
+      "MF_DETECT_SIGMA": "4.5",
+      "MF_DETECT_MAX_STARS": "48"
+    },
+    "sep": {
+      "PIFINDER_TEST_PROFILE": "sep",
+      "PIFINDER_DETECTOR": "sep",
+      "MF_DETECT_BINNING": "4",
+      "MF_DETECT_PYRAMID": "2",
+      "MF_DETECT_SEP_FALLBACK": "0",
+      "MF_DETECT_RANKING": "response",
+      "MF_DETECT_REFINE": "0",
+      "MF_DETECT_SIGMA": "4.5",
+      "MF_DETECT_MAX_STARS": "48"
+    },
+    "mf4p-pure": {
+      "PIFINDER_TEST_PROFILE": "mf4p-pure",
+      "PIFINDER_DETECTOR": "mf",
+      "MF_DETECT_BINNING": "4",
+      "MF_DETECT_PYRAMID": "2",
+      "MF_DETECT_SEP_FALLBACK": "0",
+      "MF_DETECT_RANKING": "response",
+      "MF_DETECT_REFINE": "0",
+      "MF_DETECT_SIGMA": "4.5",
+      "MF_DETECT_MAX_STARS": "48"
+    },
+    "mf4o": {
+      "PIFINDER_TEST_PROFILE": "mf4o",
+      "PIFINDER_DETECTOR": "mf",
+      "MF_DETECT_BINNING": "4",
+      "MF_DETECT_PYRAMID": "1",
+      "MF_DETECT_SEP_FALLBACK": "1",
+      "MF_DETECT_RANKING": "response",
+      "MF_DETECT_REFINE": "0",
+      "MF_DETECT_SIGMA": "4.5",
+      "MF_DETECT_MAX_STARS": "48"
+    },
+    "mf8p": {
+      "PIFINDER_TEST_PROFILE": "mf8p",
+      "PIFINDER_DETECTOR": "mf",
+      "MF_DETECT_BINNING": "8",
+      "MF_DETECT_PYRAMID": "2",
+      "MF_DETECT_SEP_FALLBACK": "1",
+      "MF_DETECT_RANKING": "response",
+      "MF_DETECT_REFINE": "0",
+      "MF_DETECT_SIGMA": "4.5",
+      "MF_DETECT_MAX_STARS": "48"
+    }
+  },
+  "paired": {
+    "mf4p": {
+      "raw": {
+        "attempts": 23,
+        "solved": 23,
+        "sep_calls": 0,
+        "backends": {
+          "mf": 23
+        },
+        "detect_ms": {
+          "p50": 24.30269300020882,
+          "p95": 29.74331670002357
+        },
+        "solve_ms": {
+          "p50": 37.24305400010053,
+          "p95": 942.696379800417
+        },
+        "detect_solve_ms": {
+          "p50": 61.597339999934775,
+          "p95": 967.8371447002963
+        },
+        "candidates": {
+          "p50": 43.0,
+          "p95": 47.9
+        },
+        "rmse": {
+          "p50": 41.50672899890119,
+          "p95": 69.2039163894666
+        },
+        "matches": {
+          "p50": 21.0,
+          "p95": 31.39999999999999
+        },
+        "sep_fallback_calls": 0
+      },
+      "preprocessed": {
+        "attempts": 23,
+        "solved": 23,
+        "sep_calls": 0,
+        "backends": {
+          "mf": 23
+        },
+        "detect_ms": {
+          "p50": 23.857078999753867,
+          "p95": 27.920475500377506
+        },
+        "solve_ms": {
+          "p50": 7.250806000229204,
+          "p95": 30.43165249982847
+        },
+        "detect_solve_ms": {
+          "p50": 31.311701000049652,
+          "p95": 58.7400337000872
+        },
+        "candidates": {
+          "p50": 48.0,
+          "p95": 48.0
+        },
+        "rmse": {
+          "p50": 26.17102320317197,
+          "p95": 33.742446732376884
+        },
+        "matches": {
+          "p50": 30.0,
+          "p95": 33.0
+        },
+        "sep_fallback_calls": 0
+      },
+      "pairs": {
+        "both": 23
+      }
+    },
+    "mf2": {
+      "raw": {
+        "attempts": 23,
+        "solved": 23,
+        "sep_calls": 0,
+        "backends": {
+          "mf": 23
+        },
+        "detect_ms": {
+          "p50": 58.44478200015146,
+          "p95": 77.1336390005672
+        },
+        "solve_ms": {
+          "p50": 63.01742200048466,
+          "p95": 605.1193602999774
+        },
+        "detect_solve_ms": {
+          "p50": 129.729479001071,
+          "p95": 662.9913739000585
+        },
+        "candidates": {
+          "p50": 48.0,
+          "p95": 48.0
+        },
+        "rmse": {
+          "p50": 43.15203687904409,
+          "p95": 56.43206960711571
+        },
+        "matches": {
+          "p50": 22.0,
+          "p95": 26.9
+        },
+        "sep_fallback_calls": 0
+      },
+      "preprocessed": {
+        "attempts": 23,
+        "solved": 23,
+        "sep_calls": 0,
+        "backends": {
+          "mf": 23
+        },
+        "detect_ms": {
+          "p50": 52.32970599990949,
+          "p95": 64.3998259
+        },
+        "solve_ms": {
+          "p50": 9.467912000218348,
+          "p95": 31.47007219959049
+        },
+        "detect_solve_ms": {
+          "p50": 66.07879500006675,
+          "p95": 96.60208249979405
+        },
+        "candidates": {
+          "p50": 48.0,
+          "p95": 48.0
+        },
+        "rmse": {
+          "p50": 26.566074777307232,
+          "p95": 33.74252030029469
+        },
+        "matches": {
+          "p50": 30.0,
+          "p95": 33.0
+        },
+        "sep_fallback_calls": 0
+      },
+      "pairs": {
+        "both": 23
+      }
+    },
+    "sep": {
+      "raw": {
+        "attempts": 23,
+        "solved": 22,
+        "sep_calls": 23,
+        "backends": {
+          "sep": 23
+        },
+        "detect_ms": {
+          "p50": 53.21434200050135,
+          "p95": 67.63299830008691
+        },
+        "solve_ms": {
+          "p50": 122.88280600023427,
+          "p95": 1724.0835602006873
+        },
+        "detect_solve_ms": {
+          "p50": 177.57091600014974,
+          "p95": 1780.882330100757
+        },
+        "candidates": {
+          "p50": 47.0,
+          "p95": 48.0
+        },
+        "rmse": {
+          "p50": 33.374806199492696,
+          "p95": 54.621141430579755
+        },
+        "matches": {
+          "p50": 19.5,
+          "p95": 26.849999999999998
+        },
+        "sep_fallback_calls": 0
+      },
+      "preprocessed": {
+        "attempts": 23,
+        "solved": 23,
+        "sep_calls": 23,
+        "backends": {
+          "sep": 23
+        },
+        "detect_ms": {
+          "p50": 45.218307999675744,
+          "p95": 59.29907040044782
+        },
+        "solve_ms": {
+          "p50": 9.078392000446911,
+          "p95": 83.73117710025326
+        },
+        "detect_solve_ms": {
+          "p50": 63.38759100071911,
+          "p95": 133.2528962005199
+        },
+        "candidates": {
+          "p50": 48.0,
+          "p95": 48.0
+        },
+        "rmse": {
+          "p50": 26.455306525017384,
+          "p95": 36.605523624029935
+        },
+        "matches": {
+          "p50": 26.0,
+          "p95": 29.9
+        },
+        "sep_fallback_calls": 0
+      },
+      "pairs": {
+        "both": 22,
+        "preprocessed_only": 1
+      }
+    },
+    "mf4p-pure": {
+      "raw": {
+        "attempts": 23,
+        "solved": 23,
+        "sep_calls": 0,
+        "backends": {
+          "mf": 23
+        },
+        "detect_ms": {
+          "p50": 24.133266000717413,
+          "p95": 29.751526399832073
+        },
+        "solve_ms": {
+          "p50": 29.751932000181114,
+          "p95": 954.7298236005181
+        },
+        "detect_solve_ms": {
+          "p50": 53.4023240006718,
+          "p95": 978.3935420003208
+        },
+        "candidates": {
+          "p50": 43.0,
+          "p95": 47.9
+        },
+        "rmse": {
+          "p50": 41.50672899890119,
+          "p95": 67.16433370440843
+        },
+        "matches": {
+          "p50": 21.0,
+          "p95": 31.39999999999999
+        },
+        "sep_fallback_calls": 0
+      },
+      "preprocessed": {
+        "attempts": 23,
+        "solved": 23,
+        "sep_calls": 0,
+        "backends": {
+          "mf": 23
+        },
+        "detect_ms": {
+          "p50": 23.912485999971977,
+          "p95": 29.490093200274714
+        },
+        "solve_ms": {
+          "p50": 7.875514000261319,
+          "p95": 22.54289820011763
+        },
+        "detect_solve_ms": {
+          "p50": 33.750680000594,
+          "p95": 47.01903919949473
+        },
+        "candidates": {
+          "p50": 48.0,
+          "p95": 48.0
+        },
+        "rmse": {
+          "p50": 26.17102320317197,
+          "p95": 33.742446732376884
+        },
+        "matches": {
+          "p50": 30.0,
+          "p95": 33.0
+        },
+        "sep_fallback_calls": 0
+      },
+      "pairs": {
+        "both": 23
+      }
+    },
+    "mf4o": {
+      "raw": {
+        "attempts": 23,
+        "solved": 14,
+        "sep_calls": 14,
+        "backends": {
+          "mf": 9,
+          "sep": 14
+        },
+        "detect_ms": {
+          "p50": 78.23327999994945,
+          "p95": 94.28669339949919
+        },
+        "solve_ms": {
+          "p50": 30.38954699968599,
+          "p95": 465.25031360024457
+        },
+        "detect_solve_ms": {
+          "p50": 111.47640100080025,
+          "p95": 559.356527999625
+        },
+        "candidates": {
+          "p50": 43.0,
+          "p95": 48.0
+        },
+        "rmse": {
+          "p50": 33.771761760700755,
+          "p95": 60.4917437886639
+        },
+        "matches": {
+          "p50": 21.0,
+          "p95": 25.049999999999997
+        },
+        "sep_fallback_calls": 14
+      },
+      "preprocessed": {
+        "attempts": 23,
+        "solved": 23,
+        "sep_calls": 0,
+        "backends": {
+          "mf": 23
+        },
+        "detect_ms": {
+          "p50": 31.90055599952757,
+          "p95": 37.97645140057284
+        },
+        "solve_ms": {
+          "p50": 7.2816949996195035,
+          "p95": 23.655716800658407
+        },
+        "detect_solve_ms": {
+          "p50": 41.9180110002344,
+          "p95": 56.863697600329026
+        },
+        "candidates": {
+          "p50": 48.0,
+          "p95": 48.0
+        },
+        "rmse": {
+          "p50": 28.098885540561163,
+          "p95": 34.49792050377127
+        },
+        "matches": {
+          "p50": 30.0,
+          "p95": 33.0
+        },
+        "sep_fallback_calls": 0
+      },
+      "pairs": {
+        "preprocessed_only": 9,
+        "both": 14
+      }
+    },
+    "mf8p": {
+      "raw": {
+        "attempts": 23,
+        "solved": 5,
+        "sep_calls": 0,
+        "backends": {
+          "mf": 23
+        },
+        "detect_ms": {
+          "p50": 8.668667000165442,
+          "p95": 10.55130110034952
+        },
+        "solve_ms": {
+          "p50": 1335.5775469999571,
+          "p95": 1755.5067224001505
+        },
+        "detect_solve_ms": {
+          "p50": 1343.9303599998311,
+          "p95": 1764.4652760004647
+        },
+        "candidates": {
+          "p50": 11.0,
+          "p95": 16.799999999999997
+        },
+        "rmse": {
+          "p50": 70.20635503673664,
+          "p95": 82.78029183639346
+        },
+        "matches": {
+          "p50": 9.0,
+          "p95": 11.8
+        },
+        "sep_fallback_calls": 0
+      },
+      "preprocessed": {
+        "attempts": 23,
+        "solved": 23,
+        "sep_calls": 0,
+        "backends": {
+          "mf": 23
+        },
+        "detect_ms": {
+          "p50": 9.580635000020266,
+          "p95": 12.717957400218438
+        },
+        "solve_ms": {
+          "p50": 9.09813300040696,
+          "p95": 39.643289400009955
+        },
+        "detect_solve_ms": {
+          "p50": 20.051645999956236,
+          "p95": 49.689333199876266
+        },
+        "candidates": {
+          "p50": 27.0,
+          "p95": 34.8
+        },
+        "rmse": {
+          "p50": 26.830389053580195,
+          "p95": 37.98292540237175
+        },
+        "matches": {
+          "p50": 13.0,
+          "p95": 14.899999999999999
+        },
+        "sep_fallback_calls": 0
+      },
+      "pairs": {
+        "preprocessed_only": 18,
+        "both": 5
+      }
+    }
+  },
+  "source_frames": 24,
+  "operating_service_changed": false,
+  "timing_harness_excludes": [
+    "camera IPC",
+    "SQM",
+    "UI",
+    "mount"
+  ],
+  "anchor_delay_evaluations": "coordinate replay with simulated completion delays",
+  "anchor_pipeline": "independent real preprocessing/detection/solve worker; no service publication"
+}

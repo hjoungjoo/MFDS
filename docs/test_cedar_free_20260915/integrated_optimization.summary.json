@@ -1,0 +1,629 @@
+{
+  "baseline_mf_commit": "da9743a",
+  "measured_mf_commit": "f4d9e51",
+  "paired": {
+    "integrated_validation": {
+      "summary": {
+        "current": {
+          "attempts": 32,
+          "solved": 32,
+          "backends": {
+            "mf": 32
+          },
+          "exact_pixels_evidence_detections_diagnostics": true,
+          "exact_solution": 32,
+          "preprocess_ms": {
+            "p50": 970.216915500032,
+            "p95": 1197.489033650021
+          },
+          "detect_ms": {
+            "p50": 29.51679500006321,
+            "p95": 39.98623870000415
+          },
+          "pipeline_ms": {
+            "p50": 1012.2203925000122,
+            "p95": 1232.5807675499789
+          },
+          "solve_ms": {
+            "p50": 5.979617500031509,
+            "p95": 18.23658370004182
+          },
+          "total_ms": {
+            "p50": 1026.0336009999378,
+            "p95": 1236.7863690999172
+          },
+          "rmse": {
+            "p50": 25.996550970169963,
+            "p95": 30.17620984224194
+          },
+          "raw_probe_count": 0,
+          "raw_probe_ms": {
+            "p50": null,
+            "p95": null
+          }
+        },
+        "current_cached": {
+          "attempts": 32,
+          "solved": 32,
+          "backends": {
+            "mf": 32
+          },
+          "exact_pixels_evidence_detections_diagnostics": true,
+          "exact_solution": 32,
+          "preprocess_ms": {
+            "p50": 940.4422485000055,
+            "p95": 1165.339825650011
+          },
+          "detect_ms": {
+            "p50": 30.308578500012118,
+            "p95": 47.20974054999942
+          },
+          "pipeline_ms": {
+            "p50": 979.1596379999419,
+            "p95": 1205.163407249995
+          },
+          "solve_ms": {
+            "p50": 6.030600000030972,
+            "p95": 14.604791349967169
+          },
+          "total_ms": {
+            "p50": 990.0945404999106,
+            "p95": 1216.6934489499283
+          },
+          "rmse": {
+            "p50": 25.996550970169963,
+            "p95": 30.17620984224194
+          },
+          "raw_probe_count": 0,
+          "raw_probe_ms": {
+            "p50": null,
+            "p95": null
+          }
+        }
+      },
+      "source_hashes": {
+        "/home/pifinder/PiFinder_test/python/scripts/benchmark_preprocess_placement.py": "0792e4fc750431ffc027d9e87a2b8796775841ac42318a4c9dbe1602566554cb",
+        "/home/pifinder/PiFinder_test_data/work/integrated_optimization/reference.py": "136c7aa960a35f8ff2c7735504ead5b082fc72fd2ae04aefebb87a9f1ee2180a",
+        "PiFinder/mf_star_only_preprocess.py": "b4cfd1deb4fdec52b124ffc24f722c5ab8279737e10c7c1290464f4dcf4faede",
+        "/home/pifinder/PiFinder_test/python/mf_detect_star/integrations/pifinder/PiFinder/star_detect.py": "56d69a86a2073d3cde828baf1a1786ff53d6b53a4ca00de54ad247b40ececd6c",
+        "/home/pifinder/PiFinder_test/python/mf_detect_star/build/mf_detect_star_server": "a34d739e0135f14d8555ebcddc5c02b7e09e17a9f4f50a2a7250ffd0945105a1",
+        "/home/pifinder/PiFinder_test/python/mf_detect_star/build/libmf_detect_star.so": "5b828db2a9b9e0bff2d91bb5eaafd40efbd5c3565ea778882a6ea11d4045267c"
+      },
+      "startup": [
+        {
+          "mode": "current",
+          "repeat": 0,
+          "ms": 7.517293999967478
+        },
+        {
+          "mode": "current_cached",
+          "repeat": 0,
+          "ms": 3.6280629999509983
+        },
+        {
+          "mode": "current",
+          "repeat": 1,
+          "ms": 9.17403000005379
+        },
+        {
+          "mode": "current_cached",
+          "repeat": 1,
+          "ms": 8.031522000010227
+        }
+      ],
+      "shape": [
+        1080,
+        1920
+      ],
+      "raw_probe": false
+    },
+    "integrated_cloud": {
+      "summary": {
+        "current": {
+          "attempts": 32,
+          "solved": 32,
+          "backends": {
+            "mf": 32
+          },
+          "exact_pixels_evidence_detections_diagnostics": true,
+          "exact_solution": 32,
+          "preprocess_ms": {
+            "p50": 974.6962929999654,
+            "p95": 1148.7089935999961
+          },
+          "detect_ms": {
+            "p50": 24.252652500024396,
+            "p95": 31.69862850003824
+          },
+          "pipeline_ms": {
+            "p50": 1005.2164400000265,
+            "p95": 1187.1661743999596
+          },
+          "solve_ms": {
+            "p50": 6.335191000005125,
+            "p95": 12.03797149998422
+          },
+          "total_ms": {
+            "p50": 1014.9606424999433,
+            "p95": 1193.923787799963
+          },
+          "rmse": {
+            "p50": 81.65762715589523,
+            "p95": 94.42108750371227
+          },
+          "raw_probe_count": 0,
+          "raw_probe_ms": {
+            "p50": null,
+            "p95": null
+          }
+        },
+        "current_cached": {
+          "attempts": 32,
+          "solved": 32,
+          "backends": {
+            "mf": 32
+          },
+          "exact_pixels_evidence_detections_diagnostics": true,
+          "exact_solution": 32,
+          "preprocess_ms": {
+            "p50": 943.6875029999783,
+            "p95": 1117.6949529999717
+          },
+          "detect_ms": {
+            "p50": 23.84042450000834,
+            "p95": 39.037091450006756
+          },
+          "pipeline_ms": {
+            "p50": 974.6791669999197,
+            "p95": 1147.6276641500192
+          },
+          "solve_ms": {
+            "p50": 5.957296000019596,
+            "p95": 13.396300400029304
+          },
+          "total_ms": {
+            "p50": 983.5826129998964,
+            "p95": 1154.5216906499832
+          },
+          "rmse": {
+            "p50": 81.65762715589523,
+            "p95": 94.42108750371227
+          },
+          "raw_probe_count": 0,
+          "raw_probe_ms": {
+            "p50": null,
+            "p95": null
+          }
+        }
+      },
+      "source_hashes": {
+        "/home/pifinder/PiFinder_test/python/scripts/benchmark_preprocess_placement.py": "0792e4fc750431ffc027d9e87a2b8796775841ac42318a4c9dbe1602566554cb",
+        "/home/pifinder/PiFinder_test_data/work/integrated_optimization/reference.py": "136c7aa960a35f8ff2c7735504ead5b082fc72fd2ae04aefebb87a9f1ee2180a",
+        "/home/pifinder/PiFinder_test/python/PiFinder/mf_star_only_preprocess.py": "b4cfd1deb4fdec52b124ffc24f722c5ab8279737e10c7c1290464f4dcf4faede",
+        "/home/pifinder/PiFinder_test/python/mf_detect_star/integrations/pifinder/PiFinder/star_detect.py": "56d69a86a2073d3cde828baf1a1786ff53d6b53a4ca00de54ad247b40ececd6c",
+        "/home/pifinder/PiFinder_test/python/mf_detect_star/build/mf_detect_star_server": "a34d739e0135f14d8555ebcddc5c02b7e09e17a9f4f50a2a7250ffd0945105a1",
+        "/home/pifinder/PiFinder_test/python/mf_detect_star/build/libmf_detect_star.so": "5b828db2a9b9e0bff2d91bb5eaafd40efbd5c3565ea778882a6ea11d4045267c"
+      },
+      "startup": [
+        {
+          "mode": "current",
+          "repeat": 0,
+          "ms": 6.687924999937422
+        },
+        {
+          "mode": "current_cached",
+          "repeat": 0,
+          "ms": 6.984020000004421
+        },
+        {
+          "mode": "current",
+          "repeat": 1,
+          "ms": 3.976580999960788
+        },
+        {
+          "mode": "current_cached",
+          "repeat": 1,
+          "ms": 3.5629459999881874
+        }
+      ],
+      "shape": [
+        1080,
+        1920
+      ],
+      "raw_probe": false
+    },
+    "integrated_probe_validation": {
+      "summary": {
+        "current": {
+          "attempts": 16,
+          "solved": 16,
+          "backends": {
+            "mf": 16
+          },
+          "exact_pixels_evidence_detections_diagnostics": true,
+          "exact_solution": 16,
+          "preprocess_ms": {
+            "p50": 1063.0644670000038,
+            "p95": 1360.8822532499971
+          },
+          "detect_ms": {
+            "p50": 30.47617850000961,
+            "p95": 44.681571249924446
+          },
+          "pipeline_ms": {
+            "p50": 1113.1395874999725,
+            "p95": 1400.1052764999429
+          },
+          "solve_ms": {
+            "p50": 9.669332999976632,
+            "p95": 18.01719849996175
+          },
+          "total_ms": {
+            "p50": 1132.5250440000332,
+            "p95": 1414.462185999895
+          },
+          "rmse": {
+            "p50": 27.173931005977707,
+            "p95": 31.68190319283152
+          },
+          "raw_probe_count": 192,
+          "raw_probe_ms": {
+            "p50": 37.95033900001954,
+            "p95": 73.8194530500266
+          }
+        },
+        "current_cached": {
+          "attempts": 16,
+          "solved": 16,
+          "backends": {
+            "mf": 16
+          },
+          "exact_pixels_evidence_detections_diagnostics": true,
+          "exact_solution": 16,
+          "preprocess_ms": {
+            "p50": 1093.0148439999812,
+            "p95": 1284.0374107500736
+          },
+          "detect_ms": {
+            "p50": 34.8081810000167,
+            "p95": 52.29419324996343
+          },
+          "pipeline_ms": {
+            "p50": 1146.7846805000477,
+            "p95": 1347.9605492499616
+          },
+          "solve_ms": {
+            "p50": 11.604017000024669,
+            "p95": 31.825209500084384
+          },
+          "total_ms": {
+            "p50": 1159.286990000055,
+            "p95": 1364.1548735000697
+          },
+          "rmse": {
+            "p50": 27.173931005977707,
+            "p95": 31.68190319283152
+          },
+          "raw_probe_count": 193,
+          "raw_probe_ms": {
+            "p50": 40.307734000066375,
+            "p95": 78.6845421999942
+          }
+        }
+      },
+      "source_hashes": {
+        "/home/pifinder/PiFinder_test/python/scripts/benchmark_preprocess_placement.py": "0792e4fc750431ffc027d9e87a2b8796775841ac42318a4c9dbe1602566554cb",
+        "/home/pifinder/PiFinder_test_data/work/integrated_optimization/reference.py": "136c7aa960a35f8ff2c7735504ead5b082fc72fd2ae04aefebb87a9f1ee2180a",
+        "/home/pifinder/PiFinder_test/python/PiFinder/mf_star_only_preprocess.py": "b4cfd1deb4fdec52b124ffc24f722c5ab8279737e10c7c1290464f4dcf4faede",
+        "/home/pifinder/PiFinder_test/python/mf_detect_star/integrations/pifinder/PiFinder/star_detect.py": "56d69a86a2073d3cde828baf1a1786ff53d6b53a4ca00de54ad247b40ececd6c",
+        "/home/pifinder/PiFinder_test/python/mf_detect_star/build/mf_detect_star_server": "a34d739e0135f14d8555ebcddc5c02b7e09e17a9f4f50a2a7250ffd0945105a1",
+        "/home/pifinder/PiFinder_test/python/mf_detect_star/build/libmf_detect_star.so": "5b828db2a9b9e0bff2d91bb5eaafd40efbd5c3565ea778882a6ea11d4045267c"
+      },
+      "startup": [
+        {
+          "mode": "current",
+          "repeat": 0,
+          "ms": 5.72921299999507
+        },
+        {
+          "mode": "current_cached",
+          "repeat": 0,
+          "ms": 4.136632999916401
+        },
+        {
+          "mode": "current",
+          "repeat": 1,
+          "ms": 4.948086000013063
+        },
+        {
+          "mode": "current_cached",
+          "repeat": 1,
+          "ms": 4.290378999940003
+        }
+      ],
+      "shape": [
+        1080,
+        1920
+      ],
+      "raw_probe": true
+    },
+    "integrated_probe_cloud": {
+      "summary": {
+        "current": {
+          "attempts": 16,
+          "solved": 16,
+          "backends": {
+            "mf": 16
+          },
+          "exact_pixels_evidence_detections_diagnostics": true,
+          "exact_solution": 16,
+          "preprocess_ms": {
+            "p50": 1238.6801630000264,
+            "p95": 1463.7516829999697
+          },
+          "detect_ms": {
+            "p50": 30.262115000027734,
+            "p95": 46.55090674998519
+          },
+          "pipeline_ms": {
+            "p50": 1325.1577324999744,
+            "p95": 1592.8608529999906
+          },
+          "solve_ms": {
+            "p50": 6.525491499985492,
+            "p95": 13.33066299997654
+          },
+          "total_ms": {
+            "p50": 1332.2287489999667,
+            "p95": 1602.6259507500242
+          },
+          "rmse": {
+            "p50": 84.94190106081325,
+            "p95": 88.81445678889936
+          },
+          "raw_probe_count": 169,
+          "raw_probe_ms": {
+            "p50": 122.71193900005528,
+            "p95": 183.71743559998777
+          }
+        },
+        "current_cached": {
+          "attempts": 16,
+          "solved": 16,
+          "backends": {
+            "mf": 16
+          },
+          "exact_pixels_evidence_detections_diagnostics": true,
+          "exact_solution": 16,
+          "preprocess_ms": {
+            "p50": 1214.0622189999704,
+            "p95": 1406.068851500038
+          },
+          "detect_ms": {
+            "p50": 29.15762349994111,
+            "p95": 36.990041749959346
+          },
+          "pipeline_ms": {
+            "p50": 1270.123958499994,
+            "p95": 1478.587494500033
+          },
+          "solve_ms": {
+            "p50": 6.968222500063348,
+            "p95": 12.639302499991345
+          },
+          "total_ms": {
+            "p50": 1278.9047885000286,
+            "p95": 1490.3862625000954
+          },
+          "rmse": {
+            "p50": 84.94190106081325,
+            "p95": 88.81445678889936
+          },
+          "raw_probe_count": 166,
+          "raw_probe_ms": {
+            "p50": 115.83761949998461,
+            "p95": 197.15413625002043
+          }
+        }
+      },
+      "source_hashes": {
+        "/home/pifinder/PiFinder_test/python/scripts/benchmark_preprocess_placement.py": "0792e4fc750431ffc027d9e87a2b8796775841ac42318a4c9dbe1602566554cb",
+        "/home/pifinder/PiFinder_test_data/work/integrated_optimization/reference.py": "136c7aa960a35f8ff2c7735504ead5b082fc72fd2ae04aefebb87a9f1ee2180a",
+        "/home/pifinder/PiFinder_test/python/PiFinder/mf_star_only_preprocess.py": "b4cfd1deb4fdec52b124ffc24f722c5ab8279737e10c7c1290464f4dcf4faede",
+        "/home/pifinder/PiFinder_test/python/mf_detect_star/integrations/pifinder/PiFinder/star_detect.py": "56d69a86a2073d3cde828baf1a1786ff53d6b53a4ca00de54ad247b40ececd6c",
+        "/home/pifinder/PiFinder_test/python/mf_detect_star/build/mf_detect_star_server": "a34d739e0135f14d8555ebcddc5c02b7e09e17a9f4f50a2a7250ffd0945105a1",
+        "/home/pifinder/PiFinder_test/python/mf_detect_star/build/libmf_detect_star.so": "5b828db2a9b9e0bff2d91bb5eaafd40efbd5c3565ea778882a6ea11d4045267c"
+      },
+      "startup": [
+        {
+          "mode": "current",
+          "repeat": 0,
+          "ms": 3.9425990000836464
+        },
+        {
+          "mode": "current_cached",
+          "repeat": 0,
+          "ms": 3.487965999966036
+        },
+        {
+          "mode": "current",
+          "repeat": 1,
+          "ms": 4.502287999912369
+        },
+        {
+          "mode": "current_cached",
+          "repeat": 1,
+          "ms": 7.185081999978138
+        }
+      ],
+      "shape": [
+        1080,
+        1920
+      ],
+      "raw_probe": true
+    }
+  },
+  "auto": {
+    "integrated_auto_validation_reference": {
+      "mode": "mf4p",
+      "preprocess_source_sha256": "136c7aa960a35f8ff2c7735504ead5b082fc72fd2ae04aefebb87a9f1ee2180a",
+      "harness_sha256": "9f885df500151d551ed759c4d1d31bcaa6e7061c9b8ca1f576315c07a4803a0d",
+      "wide_cloud_gate": false,
+      "search_optimized": true,
+      "frames": 24,
+      "input_interval_s": 0.4,
+      "raw_solved": 24,
+      "published": 22,
+      "executions": {
+        "sync": 2,
+        "async": 22
+      },
+      "counts": {
+        "raw_sep_calls": 0,
+        "preprocessed_sep_calls": 0,
+        "bias_updates": 7
+      },
+      "worker": {
+        "submitted": 8,
+        "completed": 7,
+        "skipped": 13,
+        "busy": true,
+        "pending": true
+      },
+      "sync_foreground_ms": {
+        "p50": 1081.437802000039,
+        "p95": 1095.7654708000575
+      },
+      "async_foreground_ms": {
+        "p50": 112.27038300000913,
+        "p95": 1024.7925610499801
+      },
+      "background_ms": {
+        "p50": 1117.1019660000638,
+        "p95": 1300.0239739000108
+      }
+    },
+    "integrated_auto_validation_optimized": {
+      "mode": "mf4p",
+      "preprocess_source_sha256": "b4cfd1deb4fdec52b124ffc24f722c5ab8279737e10c7c1290464f4dcf4faede",
+      "harness_sha256": "9f885df500151d551ed759c4d1d31bcaa6e7061c9b8ca1f576315c07a4803a0d",
+      "wide_cloud_gate": false,
+      "search_optimized": true,
+      "frames": 24,
+      "input_interval_s": 0.4,
+      "raw_solved": 24,
+      "published": 22,
+      "executions": {
+        "sync": 2,
+        "async": 22
+      },
+      "counts": {
+        "raw_sep_calls": 0,
+        "preprocessed_sep_calls": 0,
+        "bias_updates": 7
+      },
+      "worker": {
+        "submitted": 8,
+        "completed": 7,
+        "skipped": 13,
+        "busy": true,
+        "pending": true
+      },
+      "sync_foreground_ms": {
+        "p50": 1092.0980260000306,
+        "p95": 1096.8967765000002
+      },
+      "async_foreground_ms": {
+        "p50": 126.4163200000894,
+        "p95": 1019.1503595498996
+      },
+      "background_ms": {
+        "p50": 1072.810560999983,
+        "p95": 1179.7584257999802
+      }
+    },
+    "integrated_auto_cloud_reference": {
+      "mode": "mf4p",
+      "preprocess_source_sha256": "136c7aa960a35f8ff2c7735504ead5b082fc72fd2ae04aefebb87a9f1ee2180a",
+      "harness_sha256": "9f885df500151d551ed759c4d1d31bcaa6e7061c9b8ca1f576315c07a4803a0d",
+      "wide_cloud_gate": true,
+      "search_optimized": true,
+      "frames": 24,
+      "input_interval_s": 0.4,
+      "raw_solved": 0,
+      "published": 18,
+      "executions": {
+        "sync": 24
+      },
+      "counts": {
+        "raw_sep_calls": 0,
+        "preprocessed_sep_calls": 0
+      },
+      "worker": {
+        "submitted": 0,
+        "completed": 0,
+        "skipped": 0,
+        "busy": false,
+        "pending": false
+      },
+      "sync_foreground_ms": {
+        "p50": 1614.2002839999918,
+        "p95": 2268.613837650076
+      },
+      "async_foreground_ms": {
+        "p50": null,
+        "p95": null
+      },
+      "background_ms": {
+        "p50": null,
+        "p95": null
+      }
+    },
+    "integrated_auto_cloud_optimized": {
+      "mode": "mf4p",
+      "preprocess_source_sha256": "b4cfd1deb4fdec52b124ffc24f722c5ab8279737e10c7c1290464f4dcf4faede",
+      "harness_sha256": "9f885df500151d551ed759c4d1d31bcaa6e7061c9b8ca1f576315c07a4803a0d",
+      "wide_cloud_gate": true,
+      "search_optimized": true,
+      "frames": 24,
+      "input_interval_s": 0.4,
+      "raw_solved": 0,
+      "published": 18,
+      "executions": {
+        "sync": 24
+      },
+      "counts": {
+        "raw_sep_calls": 0,
+        "preprocessed_sep_calls": 0
+      },
+      "worker": {
+        "submitted": 0,
+        "completed": 0,
+        "skipped": 0,
+        "busy": false,
+        "pending": false
+      },
+      "sync_foreground_ms": {
+        "p50": 1522.9845454999804,
+        "p95": 2396.1536588999866
+      },
+      "async_foreground_ms": {
+        "p50": null,
+        "p95": null
+      },
+      "background_ms": {
+        "p50": null,
+        "p95": null
+      }
+    }
+  },
+  "history_bytes_per_full_1080p_window": 93312000,
+  "exactness": {
+    "outputs": 256,
+    "reference_outputs": 128,
+    "all_outputs_exact": true,
+    "warmed_attempts": 192,
+    "warmed_solved": 192,
+    "all_warmed_solutions_exact": true
+  }
+}

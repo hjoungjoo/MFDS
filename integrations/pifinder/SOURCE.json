@@ -1,0 +1,122 @@
+{
+  "repository": "https://github.com/hjoungjoo/MF_PiFinder",
+  "commit": "bb57c1498fd66b690c568055c310aab197871598",
+  "license": "GPL-3.0 (preserved from PiFinder)",
+  "files": [
+    {
+      "from": "python/PiFinder/star_detect.py",
+      "to": "integrations/pifinder/PiFinder/star_detect.py",
+      "sha256_before": "428f72157f834b0c98112c3c5b3c46eeb7f23342b56f35a8ff6104f5e57daae0"
+    },
+    {
+      "from": "python/PiFinder/mf_star_only_preprocess.py",
+      "to": "integrations/pifinder/PiFinder/mf_star_only_preprocess.py",
+      "sha256_before": "666749f6bde11b5ece0bb1ee57c4ff9f0de8ea770e9394b6e321f240749a9c41"
+    },
+    {
+      "from": "python/PiFinder/detector_profiles.py",
+      "to": "integrations/pifinder/PiFinder/detector_profiles.py",
+      "sha256_before": "a58e5e792116ec53f9be15adb27d689291e5d8adffcb55be178da307f8003689"
+    },
+    {
+      "from": "python/PiFinder/preprocessed_anchor.py",
+      "to": "integrations/pifinder/PiFinder/preprocessed_anchor.py",
+      "sha256_before": "2c65760edd661be466ae7db3fe0f30666e1210a8699c49a76c5c3eaa26d03905"
+    },
+    {
+      "from": "python/PiFinder/mf_cloud_gate.py",
+      "to": "integrations/pifinder/PiFinder/mf_cloud_gate.py",
+      "sha256_before": "34eb6a38992f4ba1d70d01fbd31db02348407ba3bbcab077b319935b00d63001"
+    },
+    {
+      "from": "python/PiFinder/sep_detect.py",
+      "to": "integrations/pifinder/PiFinder/sep_detect.py",
+      "sha256_before": "41e5746c36d57afd7bbd832c62ca29d3874cc3ca9233c67d95a70a811db51198"
+    },
+    {
+      "from": "python/scripts/capture_detector_corpus.py",
+      "to": "integrations/pifinder/scripts/capture_detector_corpus.py",
+      "sha256_before": "4ca4b091f2396f6884292258d23644f9ef11d5a572395139458a4701a7d7b648"
+    },
+    {
+      "from": "python/scripts/evaluate_preprocessed_anchor.py",
+      "to": "integrations/pifinder/scripts/evaluate_preprocessed_anchor.py",
+      "sha256_before": "6995e2e78fe19200acfc56046a479d981644b7aed76a8a2bad7f0c0ef11b0a9d"
+    },
+    {
+      "from": "python/scripts/replay_star_preprocess_ab.py",
+      "to": "integrations/pifinder/scripts/replay_star_preprocess_ab.py",
+      "sha256_before": "5874dddf8904add7bf53040b03c3a4f06853c399328a6b1b542d0175e4ed0c94"
+    },
+    {
+      "from": "python/scripts/benchmark_auto_detector.py",
+      "to": "integrations/pifinder/scripts/benchmark_auto_detector.py",
+      "sha256_before": "a9c7672e4eaa3ea25426c94966ca09e49a477a0abf7cdeb30a4225903db8a260"
+    },
+    {
+      "from": "python/scripts/compare_cached_detectors.py",
+      "to": "integrations/pifinder/scripts/compare_cached_detectors.py",
+      "sha256_before": "e8ae8f47f4c83d14064025e0fbf1c804889db26effc86758e99f5bf163c7fcad"
+    },
+    {
+      "from": "python/scripts/compare_raw_preprocessed_detectors.py",
+      "to": "integrations/pifinder/scripts/compare_raw_preprocessed_detectors.py",
+      "sha256_before": "c95c0424f307f27549d19aa4b84ad7c6e2f499cfc084a36678e9e4c7a2fbe5d3"
+    },
+    {
+      "from": "python/scripts/benchmark_anchor_pipeline.py",
+      "to": "integrations/pifinder/scripts/benchmark_anchor_pipeline.py",
+      "sha256_before": "43be58cc59bea94185d38cf038ff6337ee690fb590353ab2b62af9a03e0c79f5"
+    },
+    {
+      "from": "python/scripts/benchmark_detector_pipeline.py",
+      "to": "integrations/pifinder/scripts/benchmark_detector_pipeline.py",
+      "sha256_before": "77a5a79378c2c084cfdd37796c66bcdde47fd4e8eb922d8e90683deefba5dc8b"
+    },
+    {
+      "from": "python/scripts/field_compare.py",
+      "to": "integrations/pifinder/scripts/field_compare.py",
+      "sha256_before": "d8d3ecc80047794df7a7c8b565035086c72bdca1ab75933bd36a106397f9ccfe"
+    },
+    {
+      "from": "python/scripts/summarize_detector_coordinates.py",
+      "to": "integrations/pifinder/scripts/summarize_detector_coordinates.py",
+      "sha256_before": "ce0754f9b257d3749e7f53b8eb3cb4d6273df9a1c9b82e49877a252bde07113a"
+    },
+    {
+      "from": "python/tests/test_star_detect.py",
+      "to": "integrations/pifinder/tests/test_star_detect.py",
+      "sha256_before": "8cb1dcdf7411375e376ba278dfaeaa8de1c889dab2356ee21d849d18cbb6fc25"
+    },
+    {
+      "from": "python/tests/test_mf_star_only_preprocess.py",
+      "to": "integrations/pifinder/tests/test_mf_star_only_preprocess.py",
+      "sha256_before": "68a5cdbfae0c4e3072e7d40a545427624cfd6deba08e335c461efd7c21b62bf3"
+    },
+    {
+      "from": "python/tests/test_detector_profiles.py",
+      "to": "integrations/pifinder/tests/test_detector_profiles.py",
+      "sha256_before": "798902f2410d78e283dc90ffde2e4cb7d6cc1292d3fe72067dc4dc5c34558f51"
+    },
+    {
+      "from": "python/tests/test_preprocessed_anchor.py",
+      "to": "integrations/pifinder/tests/test_preprocessed_anchor.py",
+      "sha256_before": "1be0c1b55dd02320297b310e84bc4e23c7b2c0c30a4d5d34ddf925fe34e895bd"
+    },
+    {
+      "from": "python/tests/test_mf_cloud_gate.py",
+      "to": "integrations/pifinder/tests/test_mf_cloud_gate.py",
+      "sha256_before": "20e815c3c59e27a754508c823e556a843be4400a65c01264a02949a50c2d29b8"
+    },
+    {
+      "from": "python/tests/test_sep_detect.py",
+      "to": "integrations/pifinder/tests/test_sep_detect.py",
+      "sha256_before": "740cc8e41299a60048bd481519e585f0efd390881c1048d740855c1ef772b198"
+    },
+    {
+      "from": "python/tests/test_field_compare.py",
+      "to": "integrations/pifinder/tests/test_field_compare.py",
+      "sha256_before": "dc815cfdcc8a55cc498bad7b43092e463ffa9a1ba8f12afe590bfc97c5f3be9c"
+    }
+  ]
+}

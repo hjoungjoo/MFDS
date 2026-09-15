@@ -1,0 +1,3672 @@
+{
+  "capture_moon_visible": {
+    "20260915_moon_lower_auto_before": {
+      "frames": 40,
+      "unique": 40,
+      "start": 1789470033.290349,
+      "end": 1789470072.2021267,
+      "all_sha256_verified": true,
+      "embedded_metadata_available": false,
+      "operating_sources": {
+        "CAM_FAILED": 40
+      },
+      "distinct_operating_attempt_snapshots": 11,
+      "exposure_us": {
+        "min": 104992.0,
+        "p50": 104992.0,
+        "max": 104992.0
+      },
+      "gain": {
+        "min": 29.51209259033203,
+        "p50": 29.51209259033203,
+        "max": 29.51209259033203
+      },
+      "saturated_pct": {
+        "min": 8.529224537037038,
+        "p50": 8.763985339506174,
+        "max": 9.01779513888889
+      },
+      "sky_saturated_pct": {
+        "min": 0.3519727738304338,
+        "p50": 0.41276993941519635,
+        "max": 0.4750056858194293
+      },
+      "sky_p50": {
+        "min": 1545.0,
+        "p50": 1569.0,
+        "max": 1606.0
+      },
+      "sky_p99": {
+        "min": 3732.0,
+        "p50": 3769.5,
+        "max": 3811.0
+      },
+      "operating_matches": {
+        "min": 0.0,
+        "p50": 0.0,
+        "max": 0.0
+      }
+    },
+    "e025_g30": {
+      "frames": 32,
+      "unique": 32,
+      "start": 1789470162.932706,
+      "end": 1789470193.8864505,
+      "all_sha256_verified": true,
+      "embedded_metadata_available": false,
+      "operating_sources": {
+        "CAM_FAILED": 32
+      },
+      "distinct_operating_attempt_snapshots": 10,
+      "exposure_us": {
+        "min": 24992.0,
+        "p50": 24992.0,
+        "max": 24992.0
+      },
+      "gain": {
+        "min": 29.51209259033203,
+        "p50": 29.51209259033203,
+        "max": 29.51209259033203
+      },
+      "saturated_pct": {
+        "min": 2.040557484567901,
+        "p50": 2.101007908950617,
+        "max": 2.1533564814814814
+      },
+      "sky_saturated_pct": {
+        "min": 0.002808657790394664,
+        "p50": 0.00308267318457951,
+        "max": 0.005822827126427963
+      },
+      "sky_p50": {
+        "min": 544.0,
+        "p50": 551.0,
+        "max": 557.0
+      },
+      "sky_p99": {
+        "min": 1095.0,
+        "p50": 1107.5,
+        "max": 1117.0
+      },
+      "operating_matches": {
+        "min": 0.0,
+        "p50": 0.0,
+        "max": 0.0
+      }
+    },
+    "e050_g30": {
+      "frames": 32,
+      "unique": 32,
+      "start": 1789470200.0933843,
+      "end": 1789470231.0510418,
+      "all_sha256_verified": true,
+      "embedded_metadata_available": false,
+      "operating_sources": {
+        "CAM_FAILED": 32
+      },
+      "distinct_operating_attempt_snapshots": 10,
+      "exposure_us": {
+        "min": 50000.0,
+        "p50": 50000.0,
+        "max": 50000.0
+      },
+      "gain": {
+        "min": 29.51209259033203,
+        "p50": 29.51209259033203,
+        "max": 29.51209259033203
+      },
+      "saturated_pct": {
+        "min": 3.6587094907407405,
+        "p50": 3.8079668209876543,
+        "max": 3.921682098765432
+      },
+      "sky_saturated_pct": {
+        "min": 0.003973223215680257,
+        "p50": 0.008014950279906726,
+        "max": 0.008562981068276415
+      },
+      "sky_p50": {
+        "min": 852.0,
+        "p50": 863.0,
+        "max": 870.0
+      },
+      "sky_p99": {
+        "min": 1915.0,
+        "p50": 1924.5,
+        "max": 1957.0
+      },
+      "operating_matches": {
+        "min": 0.0,
+        "p50": 0.0,
+        "max": 0.0
+      }
+    },
+    "e100_g30": {
+      "frames": 32,
+      "unique": 32,
+      "start": 1789470237.695261,
+      "end": 1789470268.6579604,
+      "all_sha256_verified": true,
+      "embedded_metadata_available": false,
+      "operating_sources": {
+        "CAM_FAILED": 32
+      },
+      "distinct_operating_attempt_snapshots": 11,
+      "exposure_us": {
+        "min": 100000.0,
+        "p50": 100000.0,
+        "max": 100000.0
+      },
+      "gain": {
+        "min": 29.51209259033203,
+        "p50": 29.51209259033203,
+        "max": 29.51209259033203
+      },
+      "saturated_pct": {
+        "min": 7.885030864197532,
+        "p50": 8.084948881172838,
+        "max": 8.277247299382715
+      },
+      "sky_saturated_pct": {
+        "min": 0.23928394297191616,
+        "p50": 0.26350005343300187,
+        "max": 0.2938815102632466
+      },
+      "sky_p50": {
+        "min": 1492.0,
+        "p50": 1499.0,
+        "max": 1507.0
+      },
+      "sky_p99": {
+        "min": 3605.0,
+        "p50": 3618.5,
+        "max": 3642.0
+      },
+      "operating_matches": {
+        "min": 0.0,
+        "p50": 0.0,
+        "max": 0.0
+      }
+    },
+    "e100_g30_repeat": {
+      "frames": 32,
+      "unique": 32,
+      "start": 1789470431.8275423,
+      "end": 1789470462.8002796,
+      "all_sha256_verified": true,
+      "embedded_metadata_available": false,
+      "operating_sources": {
+        "CAM_FAILED": 32
+      },
+      "distinct_operating_attempt_snapshots": 9,
+      "exposure_us": {
+        "min": 100000.0,
+        "p50": 100000.0,
+        "max": 100000.0
+      },
+      "gain": {
+        "min": 29.51209259033203,
+        "p50": 29.51209259033203,
+        "max": 29.51209259033203
+      },
+      "saturated_pct": {
+        "min": 7.6303530092592595,
+        "p50": 7.761140046296296,
+        "max": 7.829041280864198
+      },
+      "sky_saturated_pct": {
+        "min": 0.22078790386443908,
+        "p50": 0.24770991634310016,
+        "max": 0.2762760211868703
+      },
+      "sky_p50": {
+        "min": 1487.0,
+        "p50": 1494.0,
+        "max": 1499.0
+      },
+      "sky_p99": {
+        "min": 3572.0,
+        "p50": 3592.5,
+        "max": 3617.0
+      },
+      "operating_matches": {
+        "min": 0.0,
+        "p50": 0.0,
+        "max": 0.0
+      }
+    },
+    "e200_g15": {
+      "frames": 32,
+      "unique": 32,
+      "start": 1789470353.470468,
+      "end": 1789470384.3447247,
+      "all_sha256_verified": true,
+      "embedded_metadata_available": false,
+      "operating_sources": {
+        "CAM_FAILED": 32
+      },
+      "distinct_operating_attempt_snapshots": 10,
+      "exposure_us": {
+        "min": 200000.0,
+        "p50": 200000.0,
+        "max": 200000.0
+      },
+      "gain": {
+        "min": 14.791084289550781,
+        "p50": 14.791084289550781,
+        "max": 14.791084289550781
+      },
+      "saturated_pct": {
+        "min": 7.51220100308642,
+        "p50": 7.878279320987655,
+        "max": 8.089940200617283
+      },
+      "sky_saturated_pct": {
+        "min": 0.1608470363865042,
+        "p50": 0.21756822298276718,
+        "max": 0.2750429519130385
+      },
+      "sky_p50": {
+        "min": 1498.0,
+        "p50": 1506.0,
+        "max": 1511.0
+      },
+      "sky_p99": {
+        "min": 3520.0,
+        "p50": 3575.0,
+        "max": 3612.0
+      },
+      "operating_matches": {
+        "min": 0.0,
+        "p50": 0.0,
+        "max": 0.0
+      }
+    },
+    "e200_g30": {
+      "frames": 32,
+      "unique": 32,
+      "start": 1789470275.2768102,
+      "end": 1789470306.322628,
+      "all_sha256_verified": true,
+      "embedded_metadata_available": false,
+      "operating_sources": {
+        "CAM_FAILED": 32
+      },
+      "distinct_operating_attempt_snapshots": 11,
+      "exposure_us": {
+        "min": 200000.0,
+        "p50": 200000.0,
+        "max": 200000.0
+      },
+      "gain": {
+        "min": 29.51209259033203,
+        "p50": 29.51209259033203,
+        "max": 29.51209259033203
+      },
+      "saturated_pct": {
+        "min": 29.442853009259256,
+        "p50": 29.742910879629626,
+        "max": 30.178288966049383
+      },
+      "sky_saturated_pct": {
+        "min": 19.519486604757454,
+        "p50": 19.775690998320286,
+        "max": 20.309815505435093
+      },
+      "sky_p50": {
+        "min": 2733.0,
+        "p50": 2748.0,
+        "max": 2765.0
+      },
+      "sky_p99": {
+        "min": 4095.0,
+        "p50": 4095.0,
+        "max": 4095.0
+      },
+      "operating_matches": {
+        "min": 0.0,
+        "p50": 0.0,
+        "max": 0.0
+      }
+    },
+    "e400_g08": {
+      "frames": 32,
+      "unique": 32,
+      "start": 1789470391.7863505,
+      "end": 1789470422.7301152,
+      "all_sha256_verified": true,
+      "embedded_metadata_available": false,
+      "operating_sources": {
+        "CAM_FAILED": 15,
+        "CAM": 17
+      },
+      "distinct_operating_attempt_snapshots": 17,
+      "exposure_us": {
+        "min": 400000.0,
+        "p50": 400000.0,
+        "max": 400000.0
+      },
+      "gain": {
+        "min": 7.943282127380371,
+        "p50": 7.943282127380371,
+        "max": 7.943282127380371
+      },
+      "saturated_pct": {
+        "min": 8.546923225308642,
+        "p50": 8.728129822530864,
+        "max": 9.020592206790123
+      },
+      "sky_saturated_pct": {
+        "min": 0.3671121243591465,
+        "p50": 0.43314983435769416,
+        "max": 0.5328914378409779
+      },
+      "sky_p50": {
+        "min": 1564.0,
+        "p50": 1592.5,
+        "max": 1603.0
+      },
+      "sky_p99": {
+        "min": 3735.0,
+        "p50": 3776.0,
+        "max": 3835.0
+      },
+      "operating_matches": {
+        "min": 0.0,
+        "p50": 7.0,
+        "max": 10.0
+      }
+    },
+    "e400_g30": {
+      "frames": 32,
+      "unique": 32,
+      "start": 1789470314.0212545,
+      "end": 1789470344.9953392,
+      "all_sha256_verified": true,
+      "embedded_metadata_available": false,
+      "operating_sources": {
+        "CAM_FAILED": 30,
+        "CAM": 2
+      },
+      "distinct_operating_attempt_snapshots": 14,
+      "exposure_us": {
+        "min": 400000.0,
+        "p50": 400000.0,
+        "max": 400000.0
+      },
+      "gain": {
+        "min": 29.51209259033203,
+        "p50": 29.51209259033203,
+        "max": 29.51209259033203
+      },
+      "saturated_pct": {
+        "min": 68.97424768518519,
+        "p50": 69.50564236111111,
+        "max": 69.7496624228395
+      },
+      "sky_saturated_pct": {
+        "min": 68.27031892651729,
+        "p50": 68.68860342574045,
+        "max": 69.08263756257827
+      },
+      "sky_p50": {
+        "min": 4095.0,
+        "p50": 4095.0,
+        "max": 4095.0
+      },
+      "sky_p99": {
+        "min": 4095.0,
+        "p50": 4095.0,
+        "max": 4095.0
+      },
+      "operating_matches": {
+        "min": 0.0,
+        "p50": 0.0,
+        "max": 9.0
+      }
+    },
+    "20260915_moon_lower_auto_after": {
+      "frames": 40,
+      "unique": 40,
+      "start": 1789470485.6871367,
+      "end": 1789470524.7494612,
+      "all_sha256_verified": true,
+      "embedded_metadata_available": false,
+      "operating_sources": {
+        "CAM_FAILED": 40
+      },
+      "distinct_operating_attempt_snapshots": 14,
+      "exposure_us": {
+        "min": 113051.0,
+        "p50": 113051.0,
+        "max": 225570.0
+      },
+      "gain": {
+        "min": 14.791084289550781,
+        "p50": 29.51209259033203,
+        "max": 29.51209259033203
+      },
+      "saturated_pct": {
+        "min": 9.316502700617283,
+        "p50": 9.397858796296298,
+        "max": 9.62157600308642
+      },
+      "sky_saturated_pct": {
+        "min": 0.7264148099840249,
+        "p50": 0.7898836256620896,
+        "max": 0.8652721109871953
+      },
+      "sky_p50": {
+        "min": 1636.0,
+        "p50": 1653.0,
+        "max": 1679.0
+      },
+      "sky_p99": {
+        "min": 3956.0,
+        "p50": 3990.5,
+        "max": 4031.0
+      },
+      "operating_matches": {
+        "min": 0.0,
+        "p50": 0.0,
+        "max": 0.0
+      }
+    }
+  },
+  "capture_moon_not_visible": {
+    "frames": 40,
+    "unique_pixel_hashes": 40,
+    "start": 1789471182.462886,
+    "end": 1789471221.4409788,
+    "exposure_us_range": [
+      108459,
+      216414
+    ],
+    "gain_actual_values": [
+      14.791084289550781,
+      29.51209259033203
+    ],
+    "operating_status_snapshot_counts": {
+      "CAM_FAILED": 36,
+      "CAM": 4
+    },
+    "settings_changed_by_experiment": false,
+    "moon_visible": false,
+    "physical_cause_of_disappearance": "unverified",
+    "pool_with_previous_exposure_conditions": false
+  },
+  "replays": {
+    "full_e100_g30_repeat_w10": {
+      "temporal": 10,
+      "frames_replayed": 32,
+      "results": {
+        "pre_mf4p_mask": {
+          "attempts": 31,
+          "quality_pass": 28,
+          "continuity_pass": 24,
+          "mature_attempts": 23,
+          "mature_quality_pass": 23,
+          "last10_quality_pass": 10,
+          "continuity_reasons": {
+            "initial_preferred_confirmation": 1,
+            "confirmed_stationary_change": 2,
+            "near_trusted": 22,
+            "stationary_change_confirmation": 3
+          },
+          "failure_reasons": {
+            "no_solution": 3,
+            "quality_ok": 28
+          },
+          "fallback_calls": 0,
+          "candidates": {
+            "p50": 14.0,
+            "p95": 20.0
+          },
+          "city_candidates": {
+            "p50": 0.0,
+            "p95": 0.0
+          },
+          "rmse_arcsec": {
+            "p50": 85.90855883631855,
+            "p95": 121.55344439222068
+          },
+          "matches": {
+            "p50": 9.0,
+            "p95": 12.649999999999999
+          },
+          "detect_ms": {
+            "p50": 44.670035999843094,
+            "p95": 62.5455829999737
+          },
+          "solve_ms": {
+            "p50": 147.2353959998145,
+            "p95": 546.8436275000386
+          },
+          "serial_processing_ms": {
+            "p50": 1511.6466099998433,
+            "p95": 2068.657497000004
+          },
+          "preprocess_ms": {
+            "p50": 1303.3290939997642,
+            "p95": 1645.699387499917
+          },
+          "sidereal_corrected_center_separation_arcsec": {
+            "p50": 18.481809110835968,
+            "p95": 128.1087823993783
+          }
+        }
+      }
+    },
+    "full_e100_g30_repeat_w5": {
+      "temporal": 5,
+      "frames_replayed": 32,
+      "results": {
+        "pre_mf4p_mask": {
+          "attempts": 31,
+          "quality_pass": 22,
+          "continuity_pass": 19,
+          "mature_attempts": 28,
+          "mature_quality_pass": 22,
+          "last10_quality_pass": 9,
+          "continuity_reasons": {
+            "initial_preferred_confirmation": 1,
+            "confirmed_stationary_change": 1,
+            "near_trusted": 18,
+            "stationary_change_confirmation": 2
+          },
+          "failure_reasons": {
+            "no_solution": 7,
+            "quality_ok": 22,
+            "matches_below_7": 2
+          },
+          "fallback_calls": 0,
+          "candidates": {
+            "p50": 10.0,
+            "p95": 12.5
+          },
+          "city_candidates": {
+            "p50": 0.0,
+            "p95": 0.0
+          },
+          "rmse_arcsec": {
+            "p50": 104.36235633683856,
+            "p95": 128.2131234431748
+          },
+          "matches": {
+            "p50": 8.0,
+            "p95": 9.0
+          },
+          "detect_ms": {
+            "p50": 42.44678199984264,
+            "p95": 66.52565400031563
+          },
+          "solve_ms": {
+            "p50": 55.3671959996791,
+            "p95": 338.61890950038287
+          },
+          "serial_processing_ms": {
+            "p50": 1429.1137829995932,
+            "p95": 1713.5778090000713
+          },
+          "preprocess_ms": {
+            "p50": 1269.202050000331,
+            "p95": 1586.8266789998415
+          },
+          "sidereal_corrected_center_separation_arcsec": {
+            "p50": 58.40984482090734,
+            "p95": 93.24154396378353
+          }
+        }
+      }
+    },
+    "full_e200_g15_w10": {
+      "temporal": 10,
+      "frames_replayed": 32,
+      "results": {
+        "pre_mf4p_mask": {
+          "attempts": 31,
+          "quality_pass": 30,
+          "continuity_pass": 26,
+          "mature_attempts": 23,
+          "mature_quality_pass": 23,
+          "last10_quality_pass": 10,
+          "continuity_reasons": {
+            "initial_preferred_confirmation": 1,
+            "confirmed_stationary_change": 3,
+            "stationary_change_confirmation": 3,
+            "near_trusted": 23
+          },
+          "failure_reasons": {
+            "matches_below_7": 1,
+            "quality_ok": 30
+          },
+          "fallback_calls": 0,
+          "candidates": {
+            "p50": 18.0,
+            "p95": 19.0
+          },
+          "city_candidates": {
+            "p50": 0.0,
+            "p95": 0.0
+          },
+          "rmse_arcsec": {
+            "p50": 103.7695890342562,
+            "p95": 136.29030149928167
+          },
+          "matches": {
+            "p50": 15.0,
+            "p95": 17.0
+          },
+          "detect_ms": {
+            "p50": 44.81848200020977,
+            "p95": 58.10750849991564
+          },
+          "solve_ms": {
+            "p50": 207.83429099992645,
+            "p95": 555.2125685001101
+          },
+          "serial_processing_ms": {
+            "p50": 1606.980424000085,
+            "p95": 2171.701774999974
+          },
+          "preprocess_ms": {
+            "p50": 1311.5202939998198,
+            "p95": 1568.5562510002455
+          },
+          "sidereal_corrected_center_separation_arcsec": {
+            "p50": 50.94276038342052,
+            "p95": 95.98661007712634
+          }
+        }
+      }
+    },
+    "full_e200_g15_w5": {
+      "temporal": 5,
+      "frames_replayed": 32,
+      "results": {
+        "pre_mf4p_mask": {
+          "attempts": 31,
+          "quality_pass": 30,
+          "continuity_pass": 28,
+          "mature_attempts": 28,
+          "mature_quality_pass": 28,
+          "last10_quality_pass": 10,
+          "continuity_reasons": {
+            "initial_preferred_confirmation": 1,
+            "confirmed_stationary_change": 2,
+            "stationary_change_confirmation": 1,
+            "near_trusted": 26
+          },
+          "failure_reasons": {
+            "matches_below_7": 1,
+            "quality_ok": 30
+          },
+          "fallback_calls": 0,
+          "candidates": {
+            "p50": 13.0,
+            "p95": 16.0
+          },
+          "city_candidates": {
+            "p50": 0.0,
+            "p95": 0.0
+          },
+          "rmse_arcsec": {
+            "p50": 92.20888714585985,
+            "p95": 127.10491309768636
+          },
+          "matches": {
+            "p50": 11.0,
+            "p95": 14.0
+          },
+          "detect_ms": {
+            "p50": 40.68093800015049,
+            "p95": 62.157757000022684
+          },
+          "solve_ms": {
+            "p50": 66.27694900043934,
+            "p95": 220.85170500008644
+          },
+          "serial_processing_ms": {
+            "p50": 1381.6273960001126,
+            "p95": 1696.077060999869
+          },
+          "preprocess_ms": {
+            "p50": 1254.658199000005,
+            "p95": 1496.318376500085
+          },
+          "sidereal_corrected_center_separation_arcsec": {
+            "p50": 47.103685618739206,
+            "p95": 86.07564071325034
+          }
+        }
+      }
+    },
+    "full_e400_g08_w10": {
+      "temporal": 10,
+      "frames_replayed": 32,
+      "results": {
+        "pre_mf4p": {
+          "attempts": 31,
+          "quality_pass": 7,
+          "continuity_pass": 6,
+          "mature_attempts": 23,
+          "mature_quality_pass": 7,
+          "last10_quality_pass": 4,
+          "continuity_reasons": {
+            "initial_preferred_confirmation": 1,
+            "confirmed_stationary_change": 1,
+            "near_trusted": 5
+          },
+          "failure_reasons": {
+            "no_solution": 24,
+            "quality_ok": 7
+          },
+          "fallback_calls": 0,
+          "candidates": {
+            "p50": 36.0,
+            "p95": 43.0
+          },
+          "city_candidates": {
+            "p50": 29.0,
+            "p95": 33.0
+          },
+          "rmse_arcsec": {
+            "p50": 157.47188097741108,
+            "p95": 159.17095985940384
+          },
+          "matches": {
+            "p50": 11.0,
+            "p95": 11.0
+          },
+          "detect_ms": {
+            "p50": 50.61059199988449,
+            "p95": 78.0752624998513
+          },
+          "solve_ms": {
+            "p50": 1069.0925099997912,
+            "p95": 1198.7295930000528
+          },
+          "serial_processing_ms": {
+            "p50": 2480.1220330000433,
+            "p95": 2789.9530315003176
+          },
+          "preprocess_ms": {
+            "p50": 1416.3724999998522,
+            "p95": 1645.9049719999257
+          },
+          "sidereal_corrected_center_separation_arcsec": {
+            "p50": 29.212436433648417,
+            "p95": 48.35937445842514
+          }
+        },
+        "pre_mf4p_mask": {
+          "attempts": 31,
+          "quality_pass": 31,
+          "continuity_pass": 29,
+          "mature_attempts": 23,
+          "mature_quality_pass": 23,
+          "last10_quality_pass": 10,
+          "continuity_reasons": {
+            "initial_preferred_confirmation": 2,
+            "confirmed_stationary_change": 1,
+            "near_trusted": 28
+          },
+          "failure_reasons": {
+            "quality_ok": 31
+          },
+          "fallback_calls": 0,
+          "candidates": {
+            "p50": 26.0,
+            "p95": 28.5
+          },
+          "city_candidates": {
+            "p50": 0.0,
+            "p95": 0.0
+          },
+          "rmse_arcsec": {
+            "p50": 91.51227303706716,
+            "p95": 118.59530570203367
+          },
+          "matches": {
+            "p50": 13.0,
+            "p95": 14.0
+          },
+          "detect_ms": {
+            "p50": 42.55393100038418,
+            "p95": 73.6544110000068
+          },
+          "solve_ms": {
+            "p50": 6.79728300019633,
+            "p95": 418.1864585000312
+          },
+          "serial_processing_ms": {
+            "p50": 1486.754400999871,
+            "p95": 1910.4896525000186
+          },
+          "preprocess_ms": {
+            "p50": 1416.3724999998522,
+            "p95": 1645.9049719999257
+          },
+          "sidereal_corrected_center_separation_arcsec": {
+            "p50": 9.886199341068462,
+            "p95": 63.07834061761095
+          }
+        }
+      }
+    },
+    "full_e400_g08_w5": {
+      "temporal": 5,
+      "frames_replayed": 32,
+      "results": {
+        "pre_mf4p": {
+          "attempts": 31,
+          "quality_pass": 13,
+          "continuity_pass": 12,
+          "mature_attempts": 28,
+          "mature_quality_pass": 13,
+          "last10_quality_pass": 6,
+          "continuity_reasons": {
+            "initial_preferred_confirmation": 1,
+            "confirmed_stationary_change": 1,
+            "near_trusted": 11
+          },
+          "failure_reasons": {
+            "no_solution": 18,
+            "quality_ok": 13
+          },
+          "fallback_calls": 0,
+          "candidates": {
+            "p50": 40.0,
+            "p95": 48.0
+          },
+          "city_candidates": {
+            "p50": 28.0,
+            "p95": 34.5
+          },
+          "rmse_arcsec": {
+            "p50": 95.18597317082822,
+            "p95": 100.71716728759844
+          },
+          "matches": {
+            "p50": 7.0,
+            "p95": 9.0
+          },
+          "detect_ms": {
+            "p50": 41.56853599988608,
+            "p95": 55.21380599998338
+          },
+          "solve_ms": {
+            "p50": 1212.402677999762,
+            "p95": 1943.3866339995802
+          },
+          "serial_processing_ms": {
+            "p50": 2485.8706790000724,
+            "p95": 3233.7655559995255
+          },
+          "preprocess_ms": {
+            "p50": 1228.7993539998752,
+            "p95": 1504.1566564998448
+          },
+          "sidereal_corrected_center_separation_arcsec": {
+            "p50": 5.092866559967796,
+            "p95": 19.627761449604478
+          }
+        },
+        "pre_mf4p_mask": {
+          "attempts": 31,
+          "quality_pass": 31,
+          "continuity_pass": 27,
+          "mature_attempts": 28,
+          "mature_quality_pass": 28,
+          "last10_quality_pass": 10,
+          "continuity_reasons": {
+            "initial_preferred_confirmation": 2,
+            "confirmed_stationary_change": 3,
+            "near_trusted": 24,
+            "stationary_change_confirmation": 2
+          },
+          "failure_reasons": {
+            "quality_ok": 31
+          },
+          "fallback_calls": 0,
+          "candidates": {
+            "p50": 17.0,
+            "p95": 19.5
+          },
+          "city_candidates": {
+            "p50": 0.0,
+            "p95": 0.0
+          },
+          "rmse_arcsec": {
+            "p50": 87.8485296762556,
+            "p95": 123.21334235842299
+          },
+          "matches": {
+            "p50": 8.0,
+            "p95": 14.0
+          },
+          "detect_ms": {
+            "p50": 42.21142899996266,
+            "p95": 61.1439720000817
+          },
+          "solve_ms": {
+            "p50": 7.947364000301604,
+            "p95": 556.3409364999643
+          },
+          "serial_processing_ms": {
+            "p50": 1383.461165999961,
+            "p95": 1945.1693670000623
+          },
+          "preprocess_ms": {
+            "p50": 1228.7993539998752,
+            "p95": 1504.1566564998448
+          },
+          "sidereal_corrected_center_separation_arcsec": {
+            "p50": 9.639513192883452,
+            "p95": 94.67296295172036
+          }
+        },
+        "raw_mf4p": {
+          "attempts": 32,
+          "quality_pass": 0,
+          "continuity_pass": 0,
+          "mature_attempts": 32,
+          "mature_quality_pass": 0,
+          "last10_quality_pass": 0,
+          "continuity_reasons": {},
+          "failure_reasons": {
+            "no_solution": 32
+          },
+          "fallback_calls": 0,
+          "candidates": {
+            "p50": 30.0,
+            "p95": 36.0
+          },
+          "city_candidates": {
+            "p50": 26.0,
+            "p95": 30.45
+          },
+          "rmse_arcsec": {
+            "p50": null,
+            "p95": null
+          },
+          "matches": {
+            "p50": null,
+            "p95": null
+          },
+          "detect_ms": {
+            "p50": 35.457627499908995,
+            "p95": 57.320906800077864
+          },
+          "solve_ms": {
+            "p50": 1001.1401245001252,
+            "p95": 1029.206568000086
+          },
+          "serial_processing_ms": {
+            "p50": 1040.670222500239,
+            "p95": 1066.5120367002828
+          },
+          "preprocess_ms": null
+        },
+        "raw_mf4p_mask": {
+          "attempts": 32,
+          "quality_pass": 0,
+          "continuity_pass": 0,
+          "mature_attempts": 32,
+          "mature_quality_pass": 0,
+          "last10_quality_pass": 0,
+          "continuity_reasons": {},
+          "failure_reasons": {
+            "no_solution": 24,
+            "insufficient_centroids": 8
+          },
+          "fallback_calls": 6,
+          "candidates": {
+            "p50": 5.0,
+            "p95": 6.449999999999999
+          },
+          "city_candidates": {
+            "p50": 0.0,
+            "p95": 0.0
+          },
+          "rmse_arcsec": {
+            "p50": null,
+            "p95": null
+          },
+          "matches": {
+            "p50": null,
+            "p95": null
+          },
+          "detect_ms": {
+            "p50": 50.55049899988262,
+            "p95": 215.25811855005938
+          },
+          "solve_ms": {
+            "p50": 20.035254000049463,
+            "p95": 107.64879065022797
+          },
+          "serial_processing_ms": {
+            "p50": 101.67647399998714,
+            "p95": 237.42711985003098
+          },
+          "preprocess_ms": null
+        }
+      }
+    },
+    "full_mf2_e200_g15": {
+      "temporal": 5,
+      "frames_replayed": 32,
+      "results": {
+        "pre_mf2_mask": {
+          "attempts": 31,
+          "quality_pass": 30,
+          "continuity_pass": 28,
+          "mature_attempts": 28,
+          "mature_quality_pass": 28,
+          "last10_quality_pass": 10,
+          "continuity_reasons": {
+            "initial_preferred_confirmation": 1,
+            "confirmed_stationary_change": 2,
+            "stationary_change_confirmation": 1,
+            "near_trusted": 26
+          },
+          "failure_reasons": {
+            "matches_below_7": 1,
+            "quality_ok": 30
+          },
+          "fallback_calls": 0,
+          "candidates": {
+            "p50": 13.0,
+            "p95": 16.0
+          },
+          "city_candidates": {
+            "p50": 0.0,
+            "p95": 0.0
+          },
+          "rmse_arcsec": {
+            "p50": 92.20893869436051,
+            "p95": 127.10380748876814
+          },
+          "matches": {
+            "p50": 11.0,
+            "p95": 14.0
+          },
+          "detect_ms": {
+            "p50": 88.1590929993763,
+            "p95": 135.62560549962654
+          },
+          "solve_ms": {
+            "p50": 75.96979400022974,
+            "p95": 166.71935749945987
+          },
+          "serial_processing_ms": {
+            "p50": 1478.977181999653,
+            "p95": 1813.3175399998436
+          },
+          "preprocess_ms": {
+            "p50": 1346.8555330000527,
+            "p95": 1528.4410575000038
+          },
+          "sidereal_corrected_center_separation_arcsec": {
+            "p50": 47.036133562155555,
+            "p95": 86.07121543645994
+          }
+        },
+        "raw_mf2_mask": {
+          "attempts": 32,
+          "quality_pass": 29,
+          "continuity_pass": 17,
+          "mature_attempts": 32,
+          "mature_quality_pass": 29,
+          "last10_quality_pass": 9,
+          "continuity_reasons": {
+            "initial_fullframe_confirmation": 1,
+            "confirmed_jump": 1,
+            "stationary_change_confirmation": 11,
+            "confirmed_stationary_change": 3,
+            "near_trusted": 13
+          },
+          "failure_reasons": {
+            "quality_ok": 29,
+            "no_solution": 3
+          },
+          "fallback_calls": 0,
+          "candidates": {
+            "p50": 15.0,
+            "p95": 17.0
+          },
+          "city_candidates": {
+            "p50": 0.0,
+            "p95": 0.0
+          },
+          "rmse_arcsec": {
+            "p50": 98.73200149449477,
+            "p95": 144.4330003052832
+          },
+          "matches": {
+            "p50": 11.0,
+            "p95": 13.0
+          },
+          "detect_ms": {
+            "p50": 105.1527649997297,
+            "p95": 142.38840414996048
+          },
+          "solve_ms": {
+            "p50": 304.62230150033065,
+            "p95": 1013.5496630497983
+          },
+          "serial_processing_ms": {
+            "p50": 411.16673200031073,
+            "p95": 1118.315601950144
+          },
+          "preprocess_ms": null,
+          "sidereal_corrected_center_separation_arcsec": {
+            "p50": 55.71291228665958,
+            "p95": 240.6851342843563
+          }
+        }
+      }
+    },
+    "full_mf2_e400_g08": {
+      "temporal": 5,
+      "frames_replayed": 32,
+      "results": {
+        "pre_mf2_mask": {
+          "attempts": 31,
+          "quality_pass": 31,
+          "continuity_pass": 27,
+          "mature_attempts": 28,
+          "mature_quality_pass": 28,
+          "last10_quality_pass": 10,
+          "continuity_reasons": {
+            "initial_preferred_confirmation": 2,
+            "confirmed_stationary_change": 3,
+            "near_trusted": 24,
+            "stationary_change_confirmation": 2
+          },
+          "failure_reasons": {
+            "quality_ok": 31
+          },
+          "fallback_calls": 0,
+          "candidates": {
+            "p50": 17.0,
+            "p95": 19.5
+          },
+          "city_candidates": {
+            "p50": 0.0,
+            "p95": 0.0
+          },
+          "rmse_arcsec": {
+            "p50": 87.84695933247583,
+            "p95": 123.21271658361084
+          },
+          "matches": {
+            "p50": 8.0,
+            "p95": 15.5
+          },
+          "detect_ms": {
+            "p50": 102.93490900039615,
+            "p95": 136.94586400015396
+          },
+          "solve_ms": {
+            "p50": 8.864111000548291,
+            "p95": 811.8003989993667
+          },
+          "serial_processing_ms": {
+            "p50": 1463.9919940000254,
+            "p95": 2123.0336514990995
+          },
+          "preprocess_ms": {
+            "p50": 1313.9999180002633,
+            "p95": 1479.7105184998145
+          },
+          "sidereal_corrected_center_separation_arcsec": {
+            "p50": 9.956196700751606,
+            "p95": 94.67128581190602
+          }
+        },
+        "raw_mf2_mask": {
+          "attempts": 32,
+          "quality_pass": 32,
+          "continuity_pass": 18,
+          "mature_attempts": 32,
+          "mature_quality_pass": 32,
+          "last10_quality_pass": 10,
+          "continuity_reasons": {
+            "initial_fullframe_confirmation": 1,
+            "confirmed_jump": 1,
+            "stationary_change_confirmation": 13,
+            "confirmed_stationary_change": 6,
+            "near_trusted": 11
+          },
+          "failure_reasons": {
+            "quality_ok": 32
+          },
+          "fallback_calls": 0,
+          "candidates": {
+            "p50": 17.0,
+            "p95": 21.0
+          },
+          "city_candidates": {
+            "p50": 0.0,
+            "p95": 0.0
+          },
+          "rmse_arcsec": {
+            "p50": 94.70426092063266,
+            "p95": 121.9918665999862
+          },
+          "matches": {
+            "p50": 12.0,
+            "p95": 14.45
+          },
+          "detect_ms": {
+            "p50": 93.97214849968805,
+            "p95": 159.920841700432
+          },
+          "solve_ms": {
+            "p50": 441.34769099946425,
+            "p95": 1086.5780361496945
+          },
+          "serial_processing_ms": {
+            "p50": 548.448209999151,
+            "p95": 1195.8444455997324
+          },
+          "preprocess_ms": null,
+          "sidereal_corrected_center_separation_arcsec": {
+            "p50": 86.53660805907172,
+            "p95": 196.6683651523936
+          }
+        }
+      }
+    },
+    "moon_not_visible_w10": {
+      "temporal": 10,
+      "frames_replayed": 15,
+      "results": {
+        "pre_mf4p_mask": {
+          "attempts": 14,
+          "quality_pass": 12,
+          "continuity_pass": 11,
+          "mature_attempts": 6,
+          "mature_quality_pass": 6,
+          "last10_quality_pass": 10,
+          "continuity_reasons": {
+            "initial_preferred_confirmation": 1,
+            "confirmed_stationary_change": 1,
+            "near_trusted": 10
+          },
+          "failure_reasons": {
+            "matches_below_7": 1,
+            "no_solution": 1,
+            "quality_ok": 12
+          },
+          "fallback_calls": 0,
+          "candidates": {
+            "p50": 14.0,
+            "p95": 18.7
+          },
+          "city_candidates": {
+            "p50": 0.0,
+            "p95": 0.0
+          },
+          "rmse_arcsec": {
+            "p50": 62.08126708877286,
+            "p95": 69.44482740508987
+          },
+          "matches": {
+            "p50": 10.5,
+            "p95": 13.45
+          },
+          "detect_ms": {
+            "p50": 42.39474449991576,
+            "p95": 61.18249515018306
+          },
+          "solve_ms": {
+            "p50": 97.87094049988809,
+            "p95": 316.1624659999233
+          },
+          "serial_processing_ms": {
+            "p50": 1533.9335720004783,
+            "p95": 1881.4678557499292
+          },
+          "preprocess_ms": {
+            "p50": 1361.6874105000534,
+            "p95": 1572.7123356500897
+          },
+          "sidereal_corrected_center_separation_arcsec": {
+            "p50": 13.368875710815804,
+            "p95": 51.223795025717344
+          }
+        }
+      }
+    },
+    "moon_not_visible_w5": {
+      "temporal": 5,
+      "frames_replayed": 15,
+      "results": {
+        "pre_mf4p": {
+          "attempts": 14,
+          "quality_pass": 0,
+          "continuity_pass": 0,
+          "mature_attempts": 11,
+          "mature_quality_pass": 0,
+          "last10_quality_pass": 0,
+          "continuity_reasons": {},
+          "failure_reasons": {
+            "no_solution": 14
+          },
+          "fallback_calls": 0,
+          "candidates": {
+            "p50": 31.5,
+            "p95": 38.4
+          },
+          "city_candidates": {
+            "p50": 21.5,
+            "p95": 26.35
+          },
+          "rmse_arcsec": {
+            "p50": null,
+            "p95": null
+          },
+          "matches": {
+            "p50": null,
+            "p95": null
+          },
+          "detect_ms": {
+            "p50": 47.16318150008192,
+            "p95": 80.14827825018071
+          },
+          "solve_ms": {
+            "p50": 1343.1443039996793,
+            "p95": 2001.8912247500339
+          },
+          "serial_processing_ms": {
+            "p50": 2739.1969099996913,
+            "p95": 3321.6543433998368
+          },
+          "preprocess_ms": {
+            "p50": 1293.0703545000597,
+            "p95": 1451.2329736001448
+          }
+        },
+        "pre_mf4p_mask": {
+          "attempts": 14,
+          "quality_pass": 11,
+          "continuity_pass": 10,
+          "mature_attempts": 11,
+          "mature_quality_pass": 10,
+          "last10_quality_pass": 9,
+          "continuity_reasons": {
+            "initial_preferred_confirmation": 1,
+            "confirmed_stationary_change": 1,
+            "near_trusted": 9
+          },
+          "failure_reasons": {
+            "matches_below_7": 1,
+            "no_solution": 2,
+            "quality_ok": 11
+          },
+          "fallback_calls": 0,
+          "candidates": {
+            "p50": 10.0,
+            "p95": 12.7
+          },
+          "city_candidates": {
+            "p50": 0.0,
+            "p95": 0.0
+          },
+          "rmse_arcsec": {
+            "p50": 63.53511197029676,
+            "p95": 69.80992442185948
+          },
+          "matches": {
+            "p50": 7.0,
+            "p95": 8.0
+          },
+          "detect_ms": {
+            "p50": 41.41173849984625,
+            "p95": 65.46679935013344
+          },
+          "solve_ms": {
+            "p50": 63.245753999808585,
+            "p95": 612.1562217000017
+          },
+          "serial_processing_ms": {
+            "p50": 1416.0019419998662,
+            "p95": 2019.8425304499322
+          },
+          "preprocess_ms": {
+            "p50": 1293.0703545000597,
+            "p95": 1451.2329736001448
+          },
+          "sidereal_corrected_center_separation_arcsec": {
+            "p50": 22.882870177270064,
+            "p95": 59.18225111657648
+          }
+        },
+        "raw_mf4p": {
+          "attempts": 15,
+          "quality_pass": 0,
+          "continuity_pass": 0,
+          "mature_attempts": 15,
+          "mature_quality_pass": 0,
+          "last10_quality_pass": 0,
+          "continuity_reasons": {},
+          "failure_reasons": {
+            "no_solution": 15
+          },
+          "fallback_calls": 0,
+          "candidates": {
+            "p50": 23.0,
+            "p95": 26.299999999999997
+          },
+          "city_candidates": {
+            "p50": 17.0,
+            "p95": 18.299999999999997
+          },
+          "rmse_arcsec": {
+            "p50": null,
+            "p95": null
+          },
+          "matches": {
+            "p50": null,
+            "p95": null
+          },
+          "detect_ms": {
+            "p50": 40.057729999716685,
+            "p95": 61.16830059972925
+          },
+          "solve_ms": {
+            "p50": 1001.388107999901,
+            "p95": 1039.1072681002242
+          },
+          "serial_processing_ms": {
+            "p50": 1044.6852109998872,
+            "p95": 1077.3377614004403
+          },
+          "preprocess_ms": null
+        },
+        "raw_mf4p_mask": {
+          "attempts": 15,
+          "quality_pass": 1,
+          "continuity_pass": 0,
+          "mature_attempts": 15,
+          "mature_quality_pass": 1,
+          "last10_quality_pass": 1,
+          "continuity_reasons": {
+            "initial_fullframe_confirmation": 1
+          },
+          "failure_reasons": {
+            "no_solution": 14,
+            "quality_ok": 1
+          },
+          "fallback_calls": 0,
+          "candidates": {
+            "p50": 6.0,
+            "p95": 9.0
+          },
+          "city_candidates": {
+            "p50": 0.0,
+            "p95": 0.0
+          },
+          "rmse_arcsec": {
+            "p50": 53.16425427878895,
+            "p95": 53.16425427878895
+          },
+          "matches": {
+            "p50": 7.0,
+            "p95": 7.0
+          },
+          "detect_ms": {
+            "p50": 48.134317000403826,
+            "p95": 70.04482010015636
+          },
+          "solve_ms": {
+            "p50": 81.26652300006754,
+            "p95": 413.2607982001445
+          },
+          "serial_processing_ms": {
+            "p50": 151.64249700001164,
+            "p95": 454.83930300010786
+          },
+          "preprocess_ms": null
+        }
+      }
+    },
+    "pilot_auto_after": {
+      "temporal": 5,
+      "frames_replayed": 16,
+      "results": {
+        "pre_mf4p": {
+          "attempts": 15,
+          "quality_pass": 0,
+          "continuity_pass": 0,
+          "mature_attempts": 12,
+          "mature_quality_pass": 0,
+          "last10_quality_pass": 0,
+          "continuity_reasons": {},
+          "failure_reasons": {
+            "no_solution": 15
+          },
+          "fallback_calls": 0,
+          "candidates": {
+            "p50": 38.0,
+            "p95": 44.9
+          },
+          "city_candidates": {
+            "p50": 30.0,
+            "p95": 36.0
+          },
+          "rmse_arcsec": {
+            "p50": null,
+            "p95": null
+          },
+          "matches": {
+            "p50": null,
+            "p95": null
+          },
+          "detect_ms": {
+            "p50": 50.06851500002085,
+            "p95": 59.40553569985241
+          },
+          "solve_ms": {
+            "p50": 1115.5219090001083,
+            "p95": 1303.5534832002668
+          },
+          "serial_processing_ms": {
+            "p50": 2458.670231999804,
+            "p95": 2677.647310300563
+          },
+          "preprocess_ms": {
+            "p50": 1245.4831430000013,
+            "p95": 1446.3558826998906
+          }
+        },
+        "pre_mf4p_mask": {
+          "attempts": 15,
+          "quality_pass": 9,
+          "continuity_pass": 8,
+          "mature_attempts": 12,
+          "mature_quality_pass": 8,
+          "last10_quality_pass": 7,
+          "continuity_reasons": {
+            "initial_preferred_confirmation": 1,
+            "confirmed_stationary_change": 1,
+            "near_trusted": 7
+          },
+          "failure_reasons": {
+            "no_solution": 5,
+            "quality_ok": 9,
+            "matches_below_7": 1
+          },
+          "fallback_calls": 0,
+          "candidates": {
+            "p50": 9.0,
+            "p95": 10.299999999999999
+          },
+          "city_candidates": {
+            "p50": 0.0,
+            "p95": 0.0
+          },
+          "rmse_arcsec": {
+            "p50": 102.41101026656213,
+            "p95": 108.5072290694087
+          },
+          "matches": {
+            "p50": 8.0,
+            "p95": 9.0
+          },
+          "detect_ms": {
+            "p50": 42.21340999993117,
+            "p95": 67.73422070009472
+          },
+          "solve_ms": {
+            "p50": 28.105730000334006,
+            "p95": 230.4957274999196
+          },
+          "serial_processing_ms": {
+            "p50": 1376.5242329996,
+            "p95": 1599.4783970999379
+          },
+          "preprocess_ms": {
+            "p50": 1245.4831430000013,
+            "p95": 1446.3558826998906
+          },
+          "sidereal_corrected_center_separation_arcsec": {
+            "p50": 11.328902899048567,
+            "p95": 21.6900523895469
+          }
+        },
+        "raw_mf4p": {
+          "attempts": 16,
+          "quality_pass": 0,
+          "continuity_pass": 0,
+          "mature_attempts": 16,
+          "mature_quality_pass": 0,
+          "last10_quality_pass": 0,
+          "continuity_reasons": {},
+          "failure_reasons": {
+            "no_solution": 16
+          },
+          "fallback_calls": 0,
+          "candidates": {
+            "p50": 24.5,
+            "p95": 27.25
+          },
+          "city_candidates": {
+            "p50": 21.0,
+            "p95": 24.25
+          },
+          "rmse_arcsec": {
+            "p50": null,
+            "p95": null
+          },
+          "matches": {
+            "p50": null,
+            "p95": null
+          },
+          "detect_ms": {
+            "p50": 38.21001450000949,
+            "p95": 63.07475300002352
+          },
+          "solve_ms": {
+            "p50": 1000.9202900000673,
+            "p95": 1008.0672467498744
+          },
+          "serial_processing_ms": {
+            "p50": 1039.2769444997612,
+            "p95": 1067.5395697504655
+          },
+          "preprocess_ms": null
+        },
+        "raw_mf4p_mask": {
+          "attempts": 16,
+          "quality_pass": 0,
+          "continuity_pass": 0,
+          "mature_attempts": 16,
+          "mature_quality_pass": 0,
+          "last10_quality_pass": 0,
+          "continuity_reasons": {},
+          "failure_reasons": {
+            "no_solution": 2,
+            "insufficient_centroids": 13,
+            "matches_below_7": 1
+          },
+          "fallback_calls": 13,
+          "candidates": {
+            "p50": 1.5,
+            "p95": 6.25
+          },
+          "city_candidates": {
+            "p50": 0.0,
+            "p95": 0.0
+          },
+          "rmse_arcsec": {
+            "p50": null,
+            "p95": null
+          },
+          "matches": {
+            "p50": null,
+            "p95": null
+          },
+          "detect_ms": {
+            "p50": 202.9879735000577,
+            "p95": 249.02142600012667
+          },
+          "solve_ms": {
+            "p50": 0.0,
+            "p95": 28.371407000236104
+          },
+          "serial_processing_ms": {
+            "p50": 202.9879735000577,
+            "p95": 249.02142600012667
+          },
+          "preprocess_ms": null
+        }
+      }
+    },
+    "pilot_auto_before": {
+      "temporal": 5,
+      "frames_replayed": 16,
+      "results": {
+        "pre_mf4p": {
+          "attempts": 15,
+          "quality_pass": 0,
+          "continuity_pass": 0,
+          "mature_attempts": 12,
+          "mature_quality_pass": 0,
+          "last10_quality_pass": 0,
+          "continuity_reasons": {},
+          "failure_reasons": {
+            "no_solution": 15
+          },
+          "fallback_calls": 0,
+          "candidates": {
+            "p50": 37.0,
+            "p95": 40.0
+          },
+          "city_candidates": {
+            "p50": 28.0,
+            "p95": 31.299999999999997
+          },
+          "rmse_arcsec": {
+            "p50": null,
+            "p95": null
+          },
+          "matches": {
+            "p50": null,
+            "p95": null
+          },
+          "detect_ms": {
+            "p50": 40.59101099983309,
+            "p95": 66.30031910008255
+          },
+          "solve_ms": {
+            "p50": 1111.1978280000585,
+            "p95": 1230.1272399999561
+          },
+          "serial_processing_ms": {
+            "p50": 2484.5886339999197,
+            "p95": 2805.9757734000414
+          },
+          "preprocess_ms": {
+            "p50": 1316.2099149999449,
+            "p95": 1565.5137062999984
+          }
+        },
+        "pre_mf4p_mask": {
+          "attempts": 15,
+          "quality_pass": 4,
+          "continuity_pass": 3,
+          "mature_attempts": 12,
+          "mature_quality_pass": 4,
+          "last10_quality_pass": 3,
+          "continuity_reasons": {
+            "initial_preferred_confirmation": 1,
+            "confirmed_stationary_change": 1,
+            "near_trusted": 2
+          },
+          "failure_reasons": {
+            "no_solution": 6,
+            "quality_ok": 4,
+            "matches_below_7": 5
+          },
+          "fallback_calls": 0,
+          "candidates": {
+            "p50": 7.0,
+            "p95": 12.299999999999999
+          },
+          "city_candidates": {
+            "p50": 0.0,
+            "p95": 0.0
+          },
+          "rmse_arcsec": {
+            "p50": 68.28235888632489,
+            "p95": 78.57308575459032
+          },
+          "matches": {
+            "p50": 7.0,
+            "p95": 7.85
+          },
+          "detect_ms": {
+            "p50": 48.90230400042128,
+            "p95": 79.64494290004039
+          },
+          "solve_ms": {
+            "p50": 21.557541000220226,
+            "p95": 847.4479737998987
+          },
+          "serial_processing_ms": {
+            "p50": 1451.4504220001072,
+            "p95": 2412.896597799999
+          },
+          "preprocess_ms": {
+            "p50": 1316.2099149999449,
+            "p95": 1565.5137062999984
+          },
+          "sidereal_corrected_center_separation_arcsec": {
+            "p50": 16.00265121314011,
+            "p95": 21.08205265834891
+          }
+        },
+        "raw_mf4p": {
+          "attempts": 16,
+          "quality_pass": 0,
+          "continuity_pass": 0,
+          "mature_attempts": 16,
+          "mature_quality_pass": 0,
+          "last10_quality_pass": 0,
+          "continuity_reasons": {},
+          "failure_reasons": {
+            "no_solution": 16
+          },
+          "fallback_calls": 0,
+          "candidates": {
+            "p50": 28.0,
+            "p95": 32.0
+          },
+          "city_candidates": {
+            "p50": 24.0,
+            "p95": 25.75
+          },
+          "rmse_arcsec": {
+            "p50": null,
+            "p95": null
+          },
+          "matches": {
+            "p50": null,
+            "p95": null
+          },
+          "detect_ms": {
+            "p50": 34.80741050020697,
+            "p95": 55.27073624989498
+          },
+          "solve_ms": {
+            "p50": 1000.9781050000583,
+            "p95": 1001.5015760001234
+          },
+          "serial_processing_ms": {
+            "p50": 1035.5460795001363,
+            "p95": 1056.6295847497713
+          },
+          "preprocess_ms": null
+        },
+        "raw_mf4p_mask": {
+          "attempts": 16,
+          "quality_pass": 0,
+          "continuity_pass": 0,
+          "mature_attempts": 16,
+          "mature_quality_pass": 0,
+          "last10_quality_pass": 0,
+          "continuity_reasons": {},
+          "failure_reasons": {
+            "no_solution": 9,
+            "insufficient_centroids": 7
+          },
+          "fallback_calls": 6,
+          "candidates": {
+            "p50": 5.0,
+            "p95": 7.0
+          },
+          "city_candidates": {
+            "p50": 0.0,
+            "p95": 0.0
+          },
+          "rmse_arcsec": {
+            "p50": null,
+            "p95": null
+          },
+          "matches": {
+            "p50": null,
+            "p95": null
+          },
+          "detect_ms": {
+            "p50": 55.33698300018841,
+            "p95": 239.8282299999437
+          },
+          "solve_ms": {
+            "p50": 12.91893200004779,
+            "p95": 96.87070325014702
+          },
+          "serial_processing_ms": {
+            "p50": 108.73659149979176,
+            "p95": 239.8282299999437
+          },
+          "preprocess_ms": null
+        }
+      }
+    },
+    "pilot_e025_g30": {
+      "temporal": 5,
+      "frames_replayed": 16,
+      "results": {
+        "pre_mf4p": {
+          "attempts": 15,
+          "quality_pass": 0,
+          "continuity_pass": 0,
+          "mature_attempts": 12,
+          "mature_quality_pass": 0,
+          "last10_quality_pass": 0,
+          "continuity_reasons": {},
+          "failure_reasons": {
+            "no_solution": 15
+          },
+          "fallback_calls": 0,
+          "candidates": {
+            "p50": 34.0,
+            "p95": 42.3
+          },
+          "city_candidates": {
+            "p50": 34.0,
+            "p95": 41.3
+          },
+          "rmse_arcsec": {
+            "p50": null,
+            "p95": null
+          },
+          "matches": {
+            "p50": null,
+            "p95": null
+          },
+          "detect_ms": {
+            "p50": 46.193343000140885,
+            "p95": 58.21983020000514
+          },
+          "solve_ms": {
+            "p50": 1015.871958000389,
+            "p95": 1048.5271387999546
+          },
+          "serial_processing_ms": {
+            "p50": 2208.409511999889,
+            "p95": 2420.445827299636
+          },
+          "preprocess_ms": {
+            "p50": 1153.5960539999905,
+            "p95": 1355.1691333997496
+          }
+        },
+        "pre_mf4p_mask": {
+          "attempts": 15,
+          "quality_pass": 0,
+          "continuity_pass": 0,
+          "mature_attempts": 12,
+          "mature_quality_pass": 0,
+          "last10_quality_pass": 0,
+          "continuity_reasons": {},
+          "failure_reasons": {
+            "insufficient_centroids": 11,
+            "no_solution": 4
+          },
+          "fallback_calls": 5,
+          "candidates": {
+            "p50": 4.0,
+            "p95": 6.0
+          },
+          "city_candidates": {
+            "p50": 0.0,
+            "p95": 0.0
+          },
+          "rmse_arcsec": {
+            "p50": null,
+            "p95": null
+          },
+          "matches": {
+            "p50": null,
+            "p95": null
+          },
+          "detect_ms": {
+            "p50": 43.78566100012904,
+            "p95": 110.00583929990167
+          },
+          "solve_ms": {
+            "p50": 0.0,
+            "p95": 42.50132329971165
+          },
+          "serial_processing_ms": {
+            "p50": 1238.1074489999264,
+            "p95": 1445.3093046996855
+          },
+          "preprocess_ms": {
+            "p50": 1153.5960539999905,
+            "p95": 1355.1691333997496
+          }
+        },
+        "raw_mf4p": {
+          "attempts": 16,
+          "quality_pass": 0,
+          "continuity_pass": 0,
+          "mature_attempts": 16,
+          "mature_quality_pass": 0,
+          "last10_quality_pass": 0,
+          "continuity_reasons": {},
+          "failure_reasons": {
+            "no_solution": 16
+          },
+          "fallback_calls": 0,
+          "candidates": {
+            "p50": 48.0,
+            "p95": 48.0
+          },
+          "city_candidates": {
+            "p50": 44.0,
+            "p95": 45.0
+          },
+          "rmse_arcsec": {
+            "p50": null,
+            "p95": null
+          },
+          "matches": {
+            "p50": null,
+            "p95": null
+          },
+          "detect_ms": {
+            "p50": 45.57616250008323,
+            "p95": 61.985005500218904
+          },
+          "solve_ms": {
+            "p50": 1051.5060024999912,
+            "p95": 1182.7802394998344
+          },
+          "serial_processing_ms": {
+            "p50": 1104.7179355005028,
+            "p95": 1224.3702522498552
+          },
+          "preprocess_ms": null
+        },
+        "raw_mf4p_mask": {
+          "attempts": 16,
+          "quality_pass": 0,
+          "continuity_pass": 0,
+          "mature_attempts": 16,
+          "mature_quality_pass": 0,
+          "last10_quality_pass": 0,
+          "continuity_reasons": {},
+          "failure_reasons": {
+            "insufficient_centroids": 11,
+            "no_solution": 5
+          },
+          "fallback_calls": 0,
+          "candidates": {
+            "p50": 4.0,
+            "p95": 5.0
+          },
+          "city_candidates": {
+            "p50": 0.0,
+            "p95": 0.0
+          },
+          "rmse_arcsec": {
+            "p50": null,
+            "p95": null
+          },
+          "matches": {
+            "p50": null,
+            "p95": null
+          },
+          "detect_ms": {
+            "p50": 48.0752895000478,
+            "p95": 77.31959599993843
+          },
+          "solve_ms": {
+            "p50": 0.0,
+            "p95": 44.95456150004884
+          },
+          "serial_processing_ms": {
+            "p50": 53.56330499989781,
+            "p95": 117.76162899968767
+          },
+          "preprocess_ms": null
+        }
+      }
+    },
+    "pilot_e050_g30": {
+      "temporal": 5,
+      "frames_replayed": 16,
+      "results": {
+        "pre_mf4p": {
+          "attempts": 15,
+          "quality_pass": 0,
+          "continuity_pass": 0,
+          "mature_attempts": 12,
+          "mature_quality_pass": 0,
+          "last10_quality_pass": 0,
+          "continuity_reasons": {},
+          "failure_reasons": {
+            "no_solution": 15
+          },
+          "fallback_calls": 0,
+          "candidates": {
+            "p50": 32.0,
+            "p95": 36.599999999999994
+          },
+          "city_candidates": {
+            "p50": 31.0,
+            "p95": 35.9
+          },
+          "rmse_arcsec": {
+            "p50": null,
+            "p95": null
+          },
+          "matches": {
+            "p50": null,
+            "p95": null
+          },
+          "detect_ms": {
+            "p50": 45.664691000183666,
+            "p95": 57.80846660013594
+          },
+          "solve_ms": {
+            "p50": 1000.9337900000901,
+            "p95": 1001.4297192999948
+          },
+          "serial_processing_ms": {
+            "p50": 2442.5000420001197,
+            "p95": 2520.9641660001125
+          },
+          "preprocess_ms": {
+            "p50": 1387.604506000116,
+            "p95": 1484.1051430000334
+          }
+        },
+        "pre_mf4p_mask": {
+          "attempts": 15,
+          "quality_pass": 0,
+          "continuity_pass": 0,
+          "mature_attempts": 12,
+          "mature_quality_pass": 0,
+          "last10_quality_pass": 0,
+          "continuity_reasons": {},
+          "failure_reasons": {
+            "insufficient_centroids": 7,
+            "no_solution": 8
+          },
+          "fallback_calls": 0,
+          "candidates": {
+            "p50": 5.0,
+            "p95": 5.0
+          },
+          "city_candidates": {
+            "p50": 0.0,
+            "p95": 0.0
+          },
+          "rmse_arcsec": {
+            "p50": null,
+            "p95": null
+          },
+          "matches": {
+            "p50": null,
+            "p95": null
+          },
+          "detect_ms": {
+            "p50": 43.205730999943626,
+            "p95": 58.20378500002334
+          },
+          "solve_ms": {
+            "p50": 15.349242999946,
+            "p95": 41.98844809989168
+          },
+          "serial_processing_ms": {
+            "p50": 1458.0815379999876,
+            "p95": 1563.197134300026
+          },
+          "preprocess_ms": {
+            "p50": 1387.604506000116,
+            "p95": 1484.1051430000334
+          }
+        },
+        "raw_mf4p": {
+          "attempts": 16,
+          "quality_pass": 0,
+          "continuity_pass": 0,
+          "mature_attempts": 16,
+          "mature_quality_pass": 0,
+          "last10_quality_pass": 0,
+          "continuity_reasons": {},
+          "failure_reasons": {
+            "no_solution": 16
+          },
+          "fallback_calls": 0,
+          "candidates": {
+            "p50": 42.0,
+            "p95": 46.5
+          },
+          "city_candidates": {
+            "p50": 36.0,
+            "p95": 39.75
+          },
+          "rmse_arcsec": {
+            "p50": null,
+            "p95": null
+          },
+          "matches": {
+            "p50": null,
+            "p95": null
+          },
+          "detect_ms": {
+            "p50": 63.08974349985874,
+            "p95": 72.42873674999828
+          },
+          "solve_ms": {
+            "p50": 1201.0879504998684,
+            "p95": 1459.7047685001598
+          },
+          "serial_processing_ms": {
+            "p50": 1248.9824420001696,
+            "p95": 1522.1520037500795
+          },
+          "preprocess_ms": null
+        },
+        "raw_mf4p_mask": {
+          "attempts": 16,
+          "quality_pass": 1,
+          "continuity_pass": 0,
+          "mature_attempts": 16,
+          "mature_quality_pass": 1,
+          "last10_quality_pass": 0,
+          "continuity_reasons": {
+            "initial_fullframe_confirmation": 1
+          },
+          "failure_reasons": {
+            "quality_ok": 1,
+            "no_solution": 8,
+            "insufficient_centroids": 7
+          },
+          "fallback_calls": 0,
+          "candidates": {
+            "p50": 5.0,
+            "p95": 6.5
+          },
+          "city_candidates": {
+            "p50": 0.0,
+            "p95": 0.0
+          },
+          "rmse_arcsec": {
+            "p50": 95.938368839655,
+            "p95": 95.938368839655
+          },
+          "matches": {
+            "p50": 7.0,
+            "p95": 7.0
+          },
+          "detect_ms": {
+            "p50": 47.81008399982056,
+            "p95": 79.80365725006777
+          },
+          "solve_ms": {
+            "p50": 16.359971500151005,
+            "p95": 66.41739374992994
+          },
+          "serial_processing_ms": {
+            "p50": 63.790071499852274,
+            "p95": 116.55688500013639
+          },
+          "preprocess_ms": null
+        }
+      }
+    },
+    "pilot_e100_g30": {
+      "temporal": 5,
+      "frames_replayed": 16,
+      "results": {
+        "pre_mf4p": {
+          "attempts": 15,
+          "quality_pass": 0,
+          "continuity_pass": 0,
+          "mature_attempts": 12,
+          "mature_quality_pass": 0,
+          "last10_quality_pass": 0,
+          "continuity_reasons": {},
+          "failure_reasons": {
+            "no_solution": 15
+          },
+          "fallback_calls": 0,
+          "candidates": {
+            "p50": 36.0,
+            "p95": 42.39999999999999
+          },
+          "city_candidates": {
+            "p50": 28.0,
+            "p95": 34.49999999999999
+          },
+          "rmse_arcsec": {
+            "p50": null,
+            "p95": null
+          },
+          "matches": {
+            "p50": null,
+            "p95": null
+          },
+          "detect_ms": {
+            "p50": 46.460991999992984,
+            "p95": 62.95347970003601
+          },
+          "solve_ms": {
+            "p50": 1051.9847000000482,
+            "p95": 1575.3250404999108
+          },
+          "serial_processing_ms": {
+            "p50": 2550.3077460002714,
+            "p95": 2858.3618586999364
+          },
+          "preprocess_ms": {
+            "p50": 1366.777211000226,
+            "p95": 1527.9761063000478
+          }
+        },
+        "pre_mf4p_mask": {
+          "attempts": 15,
+          "quality_pass": 7,
+          "continuity_pass": 5,
+          "mature_attempts": 12,
+          "mature_quality_pass": 7,
+          "last10_quality_pass": 6,
+          "continuity_reasons": {
+            "initial_preferred_confirmation": 2,
+            "confirmed_stationary_change": 1,
+            "near_trusted": 4
+          },
+          "failure_reasons": {
+            "insufficient_centroids": 1,
+            "no_solution": 7,
+            "quality_ok": 7
+          },
+          "fallback_calls": 0,
+          "candidates": {
+            "p50": 9.0,
+            "p95": 11.299999999999999
+          },
+          "city_candidates": {
+            "p50": 0.0,
+            "p95": 0.0
+          },
+          "rmse_arcsec": {
+            "p50": 69.12853093220494,
+            "p95": 80.41894186286403
+          },
+          "matches": {
+            "p50": 8.0,
+            "p95": 8.0
+          },
+          "detect_ms": {
+            "p50": 42.31589300025007,
+            "p95": 64.61666600025637
+          },
+          "solve_ms": {
+            "p50": 52.7997540002616,
+            "p95": 484.5044015998154
+          },
+          "serial_processing_ms": {
+            "p50": 1527.4804859996038,
+            "p95": 1967.313785600072
+          },
+          "preprocess_ms": {
+            "p50": 1366.777211000226,
+            "p95": 1527.9761063000478
+          },
+          "sidereal_corrected_center_separation_arcsec": {
+            "p50": 16.62328931383256,
+            "p95": 86.83774587516633
+          }
+        },
+        "raw_mf4p": {
+          "attempts": 16,
+          "quality_pass": 0,
+          "continuity_pass": 0,
+          "mature_attempts": 16,
+          "mature_quality_pass": 0,
+          "last10_quality_pass": 0,
+          "continuity_reasons": {},
+          "failure_reasons": {
+            "no_solution": 16
+          },
+          "fallback_calls": 0,
+          "candidates": {
+            "p50": 29.5,
+            "p95": 34.0
+          },
+          "city_candidates": {
+            "p50": 26.0,
+            "p95": 28.5
+          },
+          "rmse_arcsec": {
+            "p50": null,
+            "p95": null
+          },
+          "matches": {
+            "p50": null,
+            "p95": null
+          },
+          "detect_ms": {
+            "p50": 37.72295650014712,
+            "p95": 61.4016592498956
+          },
+          "solve_ms": {
+            "p50": 1001.1598849998791,
+            "p95": 1027.8826384998183
+          },
+          "serial_processing_ms": {
+            "p50": 1044.4966350000868,
+            "p95": 1069.3001365000327
+          },
+          "preprocess_ms": null
+        },
+        "raw_mf4p_mask": {
+          "attempts": 16,
+          "quality_pass": 0,
+          "continuity_pass": 0,
+          "mature_attempts": 16,
+          "mature_quality_pass": 0,
+          "last10_quality_pass": 0,
+          "continuity_reasons": {},
+          "failure_reasons": {
+            "insufficient_centroids": 13,
+            "no_solution": 3
+          },
+          "fallback_calls": 11,
+          "candidates": {
+            "p50": 2.5,
+            "p95": 5.5
+          },
+          "city_candidates": {
+            "p50": 0.0,
+            "p95": 0.0
+          },
+          "rmse_arcsec": {
+            "p50": null,
+            "p95": null
+          },
+          "matches": {
+            "p50": null,
+            "p95": null
+          },
+          "detect_ms": {
+            "p50": 159.56837049998285,
+            "p95": 235.2771370000255
+          },
+          "solve_ms": {
+            "p50": 0.0,
+            "p95": 53.72081500013337
+          },
+          "serial_processing_ms": {
+            "p50": 159.56837049998285,
+            "p95": 235.2771370000255
+          },
+          "preprocess_ms": null
+        }
+      }
+    },
+    "pilot_e100_g30_repeat": {
+      "temporal": 5,
+      "frames_replayed": 16,
+      "results": {
+        "pre_mf4p": {
+          "attempts": 15,
+          "quality_pass": 0,
+          "continuity_pass": 0,
+          "mature_attempts": 12,
+          "mature_quality_pass": 0,
+          "last10_quality_pass": 0,
+          "continuity_reasons": {},
+          "failure_reasons": {
+            "no_solution": 15
+          },
+          "fallback_calls": 0,
+          "candidates": {
+            "p50": 34.0,
+            "p95": 43.599999999999994
+          },
+          "city_candidates": {
+            "p50": 28.0,
+            "p95": 35.599999999999994
+          },
+          "rmse_arcsec": {
+            "p50": null,
+            "p95": null
+          },
+          "matches": {
+            "p50": null,
+            "p95": null
+          },
+          "detect_ms": {
+            "p50": 44.58861000011893,
+            "p95": 50.57606419982221
+          },
+          "solve_ms": {
+            "p50": 1086.0833369997636,
+            "p95": 1195.863096699895
+          },
+          "serial_processing_ms": {
+            "p50": 2445.7426889998715,
+            "p95": 2557.09390139923
+          },
+          "preprocess_ms": {
+            "p50": 1249.78433699971,
+            "p95": 1448.4613531999003
+          }
+        },
+        "pre_mf4p_mask": {
+          "attempts": 15,
+          "quality_pass": 9,
+          "continuity_pass": 7,
+          "mature_attempts": 12,
+          "mature_quality_pass": 9,
+          "last10_quality_pass": 9,
+          "continuity_reasons": {
+            "initial_preferred_confirmation": 1,
+            "confirmed_stationary_change": 1,
+            "near_trusted": 6,
+            "stationary_change_confirmation": 1
+          },
+          "failure_reasons": {
+            "no_solution": 5,
+            "quality_ok": 9,
+            "matches_below_7": 1
+          },
+          "fallback_calls": 0,
+          "candidates": {
+            "p50": 8.0,
+            "p95": 10.0
+          },
+          "city_candidates": {
+            "p50": 0.0,
+            "p95": 0.0
+          },
+          "rmse_arcsec": {
+            "p50": 121.04589481291569,
+            "p95": 128.84091143993166
+          },
+          "matches": {
+            "p50": 7.0,
+            "p95": 9.0
+          },
+          "detect_ms": {
+            "p50": 36.1503540002559,
+            "p95": 59.18610840017207
+          },
+          "solve_ms": {
+            "p50": 31.069305000073655,
+            "p95": 96.74635040009889
+          },
+          "serial_processing_ms": {
+            "p50": 1338.6420179995184,
+            "p95": 1512.855577199707
+          },
+          "preprocess_ms": {
+            "p50": 1249.78433699971,
+            "p95": 1448.4613531999003
+          },
+          "sidereal_corrected_center_separation_arcsec": {
+            "p50": 19.615309648883848,
+            "p95": 108.37139458301907
+          }
+        },
+        "raw_mf4p": {
+          "attempts": 16,
+          "quality_pass": 0,
+          "continuity_pass": 0,
+          "mature_attempts": 16,
+          "mature_quality_pass": 0,
+          "last10_quality_pass": 0,
+          "continuity_reasons": {},
+          "failure_reasons": {
+            "no_solution": 16
+          },
+          "fallback_calls": 0,
+          "candidates": {
+            "p50": 31.0,
+            "p95": 33.5
+          },
+          "city_candidates": {
+            "p50": 26.0,
+            "p95": 30.0
+          },
+          "rmse_arcsec": {
+            "p50": null,
+            "p95": null
+          },
+          "matches": {
+            "p50": null,
+            "p95": null
+          },
+          "detect_ms": {
+            "p50": 40.163924999660594,
+            "p95": 55.12586100007866
+          },
+          "solve_ms": {
+            "p50": 1001.066735500217,
+            "p95": 1001.6275540001516
+          },
+          "serial_processing_ms": {
+            "p50": 1041.4777174996743,
+            "p95": 1055.856349500118
+          },
+          "preprocess_ms": null
+        },
+        "raw_mf4p_mask": {
+          "attempts": 16,
+          "quality_pass": 0,
+          "continuity_pass": 0,
+          "mature_attempts": 16,
+          "mature_quality_pass": 0,
+          "last10_quality_pass": 0,
+          "continuity_reasons": {},
+          "failure_reasons": {
+            "no_solution": 7,
+            "matches_below_7": 1,
+            "insufficient_centroids": 8
+          },
+          "fallback_calls": 6,
+          "candidates": {
+            "p50": 4.5,
+            "p95": 6.0
+          },
+          "city_candidates": {
+            "p50": 0.0,
+            "p95": 0.0
+          },
+          "rmse_arcsec": {
+            "p50": null,
+            "p95": null
+          },
+          "matches": {
+            "p50": null,
+            "p95": null
+          },
+          "detect_ms": {
+            "p50": 62.5066009999955,
+            "p95": 234.90534799998386
+          },
+          "solve_ms": {
+            "p50": 3.6628835000556137,
+            "p95": 47.19900624991169
+          },
+          "serial_processing_ms": {
+            "p50": 90.89519350004593,
+            "p95": 234.90534799998386
+          },
+          "preprocess_ms": null
+        }
+      }
+    },
+    "pilot_e200_g15": {
+      "temporal": 5,
+      "frames_replayed": 16,
+      "results": {
+        "pre_mf4p": {
+          "attempts": 15,
+          "quality_pass": 0,
+          "continuity_pass": 0,
+          "mature_attempts": 12,
+          "mature_quality_pass": 0,
+          "last10_quality_pass": 0,
+          "continuity_reasons": {},
+          "failure_reasons": {
+            "no_solution": 15
+          },
+          "fallback_calls": 0,
+          "candidates": {
+            "p50": 38.0,
+            "p95": 43.3
+          },
+          "city_candidates": {
+            "p50": 28.0,
+            "p95": 34.0
+          },
+          "rmse_arcsec": {
+            "p50": null,
+            "p95": null
+          },
+          "matches": {
+            "p50": null,
+            "p95": null
+          },
+          "detect_ms": {
+            "p50": 44.894149000356265,
+            "p95": 59.86208469985285
+          },
+          "solve_ms": {
+            "p50": 1091.4726860000883,
+            "p95": 1203.065160600272
+          },
+          "serial_processing_ms": {
+            "p50": 2435.8932410000307,
+            "p95": 2545.290584099712
+          },
+          "preprocess_ms": {
+            "p50": 1306.8748569999116,
+            "p95": 1433.7320691998684
+          }
+        },
+        "pre_mf4p_mask": {
+          "attempts": 15,
+          "quality_pass": 14,
+          "continuity_pass": 13,
+          "mature_attempts": 12,
+          "mature_quality_pass": 12,
+          "last10_quality_pass": 10,
+          "continuity_reasons": {
+            "initial_preferred_confirmation": 1,
+            "confirmed_stationary_change": 1,
+            "near_trusted": 12
+          },
+          "failure_reasons": {
+            "no_solution": 1,
+            "quality_ok": 14
+          },
+          "fallback_calls": 0,
+          "candidates": {
+            "p50": 13.0,
+            "p95": 14.0
+          },
+          "city_candidates": {
+            "p50": 0.0,
+            "p95": 0.0
+          },
+          "rmse_arcsec": {
+            "p50": 123.23444706624454,
+            "p95": 133.77713660061548
+          },
+          "matches": {
+            "p50": 10.0,
+            "p95": 11.0
+          },
+          "detect_ms": {
+            "p50": 37.04913699993995,
+            "p95": 50.785120799991994
+          },
+          "solve_ms": {
+            "p50": 36.39576199975636,
+            "p95": 120.55542539987975
+          },
+          "serial_processing_ms": {
+            "p50": 1390.0466520003647,
+            "p95": 1544.4434091999938
+          },
+          "preprocess_ms": {
+            "p50": 1306.8748569999116,
+            "p95": 1433.7320691998684
+          },
+          "sidereal_corrected_center_separation_arcsec": {
+            "p50": 17.750805387223316,
+            "p95": 61.88877967619981
+          }
+        },
+        "raw_mf4p": {
+          "attempts": 16,
+          "quality_pass": 0,
+          "continuity_pass": 0,
+          "mature_attempts": 16,
+          "mature_quality_pass": 0,
+          "last10_quality_pass": 0,
+          "continuity_reasons": {},
+          "failure_reasons": {
+            "no_solution": 16
+          },
+          "fallback_calls": 0,
+          "candidates": {
+            "p50": 33.0,
+            "p95": 37.25
+          },
+          "city_candidates": {
+            "p50": 28.0,
+            "p95": 33.25
+          },
+          "rmse_arcsec": {
+            "p50": null,
+            "p95": null
+          },
+          "matches": {
+            "p50": null,
+            "p95": null
+          },
+          "detect_ms": {
+            "p50": 38.64916550014641,
+            "p95": 64.31664474985155
+          },
+          "solve_ms": {
+            "p50": 1001.0866710001665,
+            "p95": 1043.8022417499724
+          },
+          "serial_processing_ms": {
+            "p50": 1044.3672550002248,
+            "p95": 1080.930287250112
+          },
+          "preprocess_ms": null
+        },
+        "raw_mf4p_mask": {
+          "attempts": 16,
+          "quality_pass": 0,
+          "continuity_pass": 0,
+          "mature_attempts": 16,
+          "mature_quality_pass": 0,
+          "last10_quality_pass": 0,
+          "continuity_reasons": {},
+          "failure_reasons": {
+            "no_solution": 8,
+            "insufficient_centroids": 8
+          },
+          "fallback_calls": 5,
+          "candidates": {
+            "p50": 4.5,
+            "p95": 6.0
+          },
+          "city_candidates": {
+            "p50": 0.0,
+            "p95": 0.0
+          },
+          "rmse_arcsec": {
+            "p50": null,
+            "p95": null
+          },
+          "matches": {
+            "p50": null,
+            "p95": null
+          },
+          "detect_ms": {
+            "p50": 53.792241500104865,
+            "p95": 227.12245249988428
+          },
+          "solve_ms": {
+            "p50": 5.38088550001703,
+            "p95": 76.43178424984853
+          },
+          "serial_processing_ms": {
+            "p50": 72.99295350003376,
+            "p95": 242.04368325001724
+          },
+          "preprocess_ms": null
+        }
+      }
+    },
+    "pilot_e200_g30": {
+      "temporal": 5,
+      "frames_replayed": 16,
+      "results": {
+        "pre_mf4p": {
+          "attempts": 15,
+          "quality_pass": 0,
+          "continuity_pass": 0,
+          "mature_attempts": 12,
+          "mature_quality_pass": 0,
+          "last10_quality_pass": 0,
+          "continuity_reasons": {},
+          "failure_reasons": {
+            "no_solution": 15
+          },
+          "fallback_calls": 0,
+          "candidates": {
+            "p50": 26.0,
+            "p95": 29.599999999999998
+          },
+          "city_candidates": {
+            "p50": 19.0,
+            "p95": 21.599999999999998
+          },
+          "rmse_arcsec": {
+            "p50": null,
+            "p95": null
+          },
+          "matches": {
+            "p50": null,
+            "p95": null
+          },
+          "detect_ms": {
+            "p50": 39.7765249999793,
+            "p95": 59.43848769989017
+          },
+          "solve_ms": {
+            "p50": 1001.0424949996377,
+            "p95": 1002.6978960001543
+          },
+          "serial_processing_ms": {
+            "p50": 2294.2065649999677,
+            "p95": 2442.2506252003586
+          },
+          "preprocess_ms": {
+            "p50": 1258.614130999831,
+            "p95": 1406.892169400271
+          }
+        },
+        "pre_mf4p_mask": {
+          "attempts": 15,
+          "quality_pass": 5,
+          "continuity_pass": 4,
+          "mature_attempts": 12,
+          "mature_quality_pass": 5,
+          "last10_quality_pass": 5,
+          "continuity_reasons": {
+            "initial_preferred_confirmation": 1,
+            "confirmed_stationary_change": 1,
+            "near_trusted": 3
+          },
+          "failure_reasons": {
+            "insufficient_centroids": 2,
+            "no_solution": 7,
+            "quality_ok": 5,
+            "matches_below_7": 1
+          },
+          "fallback_calls": 2,
+          "candidates": {
+            "p50": 7.0,
+            "p95": 9.299999999999999
+          },
+          "city_candidates": {
+            "p50": 0.0,
+            "p95": 0.0
+          },
+          "rmse_arcsec": {
+            "p50": 85.21658129045446,
+            "p95": 86.36790267602733
+          },
+          "matches": {
+            "p50": 7.0,
+            "p95": 7.0
+          },
+          "detect_ms": {
+            "p50": 40.4642700000295,
+            "p95": 83.0409698999574
+          },
+          "solve_ms": {
+            "p50": 13.689251999949192,
+            "p95": 233.2246693001249
+          },
+          "serial_processing_ms": {
+            "p50": 1359.8208719995455,
+            "p95": 1608.0667843003991
+          },
+          "preprocess_ms": {
+            "p50": 1258.614130999831,
+            "p95": 1406.892169400271
+          },
+          "sidereal_corrected_center_separation_arcsec": {
+            "p50": 5.526217165680434,
+            "p95": 15.649813083535788
+          }
+        },
+        "raw_mf4p": {
+          "attempts": 16,
+          "quality_pass": 0,
+          "continuity_pass": 0,
+          "mature_attempts": 16,
+          "mature_quality_pass": 0,
+          "last10_quality_pass": 0,
+          "continuity_reasons": {},
+          "failure_reasons": {
+            "no_solution": 16
+          },
+          "fallback_calls": 0,
+          "candidates": {
+            "p50": 14.5,
+            "p95": 17.0
+          },
+          "city_candidates": {
+            "p50": 12.0,
+            "p95": 15.0
+          },
+          "rmse_arcsec": {
+            "p50": null,
+            "p95": null
+          },
+          "matches": {
+            "p50": null,
+            "p95": null
+          },
+          "detect_ms": {
+            "p50": 33.53882850001355,
+            "p95": 43.91553624986955
+          },
+          "solve_ms": {
+            "p50": 1000.9844754999904,
+            "p95": 1002.4623550000342
+          },
+          "serial_processing_ms": {
+            "p50": 1033.6564750000434,
+            "p95": 1044.0018640000517
+          },
+          "preprocess_ms": null
+        },
+        "raw_mf4p_mask": {
+          "attempts": 16,
+          "quality_pass": 0,
+          "continuity_pass": 0,
+          "mature_attempts": 16,
+          "mature_quality_pass": 0,
+          "last10_quality_pass": 0,
+          "continuity_reasons": {},
+          "failure_reasons": {
+            "insufficient_centroids": 14,
+            "no_solution": 2
+          },
+          "fallback_calls": 16,
+          "candidates": {
+            "p50": 3.0,
+            "p95": 5.0
+          },
+          "city_candidates": {
+            "p50": 0.0,
+            "p95": 0.0
+          },
+          "rmse_arcsec": {
+            "p50": null,
+            "p95": null
+          },
+          "matches": {
+            "p50": null,
+            "p95": null
+          },
+          "detect_ms": {
+            "p50": 230.14109599989752,
+            "p95": 300.60648299968307
+          },
+          "solve_ms": {
+            "p50": 0.0,
+            "p95": 15.294469500190644
+          },
+          "serial_processing_ms": {
+            "p50": 243.8239864998195,
+            "p95": 300.60648299968307
+          },
+          "preprocess_ms": null
+        }
+      }
+    },
+    "pilot_e400_g08": {
+      "temporal": 5,
+      "frames_replayed": 16,
+      "results": {
+        "pre_mf4p": {
+          "attempts": 15,
+          "quality_pass": 8,
+          "continuity_pass": 7,
+          "mature_attempts": 12,
+          "mature_quality_pass": 8,
+          "last10_quality_pass": 6,
+          "continuity_reasons": {
+            "initial_preferred_confirmation": 1,
+            "confirmed_stationary_change": 1,
+            "near_trusted": 6
+          },
+          "failure_reasons": {
+            "no_solution": 7,
+            "quality_ok": 8
+          },
+          "fallback_calls": 0,
+          "candidates": {
+            "p50": 45.0,
+            "p95": 48.0
+          },
+          "city_candidates": {
+            "p50": 31.0,
+            "p95": 34.3
+          },
+          "rmse_arcsec": {
+            "p50": 88.043077913413,
+            "p95": 100.25451271814636
+          },
+          "matches": {
+            "p50": 7.0,
+            "p95": 8.649999999999999
+          },
+          "detect_ms": {
+            "p50": 44.62959200009209,
+            "p95": 53.753076000020876
+          },
+          "solve_ms": {
+            "p50": 46.813641999960964,
+            "p95": 2001.8090519998168
+          },
+          "serial_processing_ms": {
+            "p50": 1422.8646700003083,
+            "p95": 3266.4325669996283
+          },
+          "preprocess_ms": {
+            "p50": 1255.8896880000248,
+            "p95": 1455.7327891000114
+          },
+          "sidereal_corrected_center_separation_arcsec": {
+            "p50": 2.9010026467436436,
+            "p95": 17.41810984241614
+          }
+        },
+        "pre_mf4p_mask": {
+          "attempts": 15,
+          "quality_pass": 15,
+          "continuity_pass": 13,
+          "mature_attempts": 12,
+          "mature_quality_pass": 12,
+          "last10_quality_pass": 10,
+          "continuity_reasons": {
+            "initial_preferred_confirmation": 2,
+            "confirmed_stationary_change": 1,
+            "near_trusted": 12
+          },
+          "failure_reasons": {
+            "quality_ok": 15
+          },
+          "fallback_calls": 0,
+          "candidates": {
+            "p50": 17.0,
+            "p95": 19.0
+          },
+          "city_candidates": {
+            "p50": 0.0,
+            "p95": 0.0
+          },
+          "rmse_arcsec": {
+            "p50": 88.84029085065615,
+            "p95": 122.24519070751991
+          },
+          "matches": {
+            "p50": 8.0,
+            "p95": 13.299999999999999
+          },
+          "detect_ms": {
+            "p50": 40.043675000106305,
+            "p95": 51.88134070003798
+          },
+          "solve_ms": {
+            "p50": 5.856795999989117,
+            "p95": 748.9311285004073
+          },
+          "serial_processing_ms": {
+            "p50": 1372.227429999839,
+            "p95": 2180.802795600357
+          },
+          "preprocess_ms": {
+            "p50": 1255.8896880000248,
+            "p95": 1455.7327891000114
+          },
+          "sidereal_corrected_center_separation_arcsec": {
+            "p50": 6.674852531432742,
+            "p95": 82.93757124036185
+          }
+        },
+        "raw_mf4p": {
+          "attempts": 16,
+          "quality_pass": 0,
+          "continuity_pass": 0,
+          "mature_attempts": 16,
+          "mature_quality_pass": 0,
+          "last10_quality_pass": 0,
+          "continuity_reasons": {},
+          "failure_reasons": {
+            "no_solution": 16
+          },
+          "fallback_calls": 0,
+          "candidates": {
+            "p50": 30.0,
+            "p95": 33.75
+          },
+          "city_candidates": {
+            "p50": 26.0,
+            "p95": 28.0
+          },
+          "rmse_arcsec": {
+            "p50": null,
+            "p95": null
+          },
+          "matches": {
+            "p50": null,
+            "p95": null
+          },
+          "detect_ms": {
+            "p50": 36.54324500007533,
+            "p95": 56.268354500275564
+          },
+          "solve_ms": {
+            "p50": 1001.0767545002182,
+            "p95": 1038.2367817502427
+          },
+          "serial_processing_ms": {
+            "p50": 1041.4106255000206,
+            "p95": 1080.51054425016
+          },
+          "preprocess_ms": null
+        },
+        "raw_mf4p_mask": {
+          "attempts": 16,
+          "quality_pass": 0,
+          "continuity_pass": 0,
+          "mature_attempts": 16,
+          "mature_quality_pass": 0,
+          "last10_quality_pass": 0,
+          "continuity_reasons": {},
+          "failure_reasons": {
+            "insufficient_centroids": 5,
+            "no_solution": 11
+          },
+          "fallback_calls": 6,
+          "candidates": {
+            "p50": 5.0,
+            "p95": 6.75
+          },
+          "city_candidates": {
+            "p50": 0.0,
+            "p95": 0.0
+          },
+          "rmse_arcsec": {
+            "p50": null,
+            "p95": null
+          },
+          "matches": {
+            "p50": null,
+            "p95": null
+          },
+          "detect_ms": {
+            "p50": 50.67269400001351,
+            "p95": 236.3163565000832
+          },
+          "solve_ms": {
+            "p50": 25.402000000212865,
+            "p95": 189.54495025002416
+          },
+          "serial_processing_ms": {
+            "p50": 104.16776800002481,
+            "p95": 385.73927424999965
+          },
+          "preprocess_ms": null
+        }
+      }
+    },
+    "pilot_e400_g30": {
+      "temporal": 5,
+      "frames_replayed": 16,
+      "results": {
+        "pre_mf4p": {
+          "attempts": 15,
+          "quality_pass": 0,
+          "continuity_pass": 0,
+          "mature_attempts": 12,
+          "mature_quality_pass": 0,
+          "last10_quality_pass": 0,
+          "continuity_reasons": {},
+          "failure_reasons": {
+            "no_solution": 15
+          },
+          "fallback_calls": 0,
+          "candidates": {
+            "p50": 10.0,
+            "p95": 12.299999999999999
+          },
+          "city_candidates": {
+            "p50": 8.0,
+            "p95": 10.599999999999998
+          },
+          "rmse_arcsec": {
+            "p50": null,
+            "p95": null
+          },
+          "matches": {
+            "p50": null,
+            "p95": null
+          },
+          "detect_ms": {
+            "p50": 28.47082500011311,
+            "p95": 42.10945560021173
+          },
+          "solve_ms": {
+            "p50": 75.8636010000373,
+            "p95": 700.5012669002095
+          },
+          "serial_processing_ms": {
+            "p50": 1450.3477120001662,
+            "p95": 2042.071017200487
+          },
+          "preprocess_ms": {
+            "p50": 1233.4312899997713,
+            "p95": 1442.1169513999757
+          }
+        },
+        "pre_mf4p_mask": {
+          "attempts": 15,
+          "quality_pass": 0,
+          "continuity_pass": 0,
+          "mature_attempts": 12,
+          "mature_quality_pass": 0,
+          "last10_quality_pass": 0,
+          "continuity_reasons": {},
+          "failure_reasons": {
+            "insufficient_centroids": 15
+          },
+          "fallback_calls": 15,
+          "candidates": {
+            "p50": 2.0,
+            "p95": 2.0
+          },
+          "city_candidates": {
+            "p50": 0.0,
+            "p95": 0.0
+          },
+          "rmse_arcsec": {
+            "p50": null,
+            "p95": null
+          },
+          "matches": {
+            "p50": null,
+            "p95": null
+          },
+          "detect_ms": {
+            "p50": 89.3519439996453,
+            "p95": 119.70684920024722
+          },
+          "solve_ms": {
+            "p50": 0.0,
+            "p95": 0.0
+          },
+          "serial_processing_ms": {
+            "p50": 1335.390329999882,
+            "p95": 1525.7565986998088
+          },
+          "preprocess_ms": {
+            "p50": 1233.4312899997713,
+            "p95": 1442.1169513999757
+          }
+        },
+        "raw_mf4p": {
+          "attempts": 16,
+          "quality_pass": 0,
+          "continuity_pass": 0,
+          "mature_attempts": 16,
+          "mature_quality_pass": 0,
+          "last10_quality_pass": 0,
+          "continuity_reasons": {},
+          "failure_reasons": {
+            "insufficient_centroids": 13,
+            "no_solution": 3
+          },
+          "fallback_calls": 13,
+          "candidates": {
+            "p50": 0.0,
+            "p95": 5.0
+          },
+          "city_candidates": {
+            "p50": 0.0,
+            "p95": 5.0
+          },
+          "rmse_arcsec": {
+            "p50": null,
+            "p95": null
+          },
+          "matches": {
+            "p50": null,
+            "p95": null
+          },
+          "detect_ms": {
+            "p50": 53.068857499965816,
+            "p95": 92.0853034999709
+          },
+          "solve_ms": {
+            "p50": 0.0,
+            "p95": 26.16993075002938
+          },
+          "serial_processing_ms": {
+            "p50": 53.068857499965816,
+            "p95": 95.28990649982916
+          },
+          "preprocess_ms": null
+        },
+        "raw_mf4p_mask": {
+          "attempts": 16,
+          "quality_pass": 0,
+          "continuity_pass": 0,
+          "mature_attempts": 16,
+          "mature_quality_pass": 0,
+          "last10_quality_pass": 0,
+          "continuity_reasons": {},
+          "failure_reasons": {
+            "insufficient_centroids": 16
+          },
+          "fallback_calls": 16,
+          "candidates": {
+            "p50": 0.0,
+            "p95": 0.0
+          },
+          "city_candidates": {
+            "p50": 0.0,
+            "p95": 0.0
+          },
+          "rmse_arcsec": {
+            "p50": null,
+            "p95": null
+          },
+          "matches": {
+            "p50": null,
+            "p95": null
+          },
+          "detect_ms": {
+            "p50": 62.58514800015291,
+            "p95": 86.1821600001349
+          },
+          "solve_ms": {
+            "p50": 0.0,
+            "p95": 0.0
+          },
+          "serial_processing_ms": {
+            "p50": 62.58514800015291,
+            "p95": 86.1821600001349
+          },
+          "preprocess_ms": null
+        }
+      }
+    },
+    "raw_mf2_e200_g15": {
+      "temporal": 5,
+      "frames_replayed": 16,
+      "results": {
+        "raw_mf2_mask": {
+          "attempts": 16,
+          "quality_pass": 15,
+          "continuity_pass": 9,
+          "mature_attempts": 16,
+          "mature_quality_pass": 15,
+          "last10_quality_pass": 9,
+          "continuity_reasons": {
+            "initial_fullframe_confirmation": 1,
+            "confirmed_jump": 1,
+            "near_trusted": 7,
+            "stationary_change_confirmation": 5,
+            "confirmed_stationary_change": 1
+          },
+          "failure_reasons": {
+            "quality_ok": 15,
+            "no_solution": 1
+          },
+          "fallback_calls": 0,
+          "candidates": {
+            "p50": 14.5,
+            "p95": 15.0
+          },
+          "city_candidates": {
+            "p50": 0.0,
+            "p95": 0.0
+          },
+          "rmse_arcsec": {
+            "p50": 102.43321231368449,
+            "p95": 145.38265941040638
+          },
+          "matches": {
+            "p50": 11.0,
+            "p95": 12.0
+          },
+          "detect_ms": {
+            "p50": 98.57141800011959,
+            "p95": 131.0941277499751
+          },
+          "solve_ms": {
+            "p50": 220.62035500016464,
+            "p95": 1045.3813907500944
+          },
+          "serial_processing_ms": {
+            "p50": 324.24166600026183,
+            "p95": 1154.5597737500657
+          },
+          "preprocess_ms": null,
+          "sidereal_corrected_center_separation_arcsec": {
+            "p50": 51.70049881342883,
+            "p95": 214.43702710411944
+          }
+        }
+      }
+    },
+    "raw_mf2_e400_g08": {
+      "temporal": 5,
+      "frames_replayed": 16,
+      "results": {
+        "raw_mf2_mask": {
+          "attempts": 16,
+          "quality_pass": 16,
+          "continuity_pass": 10,
+          "mature_attempts": 16,
+          "mature_quality_pass": 16,
+          "last10_quality_pass": 10,
+          "continuity_reasons": {
+            "initial_fullframe_confirmation": 1,
+            "confirmed_jump": 1,
+            "stationary_change_confirmation": 5,
+            "confirmed_stationary_change": 4,
+            "near_trusted": 5
+          },
+          "failure_reasons": {
+            "quality_ok": 16
+          },
+          "fallback_calls": 0,
+          "candidates": {
+            "p50": 17.0,
+            "p95": 20.25
+          },
+          "city_candidates": {
+            "p50": 0.0,
+            "p95": 0.0
+          },
+          "rmse_arcsec": {
+            "p50": 87.62816397793867,
+            "p95": 117.09756670439577
+          },
+          "matches": {
+            "p50": 11.0,
+            "p95": 14.25
+          },
+          "detect_ms": {
+            "p50": 112.00281600008566,
+            "p95": 149.1947047497888
+          },
+          "solve_ms": {
+            "p50": 446.5067819999149,
+            "p95": 1170.2945092503114
+          },
+          "serial_processing_ms": {
+            "p50": 538.2341199997427,
+            "p95": 1264.5160110002962
+          },
+          "preprocess_ms": null,
+          "sidereal_corrected_center_separation_arcsec": {
+            "p50": 71.03291891675258,
+            "p95": 172.66043241864287
+          }
+        }
+      }
+    }
+  },
+  "operating_camera_center_crosscheck": {
+    "window_5": {
+      "snapshot_pairs": 17,
+      "distinct_operating_success_snapshots": 11,
+      "center_separation_arcsec_p50": 51.52167681992979,
+      "center_separation_arcsec_p95": 121.55067447214174
+    },
+    "window_10": {
+      "snapshot_pairs": 17,
+      "distinct_operating_success_snapshots": 11,
+      "center_separation_arcsec_p50": 63.47691390208206,
+      "center_separation_arcsec_p95": 105.20014051172097
+    },
+    "note": "MF camera center vs operating camera_center, not aligned pointing RA/Dec. API and images are not atomic; shared Tetra3 database and different temporal histories mean this is not independent absolute ground truth."
+  },
+  "limitations": [
+    "Overlapping temporal windows are not independent trials.",
+    "Exposure arms are chronological; Moon/sky changed over time.",
+    "Moon-not-visible capture is a separate condition.",
+    "Serial processing timing excludes acquisition, queueing, history age and final publication.",
+    "No mount/GoTo or external astrometric ground truth.",
+    "Manual scene mask is not deployed or universal."
+  ],
+  "solve_order_comparison": {
+    "full_mf2_e400_g08": {
+      "n": 32,
+      "original_solved": 32,
+      "solved": 32,
+      "continuity": 21,
+      "lost_original_success": 0,
+      "new_success": 0,
+      "original_solve_ms": {
+        "p50": 441.34769099946425,
+        "p95": 1086.5780361496945
+      },
+      "solve_ms": {
+        "p50": 30.74327699960122,
+        "p95": 182.66466734939968
+      },
+      "rmse": {
+        "p50": 89.73015505647783,
+        "p95": 120.84844479768645
+      },
+      "matches": {
+        "p50": 13.0,
+        "p95": 15.45
+      }
+    },
+    "full_mf2_e200_g15": {
+      "n": 32,
+      "original_solved": 29,
+      "solved": 29,
+      "continuity": 17,
+      "lost_original_success": 0,
+      "new_success": 0,
+      "original_solve_ms": {
+        "p50": 304.62230150033065,
+        "p95": 1013.5496630497983
+      },
+      "solve_ms": {
+        "p50": 35.968143500213046,
+        "p95": 570.6565840498109
+      },
+      "rmse": {
+        "p50": 98.73200149449477,
+        "p95": 144.4330003052832
+      },
+      "matches": {
+        "p50": 11.0,
+        "p95": 13.0
+      }
+    }
+  },
+  "solve_order_initial_run": {
+    "e400_g08": {
+      "n": 32,
+      "original_solved": 32,
+      "solved": 32,
+      "continuity": 21,
+      "lost_original_success": 0,
+      "new_success": 0,
+      "original_solve_ms": {
+        "p50": 441.34769099946425,
+        "p95": 1086.5780361496945
+      },
+      "solve_ms": {
+        "p50": 43.75900700006241,
+        "p95": 143.25325770023483
+      },
+      "rmse": {
+        "p50": 89.73015505647783,
+        "p95": 120.84844479768645
+      },
+      "matches": {
+        "p50": 13.0,
+        "p95": 15.45
+      }
+    },
+    "e200_g15": {
+      "n": 32,
+      "original_solved": 29,
+      "solved": 29,
+      "continuity": 17,
+      "lost_original_success": 0,
+      "new_success": 0,
+      "original_solve_ms": {
+        "p50": 304.62230150033065,
+        "p95": 1013.5496630497983
+      },
+      "solve_ms": {
+        "p50": 42.183533999832434,
+        "p95": 534.0607901498054
+      },
+      "rmse": {
+        "p50": 98.73200149449477,
+        "p95": 144.4330003052832
+      },
+      "matches": {
+        "p50": 11.0,
+        "p95": 13.0
+      }
+    }
+  }
+}

@@ -1,0 +1,144 @@
+{
+  "delay_s": 1.2,
+  "frames": 160,
+  "common_frames": 132,
+  "rejections": {
+    "anchor_direct:confirming_preprocessed": 12,
+    "anchor_filtered:confirming_preprocessed": 7,
+    "anchor_window:confirming_preprocessed": 7,
+    "anchor_direct:invalid_or_old_generation": 2,
+    "anchor_filtered:invalid_or_old_generation": 2,
+    "anchor_window:invalid_or_old_generation": 2,
+    "anchor_direct:shaking_window": 2,
+    "anchor_filtered:shaking_window": 2,
+    "anchor_window:shaking_window": 2
+  },
+  "modes": {
+    "raw": {
+      "available": 152,
+      "common_frames": 132,
+      "sources": {
+        "raw": 152
+      },
+      "age_s_p50": 0.0,
+      "detrended_arcsec_p50": 60.65003549733709,
+      "detrended_arcsec_p95": 176.4698635668733,
+      "truth_error_p50": 28.95753456136366,
+      "truth_error_p95": 51.471614505966336,
+      "truth_error_max": 616.1797663935454,
+      "phase_error_p95": {
+        "outlier": 530.4501601358074,
+        "shake": 49.97131650051715,
+        "steady": 49.06240353599422,
+        "step": 56.103318867671746
+      },
+      "step_response_s": 0.0
+    },
+    "existing_bias": {
+      "available": 152,
+      "common_frames": 132,
+      "sources": {
+        "raw_bias": 152
+      },
+      "age_s_p50": 0.0,
+      "detrended_arcsec_p50": 62.443310835429195,
+      "detrended_arcsec_p95": 167.51600353427813,
+      "truth_error_p50": 17.314132805435058,
+      "truth_error_p95": 64.17987719586938,
+      "truth_error_max": 587.2647571941957,
+      "phase_error_p95": {
+        "outlier": 505.87240231636025,
+        "shake": 25.884844199263796,
+        "steady": 40.72315731364288,
+        "step": 95.52190641216713
+      },
+      "step_response_s": 0.0
+    },
+    "preprocessed_hold": {
+      "available": 157,
+      "common_frames": 132,
+      "sources": {
+        "old_preprocessed": 157
+      },
+      "age_s_p50": 1.75,
+      "detrended_arcsec_p50": 69.877303642688,
+      "detrended_arcsec_p95": 140.14156187124416,
+      "truth_error_p50": 22.822838120361112,
+      "truth_error_p95": 109.12989820801863,
+      "truth_error_max": 331.1231568746118,
+      "phase_error_p95": {
+        "outlier": 21.17508199903344,
+        "shake": 72.9704250130074,
+        "steady": 28.695827418877386,
+        "step": 329.600553334848
+      },
+      "step_response_s": 3.5
+    },
+    "anchor_direct": {
+      "available": 160,
+      "common_frames": 132,
+      "sources": {
+        "raw": 33,
+        "preprocessed_plus_raw_motion": 117,
+        "preprocessed_at_original_epoch": 10
+      },
+      "age_s_p50": 0.0,
+      "detrended_arcsec_p50": 68.3472720614877,
+      "detrended_arcsec_p95": 174.22090946610592,
+      "truth_error_p50": 24.568000815937697,
+      "truth_error_p95": 45.510822673974154,
+      "truth_error_max": 335.03913557694085,
+      "phase_error_p95": {
+        "outlier": 23.337193240626824,
+        "shake": 42.472590756899045,
+        "steady": 38.497196072091675,
+        "step": 211.84998466841404
+      },
+      "step_response_s": 0.5
+    },
+    "anchor_filtered": {
+      "available": 160,
+      "common_frames": 132,
+      "sources": {
+        "raw": 25,
+        "preprocessed_plus_raw_motion": 125,
+        "preprocessed_at_original_epoch": 10
+      },
+      "age_s_p50": 0.0,
+      "detrended_arcsec_p50": 63.01946468755668,
+      "detrended_arcsec_p95": 168.81780794699017,
+      "truth_error_p50": 14.445084833781925,
+      "truth_error_p95": 42.044237177339724,
+      "truth_error_max": 323.2651105071084,
+      "phase_error_p95": {
+        "outlier": 18.86726800941418,
+        "shake": 51.82643748756589,
+        "steady": 24.636865544093478,
+        "step": 205.3742708800062
+      },
+      "step_response_s": 0.5
+    },
+    "anchor_window": {
+      "available": 160,
+      "common_frames": 132,
+      "sources": {
+        "raw": 25,
+        "preprocessed_plus_raw_motion": 125,
+        "preprocessed_at_original_epoch": 10
+      },
+      "age_s_p50": 0.0,
+      "detrended_arcsec_p50": 62.87432045092755,
+      "detrended_arcsec_p95": 169.56911993053424,
+      "truth_error_p50": 11.339698603541871,
+      "truth_error_p95": 41.083799171636535,
+      "truth_error_max": 314.1318709678703,
+      "phase_error_p95": {
+        "outlier": 18.252286891243312,
+        "shake": 42.472590756899045,
+        "steady": 24.102778408020953,
+        "step": 200.3509891334253
+      },
+      "step_response_s": 0.5
+    }
+  }
+}

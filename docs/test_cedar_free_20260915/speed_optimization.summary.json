@@ -1,0 +1,944 @@
+{
+  "date": "2026-09-15",
+  "default": "mf4p + auto + optimized Tetra3 search",
+  "engine_sha256": "f34b10d3fd7a90d67e9d5c4393180530d244323167980a6460bb113d13bc3820",
+  "same_centroid_ab": {
+    "validation": {
+      "raw": {
+        "legacy": {
+          "attempts": 119,
+          "solved": 118,
+          "sep_calls": 0,
+          "routes": {
+            "sep_center": 111,
+            "sep_full": 7,
+            "": 1
+          },
+          "detect_ms": {
+            "p50": 23.83157999975083,
+            "p95": 29.474415399818092
+          },
+          "solve_ms": {
+            "p50": 53.392511001220555,
+            "p95": 1058.672773499529
+          },
+          "total_ms": {
+            "p50": 80.57714899950952,
+            "p95": 1091.4709796006716
+          },
+          "rmse": {
+            "p50": 41.49718626844774,
+            "p95": 59.344365965562254
+          },
+          "matches": {
+            "p50": 22.0,
+            "p95": 31.0
+          }
+        },
+        "optimized": {
+          "attempts": 119,
+          "solved": 119,
+          "sep_calls": 0,
+          "routes": {
+            "sep_center": 115,
+            "sep_full": 4
+          },
+          "detect_ms": {
+            "p50": 23.83157999975083,
+            "p95": 29.474415399818092
+          },
+          "solve_ms": {
+            "p50": 34.48887100057618,
+            "p95": 521.4359270985358
+          },
+          "total_ms": {
+            "p50": 61.5629509993596,
+            "p95": 561.8905064986383
+          },
+          "rmse": {
+            "p50": 41.47905045575217,
+            "p95": 56.18810306617483
+          },
+          "matches": {
+            "p50": 21.0,
+            "p95": 26.0
+          }
+        },
+        "paired": {
+          "regressions": 0,
+          "gains": 1,
+          "both_solved": 118,
+          "max_abs_rmse_delta_arcsec": 22.70260262173184,
+          "identical_solution_count": 115
+        }
+      },
+      "preprocessed": {
+        "legacy": {
+          "attempts": 119,
+          "solved": 119,
+          "sep_calls": 0,
+          "routes": {
+            "preprocessed_sep_center": 119
+          },
+          "detect_ms": {
+            "p50": 24.50280599987309,
+            "p95": 30.619176700747627
+          },
+          "solve_ms": {
+            "p50": 14.225962000637082,
+            "p95": 62.25262009866128
+          },
+          "total_ms": {
+            "p50": 38.95110299890803,
+            "p95": 85.92916179786695
+          },
+          "rmse": {
+            "p50": 27.672464700343408,
+            "p95": 32.70383314602184
+          },
+          "matches": {
+            "p50": 31.0,
+            "p95": 33.0
+          }
+        },
+        "optimized": {
+          "attempts": 119,
+          "solved": 119,
+          "sep_calls": 0,
+          "routes": {
+            "preprocessed_sep_center": 119
+          },
+          "detect_ms": {
+            "p50": 24.50280599987309,
+            "p95": 30.619176700747627
+          },
+          "solve_ms": {
+            "p50": 9.294634000980295,
+            "p95": 33.440668399634866
+          },
+          "total_ms": {
+            "p50": 34.376665000309,
+            "p95": 60.521202499694475
+          },
+          "rmse": {
+            "p50": 27.672464700343408,
+            "p95": 32.70383314602184
+          },
+          "matches": {
+            "p50": 31.0,
+            "p95": 33.0
+          }
+        },
+        "paired": {
+          "regressions": 0,
+          "gains": 0,
+          "both_solved": 119,
+          "max_abs_rmse_delta_arcsec": 0.0,
+          "identical_solution_count": 119
+        }
+      }
+    },
+    "cloud": {
+      "raw": {
+        "legacy": {
+          "attempts": 102,
+          "solved": 0,
+          "sep_calls": 0,
+          "routes": {
+            "": 102
+          },
+          "detect_ms": {
+            "p50": 80.9309200003554,
+            "p95": 101.33497659871864
+          },
+          "solve_ms": {
+            "p50": 1115.9601644994837,
+            "p95": 1585.1204430007779
+          },
+          "total_ms": {
+            "p50": 1195.7715025000653,
+            "p95": 1691.9680956010773
+          },
+          "rmse": {
+            "p50": null,
+            "p95": null
+          },
+          "matches": {
+            "p50": null,
+            "p95": null
+          }
+        },
+        "optimized": {
+          "attempts": 102,
+          "solved": 0,
+          "sep_calls": 0,
+          "routes": {
+            "": 102
+          },
+          "detect_ms": {
+            "p50": 80.9309200003554,
+            "p95": 101.33497659871864
+          },
+          "solve_ms": {
+            "p50": 867.3530530004427,
+            "p95": 1298.6122988995703
+          },
+          "total_ms": {
+            "p50": 943.5204510000403,
+            "p95": 1389.6606197495203
+          },
+          "rmse": {
+            "p50": null,
+            "p95": null
+          },
+          "matches": {
+            "p50": null,
+            "p95": null
+          }
+        },
+        "paired": {
+          "regressions": 0,
+          "gains": 0,
+          "both_solved": 0,
+          "max_abs_rmse_delta_arcsec": null,
+          "identical_solution_count": 0
+        }
+      },
+      "preprocessed": {
+        "legacy": {
+          "attempts": 102,
+          "solved": 102,
+          "sep_calls": 0,
+          "routes": {
+            "preprocessed_sep_center": 101,
+            "preprocessed_sep_full": 1
+          },
+          "detect_ms": {
+            "p50": 18.752352500087,
+            "p95": 24.341546750019912
+          },
+          "solve_ms": {
+            "p50": 6.412310000087018,
+            "p95": 16.418580850404386
+          },
+          "total_ms": {
+            "p50": 25.800508999964222,
+            "p95": 39.02812494925454
+          },
+          "rmse": {
+            "p50": 58.983166364628545,
+            "p95": 100.14770020012354
+          },
+          "matches": {
+            "p50": 11.0,
+            "p95": 14.0
+          }
+        },
+        "optimized": {
+          "attempts": 102,
+          "solved": 102,
+          "sep_calls": 0,
+          "routes": {
+            "preprocessed_sep_center": 101,
+            "preprocessed_sep_full": 1
+          },
+          "detect_ms": {
+            "p50": 18.752352500087,
+            "p95": 24.341546750019912
+          },
+          "solve_ms": {
+            "p50": 5.393757001002086,
+            "p95": 13.510363598652459
+          },
+          "total_ms": {
+            "p50": 25.323977500192996,
+            "p95": 38.382098498459506
+          },
+          "rmse": {
+            "p50": 58.983166364628545,
+            "p95": 100.14770020012354
+          },
+          "matches": {
+            "p50": 11.0,
+            "p95": 14.0
+          }
+        },
+        "paired": {
+          "regressions": 0,
+          "gains": 0,
+          "both_solved": 102,
+          "max_abs_rmse_delta_arcsec": 0.0,
+          "identical_solution_count": 102
+        }
+      }
+    }
+  },
+  "multi_profile": {
+    "mf4p": {
+      "raw": {
+        "attempts": 23,
+        "solved": 23,
+        "sep_calls": 0,
+        "sep_fallback_calls": 0,
+        "backends": {
+          "mf": 23
+        },
+        "detect_ms": {
+          "p50": 23.362854999504634,
+          "p95": 26.89829970131541
+        },
+        "solve_ms": {
+          "p50": 27.480102999106748,
+          "p95": 930.6405826993785
+        },
+        "detect_solve_ms": {
+          "p50": 50.684104000538355,
+          "p95": 956.8494853989239
+        },
+        "candidates": {
+          "p50": 43.0,
+          "p95": 47.9
+        },
+        "rmse": {
+          "p50": 41.50672899890119,
+          "p95": 69.2039163894666
+        },
+        "matches": {
+          "p50": 21.0,
+          "p95": 31.39999999999999
+        }
+      },
+      "preprocessed": {
+        "attempts": 23,
+        "solved": 23,
+        "sep_calls": 0,
+        "sep_fallback_calls": 0,
+        "backends": {
+          "mf": 23
+        },
+        "detect_ms": {
+          "p50": 23.519966000094428,
+          "p95": 29.114943700005824
+        },
+        "solve_ms": {
+          "p50": 5.532666000362951,
+          "p95": 22.546069700001663
+        },
+        "detect_solve_ms": {
+          "p50": 29.168782000851934,
+          "p95": 55.23875790058807
+        },
+        "candidates": {
+          "p50": 48.0,
+          "p95": 48.0
+        },
+        "rmse": {
+          "p50": 26.17102320317197,
+          "p95": 33.742446732376884
+        },
+        "matches": {
+          "p50": 30.0,
+          "p95": 33.0
+        }
+      },
+      "pairs": {
+        "both": 23
+      }
+    },
+    "mf2": {
+      "raw": {
+        "attempts": 23,
+        "solved": 23,
+        "sep_calls": 0,
+        "sep_fallback_calls": 0,
+        "backends": {
+          "mf": 23
+        },
+        "detect_ms": {
+          "p50": 59.25403000037477,
+          "p95": 84.11211469883709
+        },
+        "solve_ms": {
+          "p50": 47.21800799961784,
+          "p95": 365.60433510003344
+        },
+        "detect_solve_ms": {
+          "p50": 105.63295899919467,
+          "p95": 435.3968949995759
+        },
+        "candidates": {
+          "p50": 48.0,
+          "p95": 48.0
+        },
+        "rmse": {
+          "p50": 43.15203687904409,
+          "p95": 56.43206960711571
+        },
+        "matches": {
+          "p50": 22.0,
+          "p95": 26.9
+        }
+      },
+      "preprocessed": {
+        "attempts": 23,
+        "solved": 23,
+        "sep_calls": 0,
+        "sep_fallback_calls": 0,
+        "backends": {
+          "mf": 23
+        },
+        "detect_ms": {
+          "p50": 52.41841200040653,
+          "p95": 76.88987929923313
+        },
+        "solve_ms": {
+          "p50": 6.134261000624974,
+          "p95": 18.243837399859327
+        },
+        "detect_solve_ms": {
+          "p50": 60.714650000591064,
+          "p95": 92.2192151983836
+        },
+        "candidates": {
+          "p50": 48.0,
+          "p95": 48.0
+        },
+        "rmse": {
+          "p50": 26.566074777307232,
+          "p95": 33.74252030029469
+        },
+        "matches": {
+          "p50": 30.0,
+          "p95": 33.0
+        }
+      },
+      "pairs": {
+        "both": 23
+      }
+    },
+    "sep": {
+      "raw": {
+        "attempts": 23,
+        "solved": 22,
+        "sep_calls": 23,
+        "sep_fallback_calls": 0,
+        "backends": {
+          "sep": 23
+        },
+        "detect_ms": {
+          "p50": 52.6063580000482,
+          "p95": 71.99756039917702
+        },
+        "solve_ms": {
+          "p50": 75.23981900158105,
+          "p95": 1353.5562681987346
+        },
+        "detect_solve_ms": {
+          "p50": 128.82531300238043,
+          "p95": 1424.6616191978308
+        },
+        "candidates": {
+          "p50": 47.0,
+          "p95": 48.0
+        },
+        "rmse": {
+          "p50": 33.374806199492696,
+          "p95": 42.85187184926365
+        },
+        "matches": {
+          "p50": 19.0,
+          "p95": 24.0
+        }
+      },
+      "preprocessed": {
+        "attempts": 23,
+        "solved": 23,
+        "sep_calls": 23,
+        "sep_fallback_calls": 0,
+        "backends": {
+          "sep": 23
+        },
+        "detect_ms": {
+          "p50": 47.93025399885664,
+          "p95": 60.17926779950358
+        },
+        "solve_ms": {
+          "p50": 10.612513000523904,
+          "p95": 52.85435709884038
+        },
+        "detect_solve_ms": {
+          "p50": 58.9754360007646,
+          "p95": 110.1687952976135
+        },
+        "candidates": {
+          "p50": 48.0,
+          "p95": 48.0
+        },
+        "rmse": {
+          "p50": 26.455306525017384,
+          "p95": 36.605523624029935
+        },
+        "matches": {
+          "p50": 26.0,
+          "p95": 29.9
+        }
+      },
+      "pairs": {
+        "both": 22,
+        "preprocessed_only": 1
+      }
+    },
+    "mf4p-pure": {
+      "raw": {
+        "attempts": 23,
+        "solved": 23,
+        "sep_calls": 0,
+        "sep_fallback_calls": 0,
+        "backends": {
+          "mf": 23
+        },
+        "detect_ms": {
+          "p50": 23.11027900032059,
+          "p95": 28.732127800140006
+        },
+        "solve_ms": {
+          "p50": 18.903158001194242,
+          "p95": 936.3514514001498
+        },
+        "detect_solve_ms": {
+          "p50": 43.980209999062936,
+          "p95": 959.5814103004149
+        },
+        "candidates": {
+          "p50": 43.0,
+          "p95": 47.9
+        },
+        "rmse": {
+          "p50": 41.50672899890119,
+          "p95": 69.2039163894666
+        },
+        "matches": {
+          "p50": 21.0,
+          "p95": 31.39999999999999
+        }
+      },
+      "preprocessed": {
+        "attempts": 23,
+        "solved": 23,
+        "sep_calls": 0,
+        "sep_fallback_calls": 0,
+        "backends": {
+          "mf": 23
+        },
+        "detect_ms": {
+          "p50": 24.13504499963892,
+          "p95": 28.86737799963157
+        },
+        "solve_ms": {
+          "p50": 6.071317000532872,
+          "p95": 17.139242000303057
+        },
+        "detect_solve_ms": {
+          "p50": 31.2274800016894,
+          "p95": 44.47041250186884
+        },
+        "candidates": {
+          "p50": 48.0,
+          "p95": 48.0
+        },
+        "rmse": {
+          "p50": 26.17102320317197,
+          "p95": 33.742446732376884
+        },
+        "matches": {
+          "p50": 30.0,
+          "p95": 33.0
+        }
+      },
+      "pairs": {
+        "both": 23
+      }
+    },
+    "mf4o": {
+      "raw": {
+        "attempts": 23,
+        "solved": 14,
+        "sep_calls": 14,
+        "sep_fallback_calls": 14,
+        "backends": {
+          "mf": 9,
+          "sep": 14
+        },
+        "detect_ms": {
+          "p50": 77.74470500044117,
+          "p95": 101.65134649942047
+        },
+        "solve_ms": {
+          "p50": 17.45126100104244,
+          "p95": 187.96620479988613
+        },
+        "detect_solve_ms": {
+          "p50": 97.40944299846888,
+          "p95": 271.5486679984677
+        },
+        "candidates": {
+          "p50": 43.0,
+          "p95": 48.0
+        },
+        "rmse": {
+          "p50": 33.771761760700755,
+          "p95": 60.4917437886639
+        },
+        "matches": {
+          "p50": 21.0,
+          "p95": 25.049999999999997
+        }
+      },
+      "preprocessed": {
+        "attempts": 23,
+        "solved": 23,
+        "sep_calls": 0,
+        "sep_fallback_calls": 0,
+        "backends": {
+          "mf": 23
+        },
+        "detect_ms": {
+          "p50": 31.40496199921472,
+          "p95": 34.8573324006793
+        },
+        "solve_ms": {
+          "p50": 5.2400899985514116,
+          "p95": 17.23823310021544
+        },
+        "detect_solve_ms": {
+          "p50": 37.458406999576255,
+          "p95": 51.19379450061387
+        },
+        "candidates": {
+          "p50": 48.0,
+          "p95": 48.0
+        },
+        "rmse": {
+          "p50": 28.098885540561163,
+          "p95": 34.49792050377127
+        },
+        "matches": {
+          "p50": 30.0,
+          "p95": 33.0
+        }
+      },
+      "pairs": {
+        "preprocessed_only": 9,
+        "both": 14
+      }
+    },
+    "mf8p": {
+      "raw": {
+        "attempts": 23,
+        "solved": 6,
+        "sep_calls": 0,
+        "sep_fallback_calls": 0,
+        "backends": {
+          "mf": 23
+        },
+        "detect_ms": {
+          "p50": 8.835872000418021,
+          "p95": 11.467451799944682
+        },
+        "solve_ms": {
+          "p50": 725.7791430001816,
+          "p95": 1186.7608352011302
+        },
+        "detect_solve_ms": {
+          "p50": 737.8219059992261,
+          "p95": 1195.2433285019652
+        },
+        "candidates": {
+          "p50": 11.0,
+          "p95": 16.799999999999997
+        },
+        "rmse": {
+          "p50": 64.01021377217891,
+          "p95": 82.45986424321146
+        },
+        "matches": {
+          "p50": 8.5,
+          "p95": 11.75
+        }
+      },
+      "preprocessed": {
+        "attempts": 23,
+        "solved": 23,
+        "sep_calls": 0,
+        "sep_fallback_calls": 0,
+        "backends": {
+          "mf": 23
+        },
+        "detect_ms": {
+          "p50": 9.573987999829114,
+          "p95": 11.448379600551561
+        },
+        "solve_ms": {
+          "p50": 8.422109998718952,
+          "p95": 28.886552998847034
+        },
+        "detect_solve_ms": {
+          "p50": 18.142709001040203,
+          "p95": 38.94402729783905
+        },
+        "candidates": {
+          "p50": 27.0,
+          "p95": 34.8
+        },
+        "rmse": {
+          "p50": 26.830389053580195,
+          "p95": 37.98292540237175
+        },
+        "matches": {
+          "p50": 13.0,
+          "p95": 14.899999999999999
+        }
+      },
+      "pairs": {
+        "preprocessed_only": 17,
+        "both": 6
+      }
+    }
+  },
+  "pipeline": {
+    "validation_legacy": {
+      "mode": "mf4p",
+      "wide_cloud_gate": false,
+      "search_optimized": false,
+      "frames": 24,
+      "input_interval_s": 0.4,
+      "raw_solved": 24,
+      "published": 22,
+      "executions": {
+        "sync": 2,
+        "async": 22
+      },
+      "counts": {
+        "raw_sep_calls": 0,
+        "preprocessed_sep_calls": 0,
+        "bias_updates": 6
+      },
+      "worker": {
+        "submitted": 7,
+        "completed": 6,
+        "skipped": 14,
+        "busy": true,
+        "pending": true
+      },
+      "sync_foreground_ms": {
+        "p50": 971.3378835003823,
+        "p95": 1006.5860689499459
+      },
+      "async_foreground_ms": {
+        "p50": 112.71492100058822,
+        "p95": 1080.1592760996755
+      },
+      "background_ms": {
+        "p50": 1193.653881499813,
+        "p95": 1404.3761762491158
+      }
+    },
+    "validation_optimized": {
+      "mode": "mf4p",
+      "wide_cloud_gate": false,
+      "search_optimized": true,
+      "frames": 24,
+      "input_interval_s": 0.4,
+      "raw_solved": 24,
+      "published": 22,
+      "executions": {
+        "sync": 2,
+        "async": 22
+      },
+      "counts": {
+        "raw_sep_calls": 0,
+        "preprocessed_sep_calls": 0,
+        "bias_updates": 6
+      },
+      "worker": {
+        "submitted": 7,
+        "completed": 6,
+        "skipped": 14,
+        "busy": true,
+        "pending": true
+      },
+      "sync_foreground_ms": {
+        "p50": 1074.5679565006867,
+        "p95": 1078.0487537500449
+      },
+      "async_foreground_ms": {
+        "p50": 68.58809050027048,
+        "p95": 1014.6987223501122
+      },
+      "background_ms": {
+        "p50": 1174.9799744993652,
+        "p95": 1421.0609595006645
+      }
+    },
+    "cloud_legacy": {
+      "mode": "mf4p",
+      "wide_cloud_gate": true,
+      "search_optimized": false,
+      "frames": 24,
+      "input_interval_s": 0.4,
+      "raw_solved": 0,
+      "published": 18,
+      "executions": {
+        "sync": 24
+      },
+      "counts": {
+        "raw_sep_calls": 0,
+        "preprocessed_sep_calls": 0
+      },
+      "worker": {
+        "submitted": 0,
+        "completed": 0,
+        "skipped": 0,
+        "busy": false,
+        "pending": false
+      },
+      "sync_foreground_ms": {
+        "p50": 2133.0860039997788,
+        "p95": 3048.993864900603
+      },
+      "async_foreground_ms": {
+        "p50": null,
+        "p95": null
+      },
+      "background_ms": {
+        "p50": null,
+        "p95": null
+      }
+    },
+    "cloud_optimized": {
+      "mode": "mf4p",
+      "wide_cloud_gate": true,
+      "search_optimized": true,
+      "frames": 24,
+      "input_interval_s": 0.4,
+      "raw_solved": 0,
+      "published": 18,
+      "executions": {
+        "sync": 24
+      },
+      "counts": {
+        "raw_sep_calls": 0,
+        "preprocessed_sep_calls": 0
+      },
+      "worker": {
+        "submitted": 0,
+        "completed": 0,
+        "skipped": 0,
+        "busy": false,
+        "pending": false
+      },
+      "sync_foreground_ms": {
+        "p50": 1725.863388000107,
+        "p95": 2344.4759018500918
+      },
+      "async_foreground_ms": {
+        "p50": null,
+        "p95": null
+      },
+      "background_ms": {
+        "p50": null,
+        "p95": null
+      }
+    },
+    "mf2": {
+      "mode": "mf2",
+      "wide_cloud_gate": false,
+      "search_optimized": true,
+      "frames": 24,
+      "input_interval_s": 0.4,
+      "raw_solved": 24,
+      "published": 22,
+      "executions": {
+        "sync": 2,
+        "async": 22
+      },
+      "counts": {
+        "raw_sep_calls": 0,
+        "preprocessed_sep_calls": 0,
+        "bias_updates": 6
+      },
+      "worker": {
+        "submitted": 7,
+        "completed": 6,
+        "skipped": 14,
+        "busy": true,
+        "pending": true
+      },
+      "sync_foreground_ms": {
+        "p50": 1020.1386520002416,
+        "p95": 1045.3863979009839
+      },
+      "async_foreground_ms": {
+        "p50": 177.0922529995005,
+        "p95": 975.6287915993195
+      },
+      "background_ms": {
+        "p50": 1199.9962559993946,
+        "p95": 1520.5025032500998
+      }
+    },
+    "anchor_experiment": {
+      "frames": 24,
+      "input_interval_s": 0.4,
+      "raw_solved": 24,
+      "sources": {
+        "raw": 12,
+        "preprocessed_plus_raw_motion": 12
+      },
+      "foreground_ms": {
+        "p50": 76.58380849989044,
+        "p95": 994.966526900679
+      },
+      "background_ms": {
+        "p50": 1302.0183400003589,
+        "p95": 1530.0208699005452
+      },
+      "anchor_accepts": 4,
+      "worker": {
+        "submitted": 8,
+        "completed": 7,
+        "skipped": 15,
+        "busy": true,
+        "pending": true
+      },
+      "background_solver_independent": true,
+      "foreground_waits_for_preprocessing": false
+    }
+  },
+  "services": {
+    "pifinder_pid": 715,
+    "cedar_pid": 708,
+    "working_directory": "/home/pifinder/PiFinder/python",
+    "dropins": [],
+    "changed": false
+  },
+  "limits": [
+    "recorded fixed equipment; mount disconnected",
+    "paired A/B excludes preprocessing generation",
+    "pipeline excludes camera IPC, SQM, UI and mount",
+    "RMSE is catalog fit residual, not absolute pointing error"
+  ],
+  "checks": {
+    "unit_passed": 2326,
+    "unit_skipped": 2,
+    "unit_deselected": 723,
+    "unit_warnings": 8,
+    "smoke_passed": 7,
+    "native_passed": 6,
+    "new_search_tests": 15,
+    "mypy_files": 204,
+    "ruff": "passed",
+    "layout": "23 canonical files and license scopes passed",
+    "paired_rows_audited": 884
+  }
+}
