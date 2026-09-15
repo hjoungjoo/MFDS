@@ -256,7 +256,10 @@ class TestTargetPixelMapping:
 @pytest.mark.unit
 def test_compact_clipped_star_keeps_psf_wings():
     point = (270, 400)
-    frame = _synthetic_frame([point], peak=7000.0)
+    # Keep the existing SEP support-area gate in scope: a compact clipped
+    # fixture must not also exceed its independent 40 binned-pixel limit.
+    frame = _synthetic_frame([point], peak=5000.0)
+    assert frame.max() == 4095
     result = sep_detect.detect_stars(frame, sigma=4.0, saturation_level=4095)
     assert result is not None
     assert np.min(np.linalg.norm(result.centroids - point, axis=1)) < 2.0
