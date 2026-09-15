@@ -251,3 +251,27 @@ class TestTargetPixelMapping:
         assert sfm.stage5_rotation_deg("left", None) == 270.0
         assert sfm.stage5_rotation_deg("right", 45) == 315.0
         assert sfm.stage5_rotation_deg(None, 0) == 0.0
+
+
+@pytest.mark.unit
+def test_compact_clipped_star_keeps_psf_wings():
+    point = (270, 400)
+    frame = _synthetic_frame([point], peak=7000.0)
+    result = sep_detect.detect_stars(frame, sigma=4.0, saturation_level=4095)
+    assert result is not None
+    assert np.min(np.linalg.norm(result.centroids - point, axis=1)) < 2.0
+    kept = sep_detect.filter_plain_centroids(
+        np.array([point]), frame, saturation_level=4095
+    )
+    np.testing.assert_array_equal(kept, [point])
+
+
+@pytest.mark.unit
+def test_clipping_gate_retains_star_but_rejects_lamp_and_hot_pixel():
+    frame = _synthetic_frame([(150, 200)], peak=7000.0)
+    frame[220:245, 400:425] = 4095
+    frame[350, 600] = 4095
+    points = np.array([[150, 200], [230, 410], [350, 600]])
+    np.testing.assert_array_equal(
+        sep_detect._saturated_centroid_mask(points, frame, 4095), [False, True, True]
+    )

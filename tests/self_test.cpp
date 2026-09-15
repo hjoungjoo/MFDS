@@ -203,6 +203,28 @@ bool test_binning_two_coordinates() {
     return result.ok() && has_star_near(result, 291.3F, 178.7F, 2.5F);
 }
 
+bool test_compact_clipped_star_and_lamp() {
+    for (const int binning : {1, 2, 4}) {
+        auto image = make_sky(512, 384,
+            [](float x, float) { return 1100.0F + 0.2F * x; },
+            [](float, float) { return 5.0F; }, 83U);
+        add_star(image, 150.3F, 170.7F, 7000.0F, 1.8F);
+        add_lamp(image, 350.0F, 210.0F, 20.0F, 700.0F, 30.0F);
+        image.values[90U * image.width + 270U] = kMaximum;
+        for (std::size_t y = 85; y < 92; ++y) {
+            for (std::size_t x = 365; x < 372; ++x) {
+                image.values[y * image.width + x] = kMaximum;
+            }
+        }
+        const auto result = detect(image, binning);
+        if (!result.ok() || !has_star_near(result, 150.3F, 170.7F, 2.5F) ||
+            has_star_near(result, 350.0F, 210.0F, 26.0F) ||
+            has_star_near(result, 270.0F, 90.0F, 4.0F) ||
+            has_star_near(result, 368.0F, 88.0F, 6.0F)) return false;
+    }
+    return true;
+}
+
 bool test_pyramid_coordinates_and_stride() {
     auto image = make_sky(513, 385,
         [](float x, float y) { return 330.0F + 0.15F*x + 0.08F*y; },
@@ -210,7 +232,8 @@ bool test_pyramid_coordinates_and_stride() {
     const std::vector<std::pair<float, float>> expected = {
         {43.3F, 45.7F}, {231.4F, 176.8F}, {463.2F, 339.1F}};
     for (const auto& point : expected) {
-        add_star(image, point.first, point.second, 450.0F, 1.5F);
+        add_star(image, point.first, point.second,
+                 point.first > 200.0F && point.first < 300.0F ? 7000.0F : 450.0F, 1.5F);
     }
     image.values[280U*image.width+100U] = 3500.0F;
     image.quantize();
@@ -246,6 +269,7 @@ int main() {
         {"saturated_center_keeps_edge_stars", test_saturated_center_keeps_edge_stars},
         {"hot_pixel_rejected", test_hot_pixel_rejected},
         {"binning_two_coordinates", test_binning_two_coordinates},
+        {"compact_clipped_star_and_lamp", test_compact_clipped_star_and_lamp},
         {"pyramid_coordinates_and_stride", test_pyramid_coordinates_and_stride},
     };
     std::size_t passed = 0;

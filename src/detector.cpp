@@ -60,8 +60,37 @@ float vector_median(std::vector<float> values) {
     return median_in_place(values);
 }
 
+bool has_clipped_wings(const ImageView& input, std::size_t min_x,
+                       std::size_t max_x, std::size_t min_y, std::size_t max_y) {
+    // A clipped stellar core retains a PSF outside its plateau. Isolated
+    // hot pixels and hard-edged lamp rectangles do not have these wings.
+    if (min_x < 5U || min_y < 5U || max_x + 5U >= input.width ||
+        max_y + 5U >= input.height) return false;
+    const auto border_mean = [&](std::size_t padding) {
+        const auto left = min_x - padding, right = max_x + padding;
+        const auto top = min_y - padding, bottom = max_y + padding;
+        double sum = 0.0;
+        std::size_t count = 0;
+        for (std::size_t x = left; x <= right; ++x) {
+            sum += input.data[top * input.stride + x];
+            sum += input.data[bottom * input.stride + x];
+            count += 2U;
+        }
+        for (std::size_t y = top + 1U; y < bottom; ++y) {
+            sum += input.data[y * input.stride + left];
+            sum += input.data[y * input.stride + right];
+            count += 2U;
+        }
+        return sum / static_cast<double>(count);
+    };
+    // Average adjacent borders to cancel Bayer-phase background offsets.
+    const double background = (border_mean(4U) + border_mean(5U)) * 0.5;
+    return (border_mean(1U) + border_mean(2U)) * 0.5 - background >
+        std::max(4.0, 0.02 * (static_cast<double>(input.max_value) - background));
+}
+
 WorkingImage make_working_image(const ImageView& input, int binning,
-                                float saturation_ratio) {
+                                const DetectorConfig& config) {
     WorkingImage output;
     output.binning = binning;
     output.width = input.width / static_cast<std::size_t>(binning);
@@ -69,12 +98,57 @@ WorkingImage make_working_image(const ImageView& input, int binning,
     output.pixels.resize(output.width * output.height);
     output.saturated.assign(output.pixels.size(), 0U);
 
-    const float saturation = static_cast<float>(input.max_value) * saturation_ratio;
+    const float saturation = static_cast<float>(input.max_value) * config.saturation_ratio;
+    std::vector<std::uint8_t> clipped(input.width * input.height, 0U);
+    for (std::size_t y = 0; y < input.height; ++y) {
+        for (std::size_t x = 0; x < input.width; ++x) {
+            clipped[y * input.width + x] =
+                static_cast<float>(input.data[y * input.stride + x]) >= saturation ? 1U : 0U;
+        }
+    }
+    // Classify on the sensor grid, before binning changes component area.
+    // Eight-connected flood filling also handles clipped CFA pixel clusters.
+    std::vector<std::size_t> component;
+    for (std::size_t seed = 0; seed < clipped.size(); ++seed) {
+        if (clipped[seed] != 1U) continue;
+        component.clear();
+        component.push_back(seed);
+        clipped[seed] = 2U;
+        std::size_t min_x = seed % input.width, max_x = min_x;
+        std::size_t min_y = seed / input.width, max_y = min_y;
+        for (std::size_t cursor = 0; cursor < component.size(); ++cursor) {
+            const auto index = component[cursor];
+            const auto y = index / input.width, x = index % input.width;
+            min_x = std::min(min_x, x); max_x = std::max(max_x, x);
+            min_y = std::min(min_y, y); max_y = std::max(max_y, y);
+            for (std::size_t yy = y == 0U ? 0U : y - 1U;
+                 yy <= std::min(input.height - 1U, y + 1U); ++yy) {
+                for (std::size_t xx = x == 0U ? 0U : x - 1U;
+                     xx <= std::min(input.width - 1U, x + 1U); ++xx) {
+                    const auto neighbour = yy * input.width + xx;
+                    if (clipped[neighbour] == 1U) {
+                        clipped[neighbour] = 2U;
+                        component.push_back(neighbour);
+                    }
+                }
+            }
+        }
+        if (component.size() <= config.compact_saturation_pixels &&
+            max_x - min_x + 1U <= config.compact_saturation_span &&
+            max_y - min_y + 1U <= config.compact_saturation_span &&
+            has_clipped_wings(input, min_x, max_x, min_y, max_y)) continue;
+        for (const auto index : component) {
+            const auto by = (index / input.width) / static_cast<std::size_t>(binning);
+            const auto bx = (index % input.width) / static_cast<std::size_t>(binning);
+            if (by < output.height && bx < output.width) {
+                output.saturated[by * output.width + bx] = 1U;
+            }
+        }
+    }
     const float divisor = static_cast<float>(binning * binning);
     for (std::size_t y = 0; y < output.height; ++y) {
         for (std::size_t x = 0; x < output.width; ++x) {
             std::uint64_t sum = 0;
-            bool saturated = false;
             for (int by = 0; by < binning; ++by) {
                 const auto* row = input.data +
                     (y * static_cast<std::size_t>(binning) + static_cast<std::size_t>(by)) *
@@ -83,12 +157,10 @@ WorkingImage make_working_image(const ImageView& input, int binning,
                     const auto value = row[x * static_cast<std::size_t>(binning) +
                                            static_cast<std::size_t>(bx)];
                     sum += value;
-                    saturated = saturated || static_cast<float>(value) >= saturation;
                 }
             }
             const std::size_t index = y * output.width + x;
             output.pixels[index] = static_cast<float>(sum) / divisor;
-            output.saturated[index] = saturated ? 1U : 0U;
         }
     }
     return output;
@@ -575,7 +647,7 @@ DetectionResult Detector::detect(const ImageView& input) const {
     }
 
     const WorkingImage image = make_working_image(
-        input, config_.binning, config_.saturation_ratio);
+        input, config_.binning, config_);
     if (image.width < 24U || image.height < 24U) {
         result.error = "working image is too small";
         return result;

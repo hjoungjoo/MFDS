@@ -129,7 +129,10 @@ def _detect_native(raw_frame, **kwargs):
     filtered = sep_detect.filter_plain_centroids(
         points,
         arr,
-        saturation_level=kwargs.get("saturation_level"),
+        # Native detection already classifies compact clipped stellar cores
+        # versus extended/wingless saturation on the original sensor grid.
+        # Do not reapply the former blanket peak rejection to those stars.
+        saturation_level=None,
         warm_pixel_map=kwargs.get("warm_pixel_map"),
     )
     filtered = np.asarray(filtered, dtype=np.float64).reshape(-1, 2)

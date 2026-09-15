@@ -6,6 +6,8 @@ All notable changes to this project will be documented in this file.
 
 ### Changed
 
+- Preserve compact saturated stellar cores with measurable PSF wings while masking extended clipping and wingless hot pixels or lamp plateaus. Classify before binning and avoid duplicate peak-only rejection in the PiFinder adapter; SEP fallback uses the same compact-core policy.
+
 - Native license now follows Cedar Detect's five-year MIT-future terms; retained GPL integration and legacy MIT notices are documented in LICENSING.md.
 - Canonical PiFinder integration modules, comparison tools, tests and field records now live here and are consumed through a pinned submodule.
 

@@ -24,6 +24,10 @@ struct DetectorConfig {
     float noise_floor = 1.0F;
     float saturation_ratio = 0.985F;
     int saturation_dilate = 6;
+    // Sensor-pixel limits: retain compact clipped stellar cores, while
+    // connected extended illumination remains masked at every binning.
+    std::size_t compact_saturation_pixels = 96;
+    std::size_t compact_saturation_span = 16;
     int fit_radius = 4;
     int min_support_pixels = 2;
     int max_support_pixels = 90;

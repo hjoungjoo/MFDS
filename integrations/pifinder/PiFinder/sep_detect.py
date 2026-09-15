@@ -75,10 +75,8 @@ class SepDetection:
     # Otherwise-keepable detections removed by the warm-pixel map. High
     # values on an empty sky are expected (the map is doing its job).
     masked_count: int = 0
-    # Otherwise-keepable point sources whose local 3x3 peak reached sensor
-    # full scale.  Urban lamps and building beacons dominated the brightest
-    # SEP candidates in the 2026-09-02 field frame; real tracking stars were
-    # comfortably below this threshold.
+    # Otherwise-keepable sources rejected for extended or wingless clipping.
+    # Compact clipped stars with measurable PSF wings are not counted.
     saturated_count: int = 0
     cloud_gate_active: bool = False
     cloud_gated_count: int = 0
@@ -201,10 +199,8 @@ def detect_stars(
             of the frame border (vignette / background-mesh edge zone).
         saturation_level: Sensor full scale (e.g. 4095 for 12-bit). When
             given and the binned interior median is at it, return zero
-            detections instead of edge noise. Individual sources whose raw
-            3x3 peak reaches 98% of full scale are also rejected; these are
-            much more likely to be clipped ground lights than useful stellar
-            centroids and their distorted profiles are unsafe for solving.
+            detections instead of edge noise. Compact clipped cores with PSF wings are retained; extended
+            clipping and wingless hot pixels or lamp plateaus are rejected.
         warm_pixel_map: (N, 2) int (y, x) static-defect positions from
             ``build_warm_pixel_map``, same orientation as ``raw_frame``.
             Detections within ``warm_pixel_radius_px`` of a mapped position
@@ -288,19 +284,13 @@ def detect_stars(
         & (npix <= max_npix)
     )
 
-    # A whole-frame saturation guard above cannot catch isolated urban
-    # lights.  Sample the linear RAW, not SEP's background-subtracted/binned
-    # image: six clipped tower/building detections were the six brightest
-    # candidates in the failing 2026-09-02 frame.  Reject before the top-N
-    # cap so those lights cannot crowd out real stars.
+    # Reject extended illumination and clipped sources without stellar wings;
+    # a bright star's small saturated core is valid astrometric evidence.
     saturated_count = 0
     if saturation_level is not None and keep.any():
-        yi = np.clip(np.round(full_y).astype(int), 1, h - 2)
-        xi = np.clip(np.round(full_x).astype(int), 1, w - 2)
-        peak = np.empty(len(full_y), dtype=np.float64)
-        for i, (yy, xx) in enumerate(zip(yi, xi)):
-            peak[i] = arr[yy - 1 : yy + 2, xx - 1 : xx + 2].max()
-        saturated = peak >= 0.98 * float(saturation_level)
+        saturated = _saturated_centroid_mask(
+            np.column_stack((full_y, full_x)), arr, float(saturation_level)
+        )
         saturated_count = int((keep & saturated).sum())
         keep &= ~saturated
 
@@ -364,6 +354,66 @@ def detect_stars(
     )
 
 
+def _saturated_centroid_mask(points, frame, saturation_level):
+    """Reject extended/wingless clipping while retaining compact stellar PSFs.
+
+    Label only small candidate ROIs; this avoids another full-frame mask on
+    the RAW hot path. A component crossing the ROI boundary cannot be compact.
+    Native MFDS applies the equivalent classification before its own binning.
+    """
+    from scipy import ndimage
+
+    rejected = np.zeros(len(points), dtype=bool)
+    h, w = frame.shape
+    for i, (y, x) in enumerate(points):
+        yy, xx = int(round(y)), int(round(x))
+        yy, xx = min(max(yy, 1), h - 2), min(max(xx, 1), w - 2)
+        if frame[yy - 1 : yy + 2, xx - 1 : xx + 2].max() < 0.98 * saturation_level:
+            continue
+        top, left = max(0, yy - 18), max(0, xx - 18)
+        patch = frame[top : min(h, yy + 19), left : min(w, xx + 19)]
+        labels, _ = ndimage.label(
+            patch >= 0.98 * saturation_level, structure=np.ones((3, 3), dtype=np.uint8)
+        )
+        cy, cx = yy - top, xx - left
+        touched = np.unique(labels[cy - 1 : cy + 2, cx - 1 : cx + 2])
+        objects = ndimage.find_objects(labels)
+        for label in touched[touched != 0]:
+            sy, sx = objects[label - 1]
+            y0, y1, x0, x1 = sy.start, sy.stop, sx.start, sx.stop
+            size = np.count_nonzero(labels[sy, sx] == label)
+            if (
+                size > 96
+                or y1 - y0 > 16
+                or x1 - x0 > 16
+                or y0 < 5
+                or x0 < 5
+                or y1 + 5 > patch.shape[0]
+                or x1 + 5 > patch.shape[1]
+            ):
+                rejected[i] = True
+                break
+
+            def border_mean(padding):
+                box = patch[y0 - padding : y1 + padding, x0 - padding : x1 + padding]
+                total = (
+                    box[0].sum(dtype=np.float64)
+                    + box[-1].sum(dtype=np.float64)
+                    + box[1:-1, 0].sum(dtype=np.float64)
+                    + box[1:-1, -1].sum(dtype=np.float64)
+                )
+                return total / (2 * box.shape[0] + 2 * box.shape[1] - 4)
+
+            # Adjacent borders cancel Bayer-phase background offsets.
+            background = (border_mean(4) + border_mean(5)) * 0.5
+            if (border_mean(1) + border_mean(2)) * 0.5 - background <= max(
+                4.0, 0.02 * (saturation_level - background)
+            ):
+                rejected[i] = True
+                break
+    return rejected
+
+
 def filter_plain_centroids(
     centroids_yx: np.ndarray,
     raw_frame: np.ndarray,
@@ -374,7 +424,7 @@ def filter_plain_centroids(
     cluster_radius_px: float = 50.0,
     cluster_max_neighbors: int = 1,
 ) -> np.ndarray:
-    """Quality-gate flux-less centroids (the cedar full-frame path).
+    """Quality-gate centroids independently of detector photometry.
 
     Applies the subset of ``detect_stars``'s filters that need no SEP
     photometry: the edge margin, the warm-pixel map, the cluster gate
@@ -402,12 +452,7 @@ def filter_plain_centroids(
         )
 
         if saturation_level is not None and keep.any():
-            yi = np.clip(np.round(ys).astype(int), 1, h - 2)
-            xi = np.clip(np.round(xs).astype(int), 1, w - 2)
-            peak = np.empty(len(pts))
-            for i, (yy, xx) in enumerate(zip(yi, xi)):
-                peak[i] = arr[yy - 1 : yy + 2, xx - 1 : xx + 2].max()
-            keep &= peak < 0.98 * float(saturation_level)
+            keep &= ~_saturated_centroid_mask(pts, arr, float(saturation_level))
 
         if warm_pixel_map is not None and len(warm_pixel_map) and keep.any():
             wp = np.asarray(warm_pixel_map, dtype=np.float64)
