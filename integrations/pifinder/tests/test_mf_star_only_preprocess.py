@@ -52,6 +52,39 @@ def test_temporal_history_stays_bounded_and_reset_releases_arrays():
         accumulator.close()
 
 
+def test_scratch_reuse_does_not_modify_returned_results_and_reset_releases_it():
+    accumulator = MFStarOnlyAccumulator()
+    rng = np.random.default_rng(72)
+    raw = rng.integers(100, 1500, (120, 160), dtype=np.uint16)
+    original = raw.copy()
+    try:
+        first = accumulator.add(raw, saturation_level=4095, fingerprint="first")
+        frame, evidence = first.frame.copy(), first.evidence.copy()
+        scratch = weakref.ref(accumulator._scratch)
+        floor = weakref.ref(accumulator._detector_floor)
+        for _ in range(6):
+            accumulator.add(raw, saturation_level=4095, fingerprint="first")
+        assert scratch() is accumulator._scratch
+        assert floor() is accumulator._detector_floor
+        np.testing.assert_array_equal(first.frame, frame)
+        np.testing.assert_array_equal(first.evidence, evidence)
+        np.testing.assert_array_equal(raw, original)
+        assert (
+            accumulator._scratch.nbytes + accumulator._detector_floor.nbytes
+            == raw.size * 8
+        )
+        accumulator.reset()
+        assert scratch() is None
+        assert floor() is None
+        changed = accumulator.add(
+            raw[:96, :100], saturation_level=4095, fingerprint="second"
+        )
+        assert changed.frame.shape == (96, 100)
+        assert changed.diagnostics.frame_count == 1
+    finally:
+        accumulator.close()
+
+
 def _gaussian_star(frame, y, x, amplitude=500.0, sigma=1.0):
     yy, xx = np.indices(frame.shape)
     frame += amplitude * np.exp(-((yy - y) ** 2 + (xx - x) ** 2) / (2 * sigma**2))

@@ -355,10 +355,15 @@ def preprocess_star_evidence(
         background_coarse = coarse_future.result()
     # The median of exactly three maps needs only comparisons. Avoid stacking
     # and partitioning three full sensor frames; preserve NaN propagation.
-    background = np.maximum(
-        np.minimum(background_local, background_medium),
-        np.minimum(np.maximum(background_local, background_medium), background_coarse),
-    )
+    background = np.minimum(background_local, background_medium)
+    np.maximum(background_local, background_medium, out=background_local)
+    np.minimum(background_local, background_coarse, out=background_local)
+    np.maximum(background, background_local, out=background)
+    # These maps belong to this call. Release futures too: they retain their
+    # result arrays even after the local names are deleted.
+    del background_local, background_medium, background_coarse
+    if scale_executor is not None:
+        del local_future, medium_future, coarse_future
 
     saturated, hard_mask = _extended_saturation_mask(
         arr, float(saturation_level), config
@@ -368,23 +373,36 @@ def preprocess_star_evidence(
     if finite_background.size == 0 or finite_rms.size == 0:
         raise ValueError("non-finite star-only background model")
 
-    bg20, bg90 = np.percentile(finite_background, (20.0, 90.0))
-    rms50, rms90 = np.percentile(finite_rms, (50.0, 90.0))
-    bg_load = np.clip((background - bg20) / max(float(bg90 - bg20), 1.0), 0, 2)
-    noise_load = np.clip((rms_local - rms50) / max(float(rms90 - rms50), 1.0), 0, 2)
-    soft_weight = 1.0 / (1.0 + 1.5 * bg_load + noise_load)
-    soft_weight = np.clip(soft_weight, config.minimum_soft_weight, 1.0).astype(
-        np.float32
-    )
+    # Boolean indexing above already made private copies; partition in place.
+    bg20, bg90 = np.percentile(finite_background, (20.0, 90.0), overwrite_input=True)
+    rms50, rms90 = np.percentile(finite_rms, (50.0, 90.0), overwrite_input=True)
+    bg_load = background - bg20
+    bg_load /= max(float(bg90 - bg20), 1.0)
+    np.clip(bg_load, 0, 2, out=bg_load)
+    noise_load = rms_local - rms50
+    noise_load /= max(float(rms90 - rms50), 1.0)
+    np.clip(noise_load, 0, 2, out=noise_load)
+    bg_load *= 1.5
+    bg_load += 1.0
+    bg_load += noise_load
+    np.reciprocal(bg_load, out=bg_load)
+    np.clip(bg_load, config.minimum_soft_weight, 1.0, out=bg_load)
+    soft_weight = bg_load
+    del noise_load
 
-    residual = np.maximum(arr - background, 0.0)
+    residual = arr - background
+    np.maximum(residual, 0.0, out=residual)
+    del background
     # Difference-of-Gaussians rejects broad cloud/halo texture while retaining
     # the camera's compact stellar PSF.  It changes strength, never geometry.
     point_response = _cfa_point_response(residual, config.cfa_period_px)
     # The DoG kernel attenuates a one-pixel-to-few-pixel PSF while also
     # reducing the white-noise variance.  Calibrate that attenuation before
     # comparing the response with the RAW-domain robust RMS.
-    evidence = point_response * config.point_response_gain / np.maximum(rms_local, 1.0)
+    evidence = point_response
+    evidence *= config.point_response_gain
+    np.maximum(rms_local, 1.0, out=rms_local)
+    evidence /= rms_local
     # ``rms_local`` already expresses the response in local SNR units.  A
     # second background/noise weight here suppressed genuine stars twice in
     # the light-polluted lower field (the 2026-09-04 frame reduced a valid
@@ -398,13 +416,13 @@ def preprocess_star_evidence(
         frame_count=1,
         hard_mask_fraction=float(np.mean(hard_mask)),
         saturation_fraction=float(np.mean(saturated)),
-        background_median=float(np.median(finite_background)),
-        local_rms_median=float(np.median(finite_rms)),
+        background_median=float(np.median(finite_background, overwrite_input=True)),
+        local_rms_median=float(np.median(finite_rms, overwrite_input=True)),
         local_rms_p90=float(rms90),
         evidence_pixels=int(np.count_nonzero(evidence >= config.weak_evidence_sigma)),
         persistent_pixels=0,
     )
-    return residual, evidence.astype(np.float32), hard_mask, diagnostics
+    return residual, evidence, hard_mask, diagnostics
 
 
 class MFStarOnlyAccumulator:
@@ -416,6 +434,8 @@ class MFStarOnlyAccumulator:
         self._signals: list[np.ndarray] = []
         self._evidence: list[np.ndarray] = []
         self._single_masks: list[np.ndarray] = []
+        self._scratch: np.ndarray | None = None
+        self._detector_floor: np.ndarray | None = None
         self._last_diagnostics: MFStarOnlyDiagnostics | None = None
         workers = max(1, min(4, int(config.parallel_scale_workers)))
         self._scale_executor = (
@@ -435,6 +455,8 @@ class MFStarOnlyAccumulator:
         self._signals.clear()
         self._evidence.clear()
         self._single_masks.clear()
+        self._scratch = None
+        self._detector_floor = None
 
     def add(
         self,
@@ -449,6 +471,13 @@ class MFStarOnlyAccumulator:
             reset_reason = "fingerprint_changed"
         self._fingerprint = fingerprint
 
+        if self._scratch is None or self._scratch.shape != raw_frame.shape:
+            self._scratch = np.empty(raw_frame.shape, dtype=np.float32)
+            self._detector_floor = float(
+                self.config.output_pedestal_adu
+            ) + _output_dither(tuple(raw_frame.shape), self.config.output_dither_adu)
+        scratch = self._scratch
+
         signal, evidence, _hard_mask, diagnostics = preprocess_star_evidence(
             raw_frame,
             saturation_level=saturation_level,
@@ -462,9 +491,9 @@ class MFStarOnlyAccumulator:
         evidence = evidence.astype(np.float16).astype(np.float32)
         # Support depends only on this quantized evidence and frozen config.
         # Store the weighted signal in the same allocation: no extra history.
-        signal *= np.clip(
-            evidence / max(self.config.weak_evidence_sigma, 1e-6), 0.0, 1.0
-        )
+        np.divide(evidence, max(self.config.weak_evidence_sigma, 1e-6), out=scratch)
+        np.clip(scratch, 0.0, 1.0, out=scratch)
+        signal *= scratch
         self._signals.append(signal)
         self._evidence.append(evidence)
         # Classification depends only on this quantized frame and frozen config.
@@ -475,6 +504,15 @@ class MFStarOnlyAccumulator:
                 self.config,
             )
         )
+        # Admission masks and signal weights have already used the uncapped
+        # evidence. When the cap is above the persistence threshold, storing
+        # capped evidence preserves that comparison and avoids clipping every
+        # retained frame on every later reduction (five full image passes).
+        cache_capped_evidence = (
+            0 < self.config.weak_evidence_sigma <= self.config.evidence_cap_sigma
+        )
+        if cache_capped_evidence:
+            np.clip(evidence, 0.0, self.config.evidence_cap_sigma, out=evidence)
         del self._signals[: -self.config.temporal_frames]
         del self._evidence[: -self.config.temporal_frames]
         del self._single_masks[: -self.config.temporal_frames]
@@ -491,7 +529,11 @@ class MFStarOnlyAccumulator:
         ):
             evidence = evidence_frame
             combined_signal += signal_frame
-            evidence_sum += np.clip(evidence, 0.0, self.config.evidence_cap_sigma)
+            if cache_capped_evidence:
+                evidence_sum += evidence
+            else:
+                np.clip(evidence, 0.0, self.config.evidence_cap_sigma, out=scratch)
+                evidence_sum += scratch
             persistence += evidence >= self.config.weak_evidence_sigma
             single_core |= single_mask
         repeated_core = _point_component_mask(persistence >= 2, self.config)
@@ -505,21 +547,17 @@ class MFStarOnlyAccumulator:
         # Repeated compact PSFs receive full permission.  A compact source
         # visible through only one cloud gap remains in the frame, but is
         # attenuated so a transient glint cannot dominate the solve.
-        permission = np.where(
-            repeated_keep,
-            1.0,
-            np.where(single_keep, self.config.single_frame_permission, 0.0),
-        ).astype(np.float32)
-        combined_signal *= permission
-        detector_floor = float(self.config.output_pedestal_adu) + _output_dither(
-            (int(combined_signal.shape[0]), int(combined_signal.shape[1])),
-            self.config.output_dither_adu,
-        )
-        output = np.clip(
-            np.rint(combined_signal + detector_floor), 0, saturation_level
-        ).astype(np.uint16)
+        scratch.fill(0.0)
+        scratch[single_keep] = self.config.single_frame_permission
+        scratch[repeated_keep] = 1.0
+        combined_signal *= scratch
+        combined_signal += self._detector_floor
+        np.rint(combined_signal, out=combined_signal)
+        np.clip(combined_signal, 0, saturation_level, out=combined_signal)
+        output = combined_signal.astype(np.uint16)
 
-        combined_evidence = evidence_sum / np.sqrt(len(self._evidence))
+        evidence_sum /= np.sqrt(len(self._evidence))
+        combined_evidence = evidence_sum
         final_diagnostics = MFStarOnlyDiagnostics(
             frame_count=len(self._evidence),
             hard_mask_fraction=diagnostics.hard_mask_fraction,
