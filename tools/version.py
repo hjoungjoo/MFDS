@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# SPDX-License-Identifier: LicenseRef-Cedar-FSL-1.1-MIT-5year
+# SPDX-License-Identifier: LicenseRef-MFDS-FSL-1.1-MIT-5year
 """Generate the native version header and check release/build consistency."""
 
 import argparse

@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: LicenseRef-Cedar-FSL-1.1-MIT-5year
+// SPDX-License-Identifier: LicenseRef-MFDS-FSL-1.1-MIT-5year
 // Standalone Linux image/centroid worker. No PiFinder or Python dependencies.
 #include "mf_detect_star/c_api.h"
 #include <bit>

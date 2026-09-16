@@ -51,7 +51,7 @@ GPLv3 §5/§10의 결합 배포·추가 제한 조건에 따른 판단이다.
 2. 권한이 확인된 native 파일만 아래 선택형 SPDX로 표시한다.
 
    ```text
-   LicenseRef-Cedar-FSL-1.1-MIT-5year OR GPL-3.0-only
+   LicenseRef-MFDS-FSL-1.1-MIT-5year OR GPL-3.0-only
    ```
 
    `OR`가 선택권이다. 두 조건을 동시에 지키라는 `AND`로 쓰면 해결되지 않는다.

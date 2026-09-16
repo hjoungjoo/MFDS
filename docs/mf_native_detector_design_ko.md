@@ -30,8 +30,8 @@ in-process 방식으로 하고, 프레임 전달을 POSIX shared-memory ring으�
   `Manager` pickle, gRPC, 중복 타일 검출을 없애므로 성능과 배포 제어권을 함께
   얻는다.
 
-전용 코어는 2026-09-15 사용자 결정으로 Cedar Detect와 동일한 5년 후 MIT 전환
-조건으로 변경했다. `LicenseRef-Cedar-FSL-1.1-MIT-5year`를 사용한다.
+전용 코어는 2026-09-15 사용자 결정으로 MFDS의 5년 후 MIT 전환
+조건으로 변경했다. `LicenseRef-MFDS-FSL-1.1-MIT-5year`를 사용한다.
 PiFinder 통합 코드의 GPL과 과거 MIT 고지는 유지하며 상세 범위는
 [LICENSING.md](../LICENSING.md)가 기준이다.
 
@@ -73,7 +73,7 @@ PiFinder 통합 코드의 GPL과 과거 MIT 고지는 유지하며 상세 범위
 | SEP C/Python | upstream 전체 LGPLv3 (Python wrapper 일부 MIT). | **허용.** 단기 shadow/비교와 LGPL 준수형 백엔드에 사용 가능. |
 | Tetra3 / Cedar-Solve | 이 저장소의 vendored Tetra3는 Apache-2.0이며 README는 Cedar-Solve도 Apache-2.0으로 명시한다. | 디텍터 결과를 소비하는 솔버 어댑터로 유지; 이번 범위에서 교체하지 않는다. |
 | OpenCV 4.5+ | Apache-2.0. | 선택적 개발/검증 의존성으로는 허용하되, Raspberry Pi 런타임 코어의 필수 의존성으로 두지 않는다. |
-| 새 detector 코드 | Cedar의 5년 MIT 전환 FSL 조건. | native 라이선스와 GPL 통합 코드의 적용 범위는 LICENSING.md 참조. |
+| 새 detector 코드 | MFDS의 5년 MIT 전환 FSL 정책. | native 라이선스와 GPL 통합 코드의 적용 범위는 LICENSING.md 참조. |
 
 ### 3.2 SEP/LGPLv3를 사용할 때의 배포 체크리스트
 

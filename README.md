@@ -78,8 +78,8 @@ accuracy, timing, fallback policy and operating-service isolation.
 
 ## License
 
-Native detector: **Cedar Detect's five-year MIT-future FSL terms**,
-`LicenseRef-Cedar-FSL-1.1-MIT-5year`. This is not standard two-year FSL-1.1-MIT.
+Native detector: **MFDS Functional Source License with a five-year MIT future grant**,
+`LicenseRef-MFDS-FSL-1.1-MIT-5year`. This is not standard two-year FSL-1.1-MIT.
 PiFinder integration retains GPL-3.0. Previous MIT notices are preserved.
 See [LICENSE](LICENSE) and [licensing scope/provenance](LICENSING.md).
 Optional libpng retains its own license.

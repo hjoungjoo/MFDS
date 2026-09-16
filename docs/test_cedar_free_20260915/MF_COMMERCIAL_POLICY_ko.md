@@ -39,11 +39,11 @@ PiFinder 소스를 수정한 나머지 부분은 원작자의 라이선스 조�
 
 ## 현재 LICENSE와 요구의 차이
 
-현재 `LicenseRef-Cedar-FSL-1.1-MIT-5year`는 Cedar Detect의 조건을 가져왔다.
+현재 MFDS는 `LicenseRef-MFDS-FSL-1.1-MIT-5year` 정책을 적용한다.
 이는 **Competing Use 제한**이며, 모든 판매 제품에 MF가 포함되면 예외 없이
 사전 허락이 필요하다는 일반적인 문구는 아니다. 해당 버전 공개 후 **5년 뒤에는
 MIT 허락**이 적용된다. 2026-09-15 공개분은 2031-09-15가 기준이다.
-[Cedar 원문](https://github.com/smroid/cedar-detect/blob/2f403b8435259263f2a4fcd43f526918fe546d77/LICENSE.md).
+[MFDS LICENSE](../../LICENSE).
 
 따라서 현재 FSL을 그대로 두고 사용자 요구가 완전히 구현됐다고 표시하지 않는다.
 모든 판매용 제품을 승인 대상으로 삼으려면 향후 버전에 적용할 별도 문안에서

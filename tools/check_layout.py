@@ -5,7 +5,7 @@ import json
 from pathlib import Path
 
 root = Path(__file__).resolve().parents[1]
-identifier = "LicenseRef-Cedar-FSL-1.1-MIT-5year"
+identifier = "LicenseRef-MFDS-FSL-1.1-MIT-5year"
 license_text = (root / "LICENSE").read_text()
 terms = license_text[license_text.index("# Functional Source License") :]
 assert (
@@ -15,6 +15,10 @@ assert (
 assert "fifth anniversary" in license_text
 assert "second anniversary" not in license_text
 assert identifier in license_text
+assert (root / "LICENSES" / f"{identifier}.txt").resolve() == root / "LICENSE"
+# Current license explanations must describe this project's own policy.
+for name in ("LICENSE", "LICENSING.md", "COMMERCIAL_USE.md"):
+    assert "cedar" not in (root / name).read_text().lower(), name
 assert (root / "LICENSE.md").resolve() == root / "LICENSE"
 assert (root / "integrations/pifinder/LICENSE").read_bytes() == (
     root / "LICENSES/GPL-3.0.txt"

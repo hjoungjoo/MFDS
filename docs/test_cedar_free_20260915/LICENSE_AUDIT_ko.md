@@ -37,7 +37,7 @@ MF 자체의 권리를 보유한 당사자는 자기 코드의 상용 제공을 
 ## 1. FSL native와 GPL PiFinder 직접 연결 — 미해결
 
 PiFinder 루트와 `integrations/pifinder/`는 GPLv3이다. 현재 MF native 표기는
-`LicenseRef-Cedar-FSL-1.1-MIT-5year`이며 competing use에 제한을 둔다.
+`LicenseRef-MFDS-FSL-1.1-MIT-5year`이며 competing use에 제한을 둔다.
 `integrations/pifinder/PiFinder/star_detect.py:40`의 `ctypes.CDLL`은 동일 프로세스의
 직접 라이브러리 연결이다. 저장소나 디렉터리를 분리했다고 독립 프로그램으로
 판정할 수 없다.

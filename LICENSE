@@ -4,14 +4,15 @@ Copyright (c) 2026 PiFinder contributors
 
 Native detector sources, headers, native tests, build files and project-authored
 materials are offered under the terms below. See LICENSING.md for the separate
-GPL-3.0 terms of integrations/pifinder/ and docs/test_cedar_free_20260915/,
+GPL-3.0 terms of integrations/pifinder/ and imported experiment records,
 and for retained legacy MIT notices.
 
-LicenseRef-Cedar-FSL-1.1-MIT-5year
+LicenseRef-MFDS-FSL-1.1-MIT-5year
 
-This uses Cedar Detect's five-year MIT future-license terms. It is not the
-standard two-year FSL-1.1-MIT text. This licensing change is published on
-2026-09-15; the five-year period runs from publication of each covered version.
+MFDS uses a Functional Source License policy with a five-year MIT future grant.
+This is not the standard two-year FSL-1.1-MIT text. This licensing policy was
+published on 2026-09-15; the five-year period runs from publication of each
+covered version.
 
 # Functional Source License, Version 1.1, MIT Future License
 

@@ -2,18 +2,18 @@
 
 ## 적용 결과
 
-사용자 요청에 따라 native 검출기에 Cedar Detect와 동일한 **5년 후 MIT 전환**
+사용자 요청에 따라 native 검출기에 MFDS의 **5년 후 MIT 전환**
 라이선스 조건을 적용했다. `LICENSE`, 소스 SPDX 표기, README, 설계 문서,
 CI 검사와 빌드 산출물의 `build/licenses/`에 반영했다.
 
-Cedar 원문은 FSL-1.1-MIT를 명칭으로 사용하지만 전환 기간이 표준과 다르므로
-`LicenseRef-Cedar-FSL-1.1-MIT-5year`로 구분했다. Cedar의 고정 커밋 원문과
-Functional Source License 이후 본문이 동일함을 SHA256으로 검사한다.
+MFDS 정책의 전환 기간은 표준 FSL과 다르므로
+`LicenseRef-MFDS-FSL-1.1-MIT-5year`로 구분한다.
+Functional Source License 이후의 기존 본문이 유지됨을 SHA256으로 검사한다.
 MF 저작권 고지는 기존 PiFinder contributors를 유지했다.
 [LICENSING.md](../LICENSING.md)에 범위·출처·이전 MIT 고지를 정리했다.
 
 PiFinder에서 가져온 소스의 GPL과 이전 MIT 배포 권한은 보존한다.
-이번 작업은 이를 Cedar 조건으로 일괄 재라이선스한 것이 아니다.
+이번 작업은 이를 MFDS native 조건으로 일괄 재라이선스한 것이 아니다.
 
 ## 관리 위치
 

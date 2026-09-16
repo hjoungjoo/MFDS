@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: LicenseRef-Cedar-FSL-1.1-MIT-5year
+// SPDX-License-Identifier: LicenseRef-MFDS-FSL-1.1-MIT-5year
 #include "image_io.hpp"
 
 #include <algorithm>

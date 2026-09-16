@@ -1,6 +1,6 @@
 # 라이선스 적용과 관리 위치 통합 — 작업 전 계획
 
-사용자 요청에 따라 Cedar Detect의 라이선스 조건을 native 검출기에 적용한다.
+사용자 요청에 따라 MFDS의 5년 후 MIT 전환 FSL 정책을 native 검출기에 적용한다.
 참조는 cedar-detect `2f403b8435259263f2a4fcd43f526918fe546d77` LICENSE.md이다.
 원문은 FSL-1.1-MIT 표기를 사용하지만 MIT 전환 시점은 공개 5년 후이다.
 표준 2년 FSL과 구분하는 LicenseRef를 사용하고 실제 본문은 동일하게 유지한다.

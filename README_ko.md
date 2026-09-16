@@ -38,8 +38,8 @@ ARM NEON, row streaming, LensProfile은 실제 16 mm/6 mm RAW corpus로 기준 �
 
 ## 라이선스와 의존성
 
-native 자체 소스는 Cedar Detect와 같은 **5년 후 MIT 전환 조건**이다.
-`LicenseRef-Cedar-FSL-1.1-MIT-5year`로 표기한다. 적용 범위와 과거 MIT 고지는
+native 자체 소스에는 MFDS의 **5년 후 MIT 전환 FSL 정책**을 적용한다.
+`LicenseRef-MFDS-FSL-1.1-MIT-5year`로 표기한다. 적용 범위와 과거 MIT 고지는
 [LICENSING.md](LICENSING.md)에 있다. 옮겨온 PiFinder 통합 코드는 GPL을 유지한다.
 detector core는 C++ 표준 라이브러리만 사용한다. PNG
 입력은 상업 사용 가능한 libpng가 설치된 경우 자동으로 활성화된다. libpng가 없어도 PGM과

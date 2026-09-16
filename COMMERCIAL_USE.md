@@ -3,7 +3,7 @@
 MFDS is publicly readable source with the existing per-path licenses in
 [LICENSING.md](LICENSING.md). It is not offered as a blanket permissive license.
 
-- Native MF code uses `LicenseRef-Cedar-FSL-1.1-MIT-5year`, as written in
+- Native MF code uses `LicenseRef-MFDS-FSL-1.1-MIT-5year`, as written in
   [LICENSE](LICENSE). Competing Use is outside the Permitted Purpose grant.
   Obtain separate permission from the relevant MF rightsholders before
   distributing a product or service outside that grant. Requests can be directed
