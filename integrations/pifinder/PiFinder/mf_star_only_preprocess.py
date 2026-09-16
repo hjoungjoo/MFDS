@@ -475,8 +475,13 @@ class MFStarOnlyAccumulator:
             self._scratch = np.empty(raw_frame.shape, dtype=np.float32)
             self._detector_floor = float(
                 self.config.output_pedestal_adu
-            ) + _output_dither(tuple(raw_frame.shape), self.config.output_dither_adu)
+            ) + _output_dither(
+                (int(raw_frame.shape[0]), int(raw_frame.shape[1])),
+                self.config.output_dither_adu,
+            )
         scratch = self._scratch
+        detector_floor = self._detector_floor
+        assert detector_floor is not None
 
         signal, evidence, _hard_mask, diagnostics = preprocess_star_evidence(
             raw_frame,
@@ -551,7 +556,7 @@ class MFStarOnlyAccumulator:
         scratch[single_keep] = self.config.single_frame_permission
         scratch[repeated_keep] = 1.0
         combined_signal *= scratch
-        combined_signal += self._detector_floor
+        combined_signal += detector_floor
         np.rint(combined_signal, out=combined_signal)
         np.clip(combined_signal, 0, saturation_level, out=combined_signal)
         output = combined_signal.astype(np.uint16)

@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.3.2] - 2026-09-17
+
+- Make the reusable preprocessing buffer shape and initialized floor explicit
+  for downstream static type checking; numerical behavior is unchanged.
+- Include the preprocessing allocation improvements from 0.3.1.
+
 ## [0.3.1] - 2026-09-17
 
 - Reduce RAW preprocessing temporary allocations with private in-place arrays,
