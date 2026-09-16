@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.3.0] - 2026-09-16
+
+- Publish versioned Linux ARM64/x86_64 binary packages with GPL Python integration, license notices and file checksums.
+- Native detector algorithm and process ABI are unchanged.
+
 ## [Unreleased]
 
 ## [0.2.1] - 2026-09-16

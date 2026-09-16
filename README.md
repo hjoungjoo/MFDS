@@ -91,3 +91,7 @@ notices. This is sufficient for PiFinder's default process transport.
 `make -j2 all && make test` additionally builds the CLI, ctypes library and
 native tests for development and recorded-image comparisons. The runtime
 build does not remove previously built comparison tools.
+
+## Binary distribution
+
+Release assets `MFDS-VERSION-linux-aarch64.tar.gz` and `MFDS-VERSION-linux-x86_64.tar.gz` contain compiled native binaries and the GPL Python integration. Consumers install these packages without cloning or compiling MFDS. Source changes and binary builds are maintained here. See [binary release guide](docs/BINARY_RELEASES_ko.md).

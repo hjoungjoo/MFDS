@@ -1,0 +1,33 @@
+name: release-assets
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  package:
+    strategy:
+      fail-fast: false
+      matrix:
+        runner: [ubuntu-24.04, ubuntu-24.04-arm]
+    runs-on: ${{ matrix.runner }}
+    steps:
+      - uses: actions/checkout@v7
+      - name: Build and test with Debian Bookworm ABI
+        run: |
+          docker run --rm -v "$PWD:/src" -w /src debian:bookworm-slim bash -ec '
+            apt-get update
+            apt-get install -y --no-install-recommends g++ make python3 git libpng-dev pkg-config ca-certificates
+            git config --global --add safe.directory /src
+            python3 tools/check_layout.py
+            make -j2 all
+            make test
+            python3 tools/version.py --check-build build
+            python3 tools/package_release.py --output dist
+          '
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mfds-${{ runner.arch }}
+          path: dist/*
+          if-no-files-found: error
