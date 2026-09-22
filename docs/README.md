@@ -9,6 +9,16 @@
 [라이선스·정본 통합 완료 기록](CONSOLIDATION_RESULTS_ko.md)에서 관리 위치와
 새 checkout 검증 결과를 확인할 수 있다.
 
+[선택적 GPU 전처리](GPU_PREPROCESS_ko.md)는 Raspberry Pi V3D의 DoG 필터
+실험 옵션이다. CPU 기본값과 [실측 결과](GPU_PREPROCESS_RESULTS_20260923_ko.md)를
+함께 확인한다.
+
+[다음 가속 개선 판단](NEXT_ACCELERATION_DECISION_20260923_ko.md)은 GPU 병목 분리,
+공유 메모리 타일과 CPU NEON 누적의 시험 결과를 정리한다.
+
+[Pi 4·5 CPU 누적 최적화](CPU_PREPROCESS_ko.md)는 적용된 NEON 경로와
+자동 선택·NumPy 복귀 옵션, 빌드와 검증 방법을 설명한다.
+
 ## 읽는 순서
 
 1. [고속 하늘 전처리 및 별 후보 보존 설계](mf_fast_sky_preprocessing_design_ko.md)
@@ -29,7 +39,7 @@
 
 - 중앙 우선·주변 radial tile scheduler
 - 6 mm/16 mm LensProfile과 distortion calibration
-- row streaming과 ARM NEON
+- detector 코어의 row streaming과 ARM NEON (전처리 시간 누적 NEON은 구현됨)
 - 선택적 SEP C 또는 AI backend
 
 설계 문서가 현재 코드보다 앞선 내용을 포함하므로, 완료되지 않은 항목을 구현 완료로 해석하지

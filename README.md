@@ -87,10 +87,18 @@ Optional libpng retains its own license.
 ### Runtime and comparison builds
 
 `make -j2 runtime` builds the persistent process server and copies license
-notices. This is sufficient for PiFinder's default process transport.
+notices, plus the optional CPU temporal reduction helper. This is sufficient
+for PiFinder's default process transport.
 `make -j2 all && make test` additionally builds the CLI, ctypes library and
 native tests for development and recorded-image comparisons. The runtime
 build does not remove previously built comparison tools.
+
+PiFinder temporal preprocessing uses `MF_PREPROCESS_REDUCTION=auto|numpy|neon`.
+The default auto mode selects baseline NEON on supported Pi 4/5 ARM64 systems
+and falls back to NumPy otherwise. DoG remains on the CPU by default; optional
+V3D acceleration is built separately with `make gpu`. See
+[CPU setup and validation](docs/CPU_PREPROCESS_ko.md) and
+[GPU options and measurements](docs/GPU_PREPROCESS_ko.md).
 
 ## Binary distribution
 

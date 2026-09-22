@@ -41,3 +41,13 @@ continuity summaries), and `scripts/compare_scene_solve_order.py` (search order
 on the same saved centroids). See the
 [recording and comparison report](../../docs/test_cedar_free_20260915/MOON_LOWER_EXPOSURE_RESULTS_ko.md).
 Raw images, coordinates, and device configuration stay in local data storage.
+
+Optional Raspberry Pi V3D preprocessing is built with `make gpu` at the MFDS
+root. `MF_PREPROCESS_ACCELERATOR=cpu|auto|gpu` selects the CFA-preserving DoG
+backend; CPU remains the default. See [GPU setup and tests](../../docs/GPU_PREPROCESS_ko.md)
+for hardware requirements, fallback policy and measured limitations.
+
+Temporal reduction uses `MF_PREPROCESS_REDUCTION=auto|numpy|neon`, independently
+of the DoG option. `make all` / `make runtime` build a baseline ARMv8-A NEON helper
+for both Pi 4 and Pi 5; `auto` falls back to NumPy if unavailable. See
+[CPU reduction setup and tests](../../docs/CPU_PREPROCESS_ko.md).

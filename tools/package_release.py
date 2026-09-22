@@ -40,13 +40,30 @@ def package(root, output):
         if n.startswith(
             ("integrations/pifinder/", "LICENSES/", "docs/test_cedar_free_20260915/")
         )
-        or n in ("VERSION", "LICENSE", "LICENSING.md", "COMMERCIAL_USE.md")
+        or n
+        in (
+            "VERSION",
+            "LICENSE",
+            "LICENSING.md",
+            "COMMERCIAL_USE.md",
+            "docs/GPU_PREPROCESS_ko.md",
+            "docs/GPU_PREPROCESS_RESULTS_20260923_ko.md",
+            "docs/CPU_PREPROCESS_ko.md",
+        )
     ]
     names += [
         "build/" + n
         for n in ("mf_detect_star_server", "libmf_detect_star.so", "mf_detect_star")
     ]
-    files = {n: (root / n).read_bytes() for n in sorted(names)}
+    # Older/minimal builds remain valid: Python falls back if helpers are absent.
+    for helper in ("libmf_preprocess_gpu.so", "libmf_temporal_reduce.so"):
+        if (root / "build" / helper).is_file():
+            names.append("build/" + helper)
+    files = {
+        n: (root / n).read_bytes()
+        for n in sorted(names)
+        if not n.startswith("integrations/pifinder/native/")
+    }
     manifest = {
         "schema": 1,
         "version": version,

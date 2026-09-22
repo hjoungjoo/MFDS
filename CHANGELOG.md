@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.4.0] - 2026-09-23
+
+- Add fused FP32 NEON temporal reduction for Raspberry Pi 4 and 5 with runtime
+  capability checks. `MF_PREPROCESS_REDUCTION=auto|numpy|neon` defaults to auto
+  and falls back to NumPy when the helper or configuration is unsupported.
+- Preserve temporal addition order and existing quantization and thresholds.
+  Pi 5 recorded-image A/B showed 6.5–11.1% lower median full preprocessing time
+  with exactly matching frame, evidence and diagnostic outputs across 48 pairs.
+  Pi 4 compatibility was checked with Cortex-A72 emulation; physical Pi 4
+  performance remains unmeasured.
+- Add optional V3D OpenGL ES 3.1 DoG preprocessing through
+  `MF_PREPROCESS_ACCELERATOR=cpu|auto|gpu`. CPU remains the default because
+  the tested GPU path was slower; explicit GPU mode reports failures.
+- Package the native preprocessing helpers, add CPU/GPU comparison tools and
+  regression coverage, and validate temporal reduction in release builds.
+- Native detector C ABI 1 and MFDS1 process protocol remain unchanged.
+
 ## [0.3.2] - 2026-09-17
 
 - Make the reusable preprocessing buffer shape and initialized floor explicit

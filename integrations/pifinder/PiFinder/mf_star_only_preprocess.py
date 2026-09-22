@@ -10,10 +10,305 @@ from __future__ import annotations
 
 from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass
+import ctypes
+import logging
+import os
+from pathlib import Path
+import platform
 from typing import Hashable
 
 import numpy as np
 from scipy import ndimage
+
+
+logger = logging.getLogger(__name__)
+
+
+class ReductionUnavailable(RuntimeError):
+    """The native temporal reduction cannot execute this window."""
+
+
+class _NativeTemporalReduction:
+    def __init__(self):
+        # Check before loading: a foreign library must never execute on Pi 4
+        # with a 32-bit OS, or on non-ARM development machines.
+        if (
+            platform.system() != "Linux"
+            or platform.machine().lower() not in {"aarch64", "arm64"}
+            or ctypes.sizeof(ctypes.c_void_p) != 8
+        ):
+            raise ReductionUnavailable("NEON reduction requires 64-bit ARM Linux")
+        path = os.environ.get("MF_PREPROCESS_REDUCTION_LIBRARY") or str(
+            Path(__file__).resolve().parents[3] / "build/libmf_temporal_reduce.so"
+        )
+        self.library = ctypes.CDLL(path)
+        lib = self.library
+        lib.mf_reduce_abi_version.argtypes = []
+        lib.mf_reduce_abi_version.restype = ctypes.c_uint
+        if lib.mf_reduce_abi_version() != 1:
+            raise ReductionUnavailable("Unsupported temporal reduction ABI")
+        lib.mf_reduce_neon_available.argtypes = []
+        lib.mf_reduce_neon_available.restype = ctypes.c_int
+        if lib.mf_reduce_neon_available() != 1:
+            raise ReductionUnavailable("CPU or library lacks baseline ARMv8 NEON")
+        lib.mf_reduce_neon.argtypes = (
+            [ctypes.POINTER(ctypes.c_void_p)] * 3
+            + [ctypes.c_size_t, ctypes.c_size_t, ctypes.c_float]
+            + [ctypes.c_void_p] * 4
+        )
+        lib.mf_reduce_neon.restype = ctypes.c_int
+
+    def reduce(self, signals, evidence, masks, threshold):
+        if (
+            not 1 <= len(signals) <= 64
+            or len(evidence) != len(signals)
+            or len(masks) != len(signals)
+            or not np.isfinite(threshold)
+            or abs(threshold) > np.finfo(np.float32).max
+        ):
+            raise ReductionUnavailable("Unsupported temporal window or threshold")
+        shape = signals[0].shape
+        if len(shape) != 2 or not signals[0].size:
+            raise ReductionUnavailable("Reduction requires nonempty 2D frames")
+        for frames, dtype in (
+            (signals, np.float32),
+            (evidence, np.float32),
+            (masks, np.bool_),
+        ):
+            for frame in frames:
+                if (
+                    frame.shape != shape
+                    or frame.dtype != dtype
+                    or not frame.flags.c_contiguous
+                    or not frame.flags.aligned
+                ):
+                    raise ReductionUnavailable("Unsupported temporal buffer layout")
+        outputs = tuple(
+            np.empty(shape, dtype=dtype)
+            for dtype in (np.float32, np.float32, np.int32, np.bool_)
+        )
+        tables = [
+            (ctypes.c_void_p * len(signals))(*(frame.ctypes.data for frame in frames))
+            for frames in (signals, evidence, masks)
+        ]
+        status = self.library.mf_reduce_neon(
+            *tables,
+            len(signals),
+            signals[0].size,
+            threshold,
+            *(output.ctypes.data for output in outputs),
+        )
+        if status != 0:
+            raise ReductionUnavailable(f"Native temporal reduction failed ({status})")
+        return outputs
+
+
+def _numpy_temporal_reduce(signals, evidence, masks, config, scratch, capped):
+    """Reference path, including configurations whose evidence is not cached capped."""
+    combined_signal = np.zeros(scratch.shape, dtype=np.float32)
+    evidence_sum = np.zeros(scratch.shape, dtype=np.float32)
+    persistence = np.zeros(scratch.shape, dtype=np.int32)
+    single_core = np.zeros(scratch.shape, dtype=bool)
+    for signal_frame, evidence_frame, single_mask in zip(signals, evidence, masks):
+        combined_signal += signal_frame
+        if capped:
+            evidence_sum += evidence_frame
+        else:
+            np.clip(evidence_frame, 0.0, config.evidence_cap_sigma, out=scratch)
+            evidence_sum += scratch
+        persistence += evidence_frame >= config.weak_evidence_sigma
+        single_core |= single_mask
+    return combined_signal, evidence_sum, persistence, single_core
+
+
+class TemporalReductionBackend:
+    """Fuse independent pixel passes on NEON; preserve temporal FP32 addition order.
+
+    Auto falls back once per instance. Explicit neon mode raises so a failed
+    benchmark cannot silently measure NumPy. The native helper has no mutable
+    global state, worker threads or GPU resources.
+    """
+
+    def __init__(self, mode):
+        self.mode = (
+            os.environ.get("MF_PREPROCESS_REDUCTION", "auto") if mode is None else mode
+        ).lower()
+        if self.mode not in {"auto", "numpy", "neon"}:
+            raise ValueError("MF_PREPROCESS_REDUCTION must be auto, numpy or neon")
+        self.active_backend = "numpy" if self.mode == "numpy" else "pending"
+        self.fallback_reason = None
+        self._native = None
+
+    def __call__(self, signals, evidence, masks, config, scratch, capped):
+        if self.active_backend != "numpy":
+            try:
+                if not capped:
+                    raise ReductionUnavailable("Evidence requires per-frame clipping")
+                if self._native is None:
+                    self._native = _NativeTemporalReduction()
+                result = self._native.reduce(
+                    signals, evidence, masks, config.weak_evidence_sigma
+                )
+            except (OSError, AttributeError, ReductionUnavailable) as exc:
+                self.fallback_reason = str(exc)
+                self.active_backend = "unavailable"
+                self._native = None
+                if self.mode == "neon":
+                    raise ReductionUnavailable(
+                        f"MF preprocessing NEON unavailable: {exc}"
+                    ) from exc
+                self.active_backend = "numpy"
+                logger.info("MF preprocessing using NumPy temporal reduction: %s", exc)
+            else:
+                self.active_backend = "neon"
+                return result
+        return _numpy_temporal_reduce(signals, evidence, masks, config, scratch, capped)
+
+
+class GPUUnavailable(RuntimeError):
+    """The requested hardware backend cannot execute this frame."""
+
+
+class _NativeGPU:
+    def __init__(self):
+        path = os.environ.get("MF_PREPROCESS_GPU_LIBRARY") or str(
+            Path(__file__).resolve().parents[3] / "build/libmf_preprocess_gpu.so"
+        )
+        self.library = ctypes.CDLL(path)
+        lib = self.library
+        lib.mf_gpu_create.argtypes = [ctypes.c_char_p, ctypes.c_size_t]
+        lib.mf_gpu_create.restype = ctypes.c_void_p
+        lib.mf_gpu_destroy.argtypes = [ctypes.c_void_p]
+        lib.mf_gpu_destroy.restype = None
+        lib.mf_gpu_renderer.argtypes = [ctypes.c_void_p]
+        lib.mf_gpu_renderer.restype = ctypes.c_char_p
+        array = np.ctypeslib.ndpointer(dtype=np.float32, ndim=2, flags="C_CONTIGUOUS")
+        lib.mf_gpu_dog.argtypes = [
+            ctypes.c_void_p,
+            array,
+            array,
+            ctypes.c_int,
+            ctypes.c_int,
+            ctypes.c_int,
+            ctypes.c_char_p,
+            ctypes.c_size_t,
+        ]
+        lib.mf_gpu_dog.restype = ctypes.c_int
+        error = ctypes.create_string_buffer(2048)
+        self.handle = lib.mf_gpu_create(error, len(error))
+        if not self.handle:
+            raise GPUUnavailable(error.value.decode(errors="replace"))
+        self.renderer = lib.mf_gpu_renderer(self.handle).decode(errors="replace")
+
+    def dog(self, residual, period):
+        frame = np.ascontiguousarray(residual, dtype=np.float32)
+        output = np.empty_like(frame)
+        error = ctypes.create_string_buffer(2048)
+        status = self.library.mf_gpu_dog(
+            self.handle,
+            frame,
+            output,
+            frame.shape[1],
+            frame.shape[0],
+            period,
+            error,
+            len(error),
+        )
+        if status != 0:
+            raise GPUUnavailable(error.value.decode(errors="replace"))
+        if not np.isfinite(output).all():
+            raise GPUUnavailable("GPU returned non-finite point response")
+        return output
+
+    def close(self):
+        if self.handle:
+            self.library.mf_gpu_destroy(self.handle)
+            self.handle = None
+
+
+class PointResponseBackend:
+    """Keep EGL creation, dispatch and destruction on one dedicated thread.
+
+    Auto falls back once per instance, including for execution failures. GPU
+    mode raises instead of concealing a failed experiment. Input/config errors
+    never trigger fallback. GPU resources must be initialized after process
+    forks; an unused backend or the CPU path can safely cross that boundary.
+    """
+
+    def __init__(self, mode, cpu_response):
+        self.mode = (
+            os.environ.get("MF_PREPROCESS_ACCELERATOR", "cpu") if mode is None else mode
+        ).lower()
+        if self.mode not in {"cpu", "auto", "gpu"}:
+            raise ValueError("MF_PREPROCESS_ACCELERATOR must be cpu, auto or gpu")
+        self.cpu_response = cpu_response
+        self.active_backend = "cpu" if self.mode == "cpu" else "pending"
+        self.renderer = None
+        self.fallback_reason = None
+        self._executor = None
+        self._native = None
+        self._pid = os.getpid()
+        self._closed = False
+
+    def _run(self, residual, period):
+        if self._native is None:
+            self._native = _NativeGPU()
+            self.renderer = self._native.renderer
+        return self._native.dog(residual, period)
+
+    def __call__(self, residual, period):
+        self._check_owner()
+        if self._closed:
+            raise RuntimeError("Preprocess backend closed")
+        if residual.ndim != 2 or not residual.size or not np.isfinite(residual).all():
+            raise ValueError("Point response requires a finite nonempty 2D image")
+        period = max(1, int(period))
+        if period > min(residual.shape):
+            raise ValueError("CFA period exceeds image dimensions")
+        if self.active_backend == "cpu":
+            return self.cpu_response(residual, period)
+        if self._executor is None:
+            self._executor = ThreadPoolExecutor(
+                max_workers=1, thread_name_prefix="mf-gpu"
+            )
+        try:
+            result = self._executor.submit(self._run, residual, period).result()
+        except (OSError, AttributeError, GPUUnavailable) as exc:
+            self._release_gpu()
+            self.fallback_reason = str(exc)
+            self.active_backend = "unavailable"
+            if self.mode == "gpu":
+                raise GPUUnavailable(
+                    f"MF preprocessing GPU unavailable: {exc}"
+                ) from exc
+            self.active_backend = "cpu"
+            logger.warning("MF preprocessing GPU unavailable; using CPU: %s", exc)
+            return self.cpu_response(residual, period)
+        self.active_backend = "gpu"
+        return result
+
+    def _release_gpu(self):
+        if self._executor is not None:
+            try:
+                if self._native is not None:
+                    self._executor.submit(self._native.close).result()
+            finally:
+                self._executor.shutdown(wait=True)
+                self._executor = None
+                self._native = None
+
+    def _check_owner(self):
+        if self._pid != os.getpid():
+            if self._executor is not None or self._native is not None:
+                raise RuntimeError(
+                    "GPU backend initialized before fork; create a new instance"
+                )
+            self._pid = os.getpid()
+
+    def close(self):
+        self._check_owner()
+        self._release_gpu()
+        self._closed = True
 
 
 def preprocess_geometry_fingerprint(
@@ -72,6 +367,10 @@ class MFStarOnlyConfig:
     # kernels release the GIL. One preserves the historical serial path;
     # larger values allow a pixel-identical multi-core field A/B test.
     parallel_scale_workers: int = 1
+    # None reads MF_PREPROCESS_ACCELERATOR at instance creation; default CPU.
+    accelerator: str | None = None
+    # Independent of the DoG accelerator; auto uses baseline NEON when available.
+    reduction_backend: str | None = None
 
 
 @dataclass(frozen=True)
@@ -314,6 +613,7 @@ def preprocess_star_evidence(
     saturation_level: float,
     config: MFStarOnlyConfig = MFStarOnlyConfig(),
     scale_executor: ThreadPoolExecutor | None = None,
+    point_backend: PointResponseBackend | None = None,
 ) -> tuple[np.ndarray, np.ndarray, np.ndarray, MFStarOnlyDiagnostics]:
     """Return signal, PSF evidence, hard mask and diagnostics for one RAW."""
 
@@ -395,7 +695,14 @@ def preprocess_star_evidence(
     del background
     # Difference-of-Gaussians rejects broad cloud/halo texture while retaining
     # the camera's compact stellar PSF.  It changes strength, never geometry.
-    point_response = _cfa_point_response(residual, config.cfa_period_px)
+    if point_backend is None:
+        backend = PointResponseBackend(config.accelerator, _cfa_point_response)
+        try:
+            point_response = backend(residual, config.cfa_period_px)
+        finally:
+            backend.close()
+    else:
+        point_response = point_backend(residual, config.cfa_period_px)
     # The DoG kernel attenuates a one-pixel-to-few-pixel PSF while also
     # reducing the white-noise variance.  Calibrate that attenuation before
     # comparing the response with the RAW-domain robust RMS.
@@ -430,6 +737,10 @@ class MFStarOnlyAccumulator:
 
     def __init__(self, config: MFStarOnlyConfig = MFStarOnlyConfig()):
         self.config = config
+        self.point_backend = PointResponseBackend(
+            config.accelerator, _cfa_point_response
+        )
+        self.reduction_backend = TemporalReductionBackend(config.reduction_backend)
         self._fingerprint: Hashable | None = None
         self._signals: list[np.ndarray] = []
         self._evidence: list[np.ndarray] = []
@@ -488,6 +799,7 @@ class MFStarOnlyAccumulator:
             saturation_level=saturation_level,
             config=self.config,
             scale_executor=self._scale_executor,
+            point_backend=self.point_backend,
         )
         # Preserve the reference float16 quantization, but promote only once
         # when a frame enters the window. This trades ~40 MiB retained memory
@@ -525,22 +837,16 @@ class MFStarOnlyAccumulator:
         # Stream the temporal reduction: do not materialize three float32
         # windows (evidence, capped evidence, support). Keep exactly the same
         # temporal addition order and each frame's component classification.
-        combined_signal = np.zeros(raw_frame.shape, dtype=np.float32)
-        evidence_sum = np.zeros(raw_frame.shape, dtype=np.float32)
-        persistence = np.zeros(raw_frame.shape, dtype=np.int32)
-        single_core = np.zeros(raw_frame.shape, dtype=bool)
-        for signal_frame, evidence_frame, single_mask in zip(
-            self._signals, self._evidence, self._single_masks
-        ):
-            evidence = evidence_frame
-            combined_signal += signal_frame
-            if cache_capped_evidence:
-                evidence_sum += evidence
-            else:
-                np.clip(evidence, 0.0, self.config.evidence_cap_sigma, out=scratch)
-                evidence_sum += scratch
-            persistence += evidence >= self.config.weak_evidence_sigma
-            single_core |= single_mask
+        combined_signal, evidence_sum, persistence, single_core = (
+            self.reduction_backend(
+                self._signals,
+                self._evidence,
+                self._single_masks,
+                self.config,
+                scratch,
+                cache_capped_evidence,
+            )
+        )
         repeated_core = _point_component_mask(persistence >= 2, self.config)
         repeated_keep = ndimage.binary_dilation(
             repeated_core, iterations=self.config.psf_dilation_px
@@ -580,6 +886,7 @@ class MFStarOnlyAccumulator:
         return MFStarOnlyResult(output, combined_evidence, final_diagnostics)
 
     def close(self) -> None:
+        self.point_backend.close()
         if self._scale_executor is not None:
             self._scale_executor.shutdown(wait=True, cancel_futures=True)
             self._scale_executor = None
