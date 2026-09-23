@@ -260,6 +260,34 @@ bool test_pyramid_coordinates_and_stride() {
     return !invalid.ok();
 }
 
+bool test_pyramid_compact_stars_at_coarse_pixel_phases() {
+    // Bright, well-sampled sensor PSFs can become a single coarse pixel.
+    // Sweep their location within a 4x cell without changing their width/SNR.
+    for (float phase : {0.0F, 0.5F, 1.0F, 1.5F, 2.0F, 2.5F, 3.0F, 3.5F}) {
+        auto image = make_sky(256, 256,
+            [](float, float) { return 500.0F; },
+            [](float, float) { return 0.0F; }, 84U);
+        const float x = 121.5F + phase;
+        const float y = 121.5F;
+        add_star(image, x, y, 1500.0F, 0.85F);
+        // Unsaturated hot pixels must still fail the unchanged fine-stage gate.
+        image.values[60U * image.width + 60U] = 3500.0F;
+        image.quantize();
+        mf_detect_star::DetectorConfig config;
+        config.binning = 4;
+        config.mesh_size = 64;
+        config.noise_floor = 2.0F;
+        for (bool full : {false, true}) {
+            const auto result = mf_detect_star::Detector(config).detect_pyramid(
+                {image.pixels.data(), image.width, image.height, image.width, kMaximum},
+                full);
+            if (!result.ok() || result.stars.size() != 1U ||
+                !has_star_near(result, x, y, 0.7F)) return false;
+        }
+    }
+    return true;
+}
+
 }  // namespace
 
 int main() {
@@ -271,6 +299,7 @@ int main() {
         {"binning_two_coordinates", test_binning_two_coordinates},
         {"compact_clipped_star_and_lamp", test_compact_clipped_star_and_lamp},
         {"pyramid_coordinates_and_stride", test_pyramid_coordinates_and_stride},
+        {"pyramid_compact_stars_at_coarse_pixel_phases", test_pyramid_compact_stars_at_coarse_pixel_phases},
     };
     std::size_t passed = 0;
     for (const auto& [name, test] : tests) {

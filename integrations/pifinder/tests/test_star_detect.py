@@ -52,6 +52,37 @@ def test_unknown_backend_fails_explicitly(monkeypatch):
         star_detect.detect_stars(np.zeros((128, 128), dtype=np.uint16))
 
 
+@pytest.mark.parametrize("transport", ["ctypes", "process"])
+@pytest.mark.parametrize("overlay_limit", [None, 3, 12])
+def test_native_overlay_keeps_filtered_stars_without_expanding_solver(
+    monkeypatch, transport, overlay_limit
+):
+    monkeypatch.setenv("MF_DETECT_TRANSPORT", transport)
+    monkeypatch.delenv("MF_DETECT_MAX_STARS", raising=False)
+    points = np.array(
+        [[100, 100 + 60 * i, 100 - i] for i in range(10)], dtype=np.float32
+    )
+    # The edge candidate must not reappear in the larger display set.
+    points[-1, 0] = 10
+    call = "_detect_ctypes" if transport == "ctypes" else "detect"
+    module = star_detect if transport == "ctypes" else star_detect.mf_detect_process
+    monkeypatch.setattr(module, call, lambda *args: (points, 1.0))
+    result = star_detect._detect_native(
+        np.full((256, 768), 500, dtype=np.uint16),
+        max_stars=5,
+        overlay_max_stars=overlay_limit,
+    )
+    np.testing.assert_array_equal(result.centroids, points[:5, :2])
+    np.testing.assert_array_equal(result.fluxes, points[:5, 2])
+    assert result.primary_candidates == 5
+    if overlay_limit is None:
+        assert result.overlay_centroids is None
+    else:
+        np.testing.assert_array_equal(
+            result.overlay_centroids, points[: min(9, max(5, overlay_limit)), :2]
+        )
+
+
 def test_native_abi_rejects_null_input():
     if not star_detect.native_library_path().exists():
         pytest.skip("build native test library first")

@@ -150,9 +150,16 @@ def _detect_native(raw_frame, **kwargs):
         )
         points, flux = points[selection.keep], flux[selection.keep]
     max_stars = int(os.environ.get("MF_DETECT_MAX_STARS", kwargs.get("max_stars", 48)))
+    overlay_max_stars = kwargs.get("overlay_max_stars")
+    overlay_points = (
+        points[: max(max_stars, int(overlay_max_stars))].copy()
+        if overlay_max_stars is not None
+        else None
+    )
     return sep_detect.SepDetection(
         centroids=points[:max_stars],
         fluxes=flux[:max_stars],
+        overlay_centroids=overlay_points,
         background_median=0.0,
         background_rms=0.0,
         elapsed_ms=(time.perf_counter() - started) * 1000.0,

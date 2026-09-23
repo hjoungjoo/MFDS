@@ -813,6 +813,14 @@ DetectionResult Detector::detect_pyramid(const ImageView& input,
     coarse.refine_original = false;
     coarse.collect_diagnostics = false;
     coarse.min_support_pixels = 1; // A real star may occupy one coarse pixel.
+    if (coarse.binning >= 4) {
+        // A compact PSF can collapse into one pixel (or a thin pair) at 4x.
+        // Its coarse moments then look like a hot pixel even at high SNR.
+        // These are only seeds: retain the normal shape/support rejection in
+        // the existing 2x ROI pass before returning any star.
+        coarse.min_fwhm = 0.0F;
+        coarse.max_eccentricity = 1.0F;
+    }
     coarse.fit_radius = 3;
     coarse.min_separation = 2.0F;
     auto result = Detector(coarse).detect(input);

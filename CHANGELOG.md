@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.4.1] - 2026-09-24
+
+- Retain compact stars collapsed into one coarse pixel by deferring minimum
+  width and eccentricity rejection to the existing 2x ROI refinement stage.
+  Preserve full-frame 4x search, detection thresholds, kernels and work limits.
+- Honor the diagnostic overlay candidate limit without increasing the bounded
+  solver input or performing additional detection passes.
+- Add compact-star phase and overlay regressions. On 40 recorded RAW frames,
+  retain all 1,936 previous native candidates and recover 12 additional candidates;
+  median detection time was 44.12 ms before and 42.56 ms after. These additional
+  candidates are not catalog-confirmed stars; the reported 8 mm frame still
+  needs validation from its original RAW.
+- Native detector C ABI 1 and MFDS1 process protocol remain unchanged.
+
 ## [0.4.0] - 2026-09-23
 
 - Add fused FP32 NEON temporal reduction for Raspberry Pi 4 and 5 with runtime
