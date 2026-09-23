@@ -3,7 +3,6 @@
 """Generate the native version header and check release/build consistency."""
 
 import argparse
-import ctypes
 from pathlib import Path
 import re
 import subprocess
@@ -14,6 +13,7 @@ def main():
     parser.add_argument("--header", type=Path)
     parser.add_argument("--check-build", type=Path)
     parser.add_argument("--tag")
+    parser.add_argument("--process-only", action="store_true")
     args = parser.parse_args()
     root = Path(__file__).resolve().parents[1]
     version = (root / "VERSION").read_text().strip()
@@ -34,18 +34,25 @@ def main():
         parser.error("missing versioned release notes")
     if args.check_build:
         directory = args.check_build.resolve()
-        for name in ("mf_detect_star", "mf_detect_star_server"):
+        for name in (
+            ("mf_detect_star_server",)
+            if args.process_only
+            else ("mf_detect_star", "mf_detect_star_server")
+        ):
             actual = subprocess.check_output(
                 [str(directory / name), "--version"], text=True, timeout=5
             ).strip()
             if actual != f"MFDS {version}":
                 parser.error(f"{name} reports {actual!r}, expected MFDS {version}")
-        library = ctypes.CDLL(str(directory / "libmf_detect_star.so"))
-        library.mfds_version.restype = ctypes.c_char_p
-        if library.mfds_version().decode("ascii") != version:
-            parser.error("shared library version differs from VERSION")
-        if library.mfds_abi_version() != 1:
-            parser.error("unexpected C ABI version")
+        if not args.process_only:
+            import ctypes
+
+            library = ctypes.CDLL(str(directory / "libmf_detect_star.so"))
+            library.mfds_version.restype = ctypes.c_char_p
+            if library.mfds_version().decode("ascii") != version:
+                parser.error("shared library version differs from VERSION")
+            if library.mfds_abi_version() != 1:
+                parser.error("unexpected C ABI version")
     print(f"MFDS {version}: version, changelog and release notes verified")
 
 

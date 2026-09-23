@@ -7,9 +7,22 @@ This identifier distinguishes the policy from the standard two-year FSL-1.1-MIT.
 
 ## Native detector
 
-The licensor notice identifies the existing MF copyright holders, **PiFinder
-contributors**. Permission requests for MFDS are directed to its maintainers
-and relevant rightsholders; see [commercial use](COMMERCIAL_USE.md).
+**MagicFly** is the creator/modifier and copyright holder for MagicFly's own
+MFDS-original contributions. **FNPD 한국**, located in the Republic of Korea,
+sells and distributes the **MFNavis** product; this attribution does not imply
+an assignment of copyright to FNPD or sole ownership of inherited code.
+Permission requests concern the relevant rightsholders' contributions;
+see [commercial use](COMMERCIAL_USE.md).
+
+| Area | Copyright attribution | License |
+|---|---|---|
+| MFDS-original native code / MagicFly modifications | MagicFly, limited to those contributions | LicenseRef-MFDS-FSL-1.1-MIT-5year; retained prior rights still apply |
+| PiFinder-derived GPL integration and preprocessing | Original PiFinder contributors and respective file authors; MagicFly for modifications | GPL-3.0, with existing per-file version grants preserved |
+| Legacy MIT code/distributions | Original notice: Copyright (c) 2026 PiFinder contributors | MIT; keep LICENSES/MIT-legacy.txt verbatim |
+
+Repository membership does not establish provenance. Any inherited native
+fragment remains subject to its original license and attribution. The FSL
+notice is not an assertion that GPL-derived code can be relicensed under FSL.
 
 The policy was published on 2026-09-15. That publication receives its future MIT
 grant on 2031-09-15; each covered version has its own publication date. A new
@@ -33,8 +46,10 @@ The terms do not impose indefinite prior approval on every paid product.
 | Optional external libpng, NumPy, SciPy, SEP and Tetra3 | Their respective upstream terms |
 
 The GPL adapter communicates with an independent native worker using image/centroid
-IPC; see [the protocol](docs/PROCESS_PROTOCOL.md). Explicit ctypes comparison is
-retained. This process boundary is not a new license grant or GPL exception.
+IPC; see [the protocol](docs/PROCESS_PROTOCOL.md). Development builds retain explicit ctypes comparison. MFNavis commercial
+packages exclude all MF native loaders and shared libraries, including optional
+GPL preprocessing helpers; they use the independent worker and NumPy/SciPy CPU
+preprocessing. See [commercial build](docs/MFNAVIS_COMMERCIAL_ko.md). This process boundary is not a new license grant or GPL exception.
 Moving integration and preprocessing files into this repository does not
 relicense them, and permission from MF rightsholders does not waive third-party
 obligations.

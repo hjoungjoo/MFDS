@@ -93,3 +93,8 @@ clean:
 
 $(BUILD_DIR)/mfds_version.hpp: VERSION tools/version.py | $(BUILD_DIR)
 	python3 tools/version.py --header $@
+
+# Sales artifacts never depend on ctypes libraries or preprocessing helpers.
+.PHONY: commercial
+commercial: license-notices $(BUILD_DIR)/mf_detect_star_server
+	python3 tools/package_release.py --commercial --output dist/commercial

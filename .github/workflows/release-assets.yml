@@ -28,6 +28,7 @@ jobs:
             PYTHONPATH=integrations/pifinder python3 -m pytest -q integrations/pifinder/tests/test_mf_temporal_reduce.py integrations/pifinder/tests/test_mf_star_only_preprocess.py
             python3 tools/version.py --check-build build
             python3 tools/package_release.py --output dist
+            python3 tools/package_release.py --commercial --output dist
           '
       - uses: actions/upload-artifact@v4
         with:

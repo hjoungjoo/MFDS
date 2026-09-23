@@ -1,6 +1,14 @@
 ## Notice
 
-Copyright (c) 2026 PiFinder contributors
+Copyright (c) 2026 MagicFly (MFDS-original code and modifications)
+
+Product: MFNavis
+Seller and distributor: FNPD 한국 (Republic of Korea)
+Creator / modifier: MagicFly
+
+This notice covers MagicFly's own contributions only. It does not transfer
+third-party copyrights or relicense PiFinder-derived GPL code or earlier MIT
+material. Their original notices remain applicable; see LICENSING.md.
 
 Native detector sources, headers, native tests, build files and project-authored
 materials are offered under the terms below. See LICENSING.md for the separate

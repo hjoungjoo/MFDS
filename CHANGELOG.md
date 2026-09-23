@@ -4,6 +4,9 @@ All notable changes to this project will be documented in this file.
 
 ## [0.4.1] - 2026-09-24
 
+- Add separately named process-only commercial packages, with native loaders
+  and shared libraries excluded and artifact regression tests. Clarify MFNavis
+  product attribution while retaining the existing per-path license terms.
 - Retain compact stars collapsed into one coarse pixel by deferring minimum
   width and eccentricity rejection to the existing 2x ROI refinement stage.
   Preserve full-frame 4x search, detection thresholds, kernels and work limits.

@@ -24,3 +24,10 @@ MFDS is publicly readable source with the existing per-path licenses in
 영구적인 사전 승인을 요구하는 새 문구를 추가한 것은 아니다.
 PiFinder에서 유래한 GPL 부분에는 MF 상용 제한을 붙이지 않는다.
 이 안내와 이관은 새 라이선스 계약이나 결합 배포에 대한 법률적 판정이 아니다.
+
+## MFNavis product identity
+
+MFNavis is created/modified by **MagicFly** and sold/distributed by **FNPD 한국**.
+This identifies the product parties; it does not transfer third-party copyrights
+or replace the per-path terms above. The [commercial build](docs/MFNAVIS_COMMERCIAL_ko.md)
+excludes direct native linking.

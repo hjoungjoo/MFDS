@@ -12,8 +12,10 @@ import platform
 import subprocess
 import tarfile
 
+from commercial import integration_source, validate_files
 
-def package(root, output):
+
+def package(root, output, commercial=False):
     root = Path(root).resolve()
     version = (root / "VERSION").read_text().strip()
     arch = platform.machine()
@@ -25,6 +27,7 @@ def package(root, output):
             str(root / "tools/version.py"),
             "--check-build",
             str(root / "build"),
+            *(["--process-only"] if commercial else []),
         ],
         check=True,
     )
@@ -59,13 +62,48 @@ def package(root, output):
     for helper in ("libmf_preprocess_gpu.so", "libmf_temporal_reduce.so"):
         if (root / "build" / helper).is_file():
             names.append("build/" + helper)
+    if commercial:
+        names.append("docs/MFNAVIS_COMMERCIAL_ko.md")
+        names = [n for n in names if not n.startswith("build/")]
+        names.append("build/mf_detect_star_server")
     files = {
         n: (root / n).read_bytes()
         for n in sorted(names)
         if not n.startswith("integrations/pifinder/native/")
     }
+    if commercial:
+        # Allowlist runtime modules and license records; omit developer scripts,
+        # tests, optional helpers and all shared libraries even in a dirty build.
+        files = {
+            n: b
+            for n, b in files.items()
+            if (
+                n.startswith("integrations/pifinder/PiFinder/")
+                or n
+                in {
+                    "integrations/pifinder/LICENSE",
+                    "VERSION",
+                    "LICENSE",
+                    "LICENSING.md",
+                    "COMMERCIAL_USE.md",
+                    "build/mf_detect_star_server",
+                    "docs/MFNAVIS_COMMERCIAL_ko.md",
+                }
+                or n.startswith("LICENSES/")
+            )
+        }
+        for n in list(files):
+            if n.endswith(".py"):
+                files[n] = integration_source(Path(n).name, files[n])
+        validate_files(files)
     manifest = {
         "schema": 1,
+        "profile": "commercial-process-only" if commercial else "development",
+        "source_dirty": bool(
+            subprocess.check_output(
+                ["git", "-C", str(root), "status", "--porcelain"], text=True
+            ).strip()
+        ),
         "version": version,
         "source_commit": revision,
         "repository": "https://github.com/hjoungjoo/MFDS",
@@ -76,7 +114,10 @@ def package(root, output):
     }
     files["PACKAGE.json"] = (json.dumps(manifest, indent=2) + "\n").encode()
     output.mkdir(parents=True, exist_ok=True)
-    artifact = output / f"MFDS-{version}-linux-{arch}.tar.gz"
+    artifact = (
+        output
+        / f"MFDS-{version}-linux-{arch}{'-commercial' if commercial else ''}.tar.gz"
+    )
     with artifact.open("wb") as raw, gzip.GzipFile(
         filename="", fileobj=raw, mode="wb", mtime=0
     ) as gz:
@@ -97,5 +138,12 @@ def package(root, output):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, default=Path("dist"))
+    parser.add_argument(
+        "--commercial",
+        action="store_true",
+        help="Process-only MFNavis package; no native linking",
+    )
     args = parser.parse_args()
-    package(Path(__file__).resolve().parents[1], args.output)
+    package(
+        Path(__file__).resolve().parents[1], args.output, commercial=args.commercial
+    )
