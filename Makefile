@@ -60,9 +60,13 @@ license-notices: | $(BUILD_DIR)
 info:
 	@printf 'CXX=%s\nHAVE_LIBPNG=%s\n' '$(CXX)' '$(HAVE_LIBPNG)'
 
-test: $(BUILD_DIR)/mf_detect_star_tests $(BUILD_DIR)/mf_temporal_reduce_tests
+test: $(BUILD_DIR)/mf_detect_star_tests $(BUILD_DIR)/mf_temporal_reduce_tests $(BUILD_DIR)/mf_image_io_tests
 	$(BUILD_DIR)/mf_detect_star_tests
 	$(BUILD_DIR)/mf_temporal_reduce_tests
+	$(BUILD_DIR)/mf_image_io_tests
+
+$(BUILD_DIR)/mf_image_io_tests: tests/image_io_test.cpp $(BUILD_DIR)/image_io.o src/image_io.hpp | $(BUILD_DIR)
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) tests/image_io_test.cpp $(BUILD_DIR)/image_io.o $(LDLIBS) -o $@
 
 $(BUILD_DIR)/mf_temporal_reduce_tests: integrations/pifinder/native/temporal_reduce_test.cpp integrations/pifinder/native/temporal_reduce.h $(BUILD_DIR)/libmf_temporal_reduce.so
 	$(CXX) $(CXXFLAGS) $(REDUCE_ARCH_FLAGS) -fno-fast-math -ffp-contract=off -Iintegrations/pifinder/native $< -L$(BUILD_DIR) -Wl,-rpath,'$$ORIGIN' -lmf_temporal_reduce -o $@

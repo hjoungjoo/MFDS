@@ -41,14 +41,23 @@ jobs:
       - name: Sanitizer regression
         run: >-
           g++ -I include -std=c++20 -O1 -g
-          -fsanitize=address,undefined -fno-omit-frame-pointer
+          -fsanitize=address,undefined,float-cast-overflow -fno-omit-frame-pointer
           src/detector.cpp tests/self_test.cpp
           -o /tmp/mfds_sanitized_tests
+
+      - name: Image loading sanitizer regression
+        run: >-
+          g++ -I include -I src -std=c++20 -O1 -g -DMFDS_HAVE_LIBPNG=0
+          -fsanitize=address,undefined,float-cast-overflow -fno-omit-frame-pointer
+          src/image_io.cpp tests/image_io_test.cpp
+          -o /tmp/mfds_image_io_sanitized_tests
 
       - name: Run sanitizer regression
         env:
           ASAN_OPTIONS: detect_leaks=1
-        run: /tmp/mfds_sanitized_tests
+        run: |
+          /tmp/mfds_sanitized_tests
+          /tmp/mfds_image_io_sanitized_tests
 
   no-libpng:
     name: core-without-libpng
@@ -65,4 +74,3 @@ jobs:
 
       - name: Release version without libpng
         run: python3 tools/version.py --check-build build
-

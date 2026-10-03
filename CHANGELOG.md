@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.4.2] - 2026-10-03
+
+- Reject overflowing image dimensions, RAW16 strides and byte counts before
+  allocating buffers or accessing pixels. Check input length before allocating
+  PGM/RAW16 buffers and require complete unsigned integers in PGM headers.
+- Reject NaN, infinity and unrepresentable PSF scales before kernel construction.
+  Validate finite detector thresholds and bounded radius arithmetic while
+  preserving the default detection configuration and algorithms.
+- Add native image-loading and invalid-configuration regressions, including
+  sanitizer coverage and builds without libpng.
+- Native detector C ABI 1 and MFDS1 process protocol remain unchanged.
+
 ## [0.4.1] - 2026-09-24
 
 - Add separately named process-only commercial packages, with native loaders

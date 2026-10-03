@@ -3,11 +3,13 @@
 
 #include <algorithm>
 #include <cctype>
+#include <charconv>
 #include <cmath>
 #include <cstring>
 #include <fstream>
 #include <limits>
 #include <sstream>
+#include <stdexcept>
 
 #if MFDS_HAVE_LIBPNG
 #include <png.h>
@@ -15,6 +17,46 @@
 
 namespace mf_detect_star {
 namespace {
+
+bool checked_size(std::size_t width, std::size_t height, std::size_t bytes_per_sample,
+                  std::size_t& count, std::size_t& bytes, std::string& error) {
+    const auto size_limit = std::numeric_limits<std::size_t>::max();
+    if (width == 0U || height == 0U || width > size_limit / height) {
+        error = "invalid or overflowing image dimensions";
+        return false;
+    }
+    count = width * height;
+    if (count > std::vector<std::uint16_t>().max_size() ||
+        count > std::vector<unsigned char>().max_size() / bytes_per_sample ||
+        count > static_cast<std::size_t>(std::numeric_limits<std::streamsize>::max()) / bytes_per_sample) {
+        error = "image data size exceeds supported limits";
+        return false;
+    }
+    bytes = count * bytes_per_sample;
+    return true;
+}
+
+bool read_pixel_bytes(std::ifstream& input, std::size_t count,
+                      std::vector<unsigned char>& bytes) {
+    // Reject truncated or fabricated huge dimensions before allocating their buffers.
+    const auto start = input.tellg();
+    input.seekg(0, std::ios::end);
+    const auto end = input.tellg();
+    if (start < 0 || end < start || end - start < static_cast<std::streamoff>(count)) return false;
+    input.seekg(start);
+    bytes.resize(count);
+    input.read(reinterpret_cast<char*>(bytes.data()), static_cast<std::streamsize>(count));
+    return input.gcount() == static_cast<std::streamsize>(count);
+}
+
+std::size_t pgm_integer(const std::string& token) {
+    std::size_t value = 0;
+    const auto [end, status] = std::from_chars(token.data(), token.data() + token.size(), value);
+    if (status != std::errc{} || end != token.data() + token.size()) {
+        throw std::runtime_error("invalid unsigned integer");
+    }
+    return value;
+}
 
 std::string lowercase_extension(const std::string& path) {
     const auto dot = path.find_last_of('.');
@@ -64,15 +106,15 @@ bool load_pgm(const std::string& path, OwnedImage& image, std::string& error) {
         if (!read_pgm_token(input, token)) {
             throw std::runtime_error("missing width");
         }
-        image.width = static_cast<std::size_t>(std::stoull(token));
+        image.width = pgm_integer(token);
         if (!read_pgm_token(input, token)) {
             throw std::runtime_error("missing height");
         }
-        image.height = static_cast<std::size_t>(std::stoull(token));
+        image.height = pgm_integer(token);
         if (!read_pgm_token(input, token)) {
             throw std::runtime_error("missing max value");
         }
-        const auto maximum = std::stoul(token);
+        const auto maximum = pgm_integer(token);
         if (maximum == 0UL || maximum > 65535UL || image.width == 0U ||
             image.height == 0U) {
             throw std::runtime_error("invalid PGM dimensions or max value");
@@ -83,25 +125,19 @@ bool load_pgm(const std::string& path, OwnedImage& image, std::string& error) {
         return false;
     }
 
-    image.pixels.resize(image.width * image.height);
+    std::size_t pixel_count, byte_count;
+    if (!checked_size(image.width, image.height, image.max_value <= 255U ? 1U : 2U,
+                      pixel_count, byte_count, error)) return false;
+    std::vector<unsigned char> bytes;
+    if (!read_pixel_bytes(input, byte_count, bytes)) {
+        error = "truncated PGM pixel data";
+        return false;
+    }
+    image.pixels.resize(pixel_count);
     if (image.max_value <= 255U) {
-        std::vector<unsigned char> bytes(image.pixels.size());
-        input.read(reinterpret_cast<char*>(bytes.data()),
-                   static_cast<std::streamsize>(bytes.size()));
-        if (input.gcount() != static_cast<std::streamsize>(bytes.size())) {
-            error = "truncated PGM pixel data";
-            return false;
-        }
         std::transform(bytes.begin(), bytes.end(), image.pixels.begin(),
                        [](unsigned char value) { return static_cast<std::uint16_t>(value); });
     } else {
-        std::vector<unsigned char> bytes(image.pixels.size() * 2U);
-        input.read(reinterpret_cast<char*>(bytes.data()),
-                   static_cast<std::streamsize>(bytes.size()));
-        if (input.gcount() != static_cast<std::streamsize>(bytes.size())) {
-            error = "truncated PGM pixel data";
-            return false;
-        }
         for (std::size_t index = 0; index < image.pixels.size(); ++index) {
             image.pixels[index] = static_cast<std::uint16_t>(
                 static_cast<std::uint16_t>(bytes[2U * index]) << 8U |
@@ -122,16 +158,16 @@ bool load_raw16(const std::string& path, const RawInputOptions& options,
         error = "RAW16 stride is smaller than width";
         return false;
     }
+    std::size_t sample_count, byte_count, pixel_count, pixel_bytes;
+    if (!checked_size(stride, options.height, 2U, sample_count, byte_count, error) ||
+        !checked_size(options.width, options.height, 2U, pixel_count, pixel_bytes, error)) return false;
     std::ifstream input(path, std::ios::binary);
     if (!input) {
         error = "cannot open RAW16: " + path;
         return false;
     }
-    const std::size_t sample_count = stride * options.height;
-    std::vector<unsigned char> bytes(sample_count * 2U);
-    input.read(reinterpret_cast<char*>(bytes.data()),
-               static_cast<std::streamsize>(bytes.size()));
-    if (input.gcount() != static_cast<std::streamsize>(bytes.size())) {
+    std::vector<unsigned char> bytes;
+    if (!read_pixel_bytes(input, byte_count, bytes)) {
         error = "truncated RAW16 data (expected little-endian uint16 rows)";
         return false;
     }
@@ -139,7 +175,7 @@ bool load_raw16(const std::string& path, const RawInputOptions& options,
     image.width = options.width;
     image.height = options.height;
     image.max_value = options.max_value;
-    image.pixels.resize(image.width * image.height);
+    image.pixels.resize(pixel_count);
     for (std::size_t y = 0; y < image.height; ++y) {
         for (std::size_t x = 0; x < image.width; ++x) {
             const std::size_t source = (y * stride + x) * 2U;
@@ -213,8 +249,23 @@ bool load_png(const std::string& path, OwnedImage& image, std::string& error) {
         error = "PNG conversion did not produce 8/16-bit grayscale";
         return false;
     }
-    std::vector<unsigned char> bytes(row_bytes * height);
-    std::vector<png_bytep> rows(height);
+    std::size_t pixel_count, pixel_bytes, row_count, byte_count;
+    if (!checked_size(width, height, 2U, pixel_count, pixel_bytes, error) ||
+        !checked_size(row_bytes, height, 1U, row_count, byte_count, error)) {
+        png_destroy_read_struct(&png, &info, nullptr);
+        std::fclose(file);
+        return false;
+    }
+    std::vector<unsigned char> bytes;
+    std::vector<png_bytep> rows;
+    try {
+        bytes.resize(byte_count);
+        rows.resize(height);
+    } catch (...) {
+        png_destroy_read_struct(&png, &info, nullptr);
+        std::fclose(file);
+        throw;
+    }
     for (std::size_t y = 0; y < height; ++y) {
         rows[y] = bytes.data() + y * row_bytes;
     }
@@ -226,7 +277,7 @@ bool load_png(const std::string& path, OwnedImage& image, std::string& error) {
     image.width = width;
     image.height = height;
     image.max_value = bit_depth == 16 ? 65535U : 255U;
-    image.pixels.resize(image.width * image.height);
+    image.pixels.resize(pixel_count);
     for (std::size_t y = 0; y < image.height; ++y) {
         for (std::size_t x = 0; x < image.width; ++x) {
             if (bit_depth == 8) {
@@ -257,23 +308,28 @@ float quantile(std::vector<float> values, float fraction) {
 
 bool load_image(const std::string& path, const RawInputOptions& raw_options,
                 OwnedImage& image, std::string& error) {
-    const std::string extension = lowercase_extension(path);
-    if (extension == ".pgm") {
-        return load_pgm(path, image, error);
-    }
-    if (extension == ".raw" || extension == ".raw16" || extension == ".bin") {
-        return load_raw16(path, raw_options, image, error);
-    }
-    if (extension == ".png") {
+    try {
+        const std::string extension = lowercase_extension(path);
+        if (extension == ".pgm") {
+            return load_pgm(path, image, error);
+        }
+        if (extension == ".raw" || extension == ".raw16" || extension == ".bin") {
+            return load_raw16(path, raw_options, image, error);
+        }
+        if (extension == ".png") {
 #if MFDS_HAVE_LIBPNG
-        return load_png(path, image, error);
+            return load_png(path, image, error);
 #else
-        error = "PNG support was not built; install libpng-dev or use PGM/RAW16";
-        return false;
+            error = "PNG support was not built; install libpng-dev or use PGM/RAW16";
+            return false;
 #endif
+        }
+        error = "unsupported input type; use PNG, P5 PGM, or little-endian RAW16";
+        return false;
+    } catch (const std::exception& exception) {
+        error = std::string("cannot load image: ") + exception.what();
+        return false;
     }
-    error = "unsupported input type; use PNG, P5 PGM, or little-endian RAW16";
-    return false;
 }
 
 bool write_float_pgm(const std::string& path, const std::vector<float>& values,
@@ -342,4 +398,3 @@ bool write_mask_pgm(const std::string& path,
 }
 
 }  // namespace mf_detect_star
-

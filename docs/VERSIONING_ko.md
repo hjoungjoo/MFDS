@@ -8,7 +8,7 @@
 2. `make -j2 && make test`와 `python3 tools/version.py --check-build build --tag vX.Y.Z`를 통과시킨다. native CI의 sanitizer와 libpng 없는 빌드도 확인한다.
 3. 검증 커밋을 main에 푸시하고 해당 커밋에 annotated tag `vX.Y.Z`를 붙여 푸시한다. 태그를 이동하거나 재사용하지 않는다.
 4. GitHub 정식 릴리즈를 만든다: `gh release create vX.Y.Z --verify-tag --title "MFDS vX.Y.Z" --notes-file release_notes/vX.Y.Z.md --latest`.
-5. PiFinder의 submodule을 그 태그의 정확한 커밋으로 갱신하고 PiFinder를 별도 릴리즈한다. 다른 검출기 변경 없이 PiFinder만 수정할 때 MFDS 버전을 다시 올릴 필요는 없다.
+5. MFNavis의 `deployment/mfds.lock.json`과 `deployment/mfds-commercial.lock.json`에 해당 태그의 소스 커밋과 플랫폼별 패키지·manifest SHA-256을 고정한다. 새 패키지를 설치하고 통합 테스트 후 MFNavis를 배포한다. 다른 검출기 변경 없이 MFNavis만 수정할 때 MFDS 버전을 다시 올릴 필요는 없다.
 
 Make는 VERSION에서 헤더를 생성한다. VERSION이 바뀌면 CLI·서버·공유 라이브러리가 다시 빌드된다. 소스 아카이브도 Git 정보 없이 같은 버전을 빌드한다. `mf_detect_star --version`, `mf_detect_star_server --version`, C 함수 `mfds_version()`으로 확인한다. `tools/version.py`는 태그·릴리즈 노트·빌드 결과의 일치를 검사하며 CI가 이를 실행한다.
 

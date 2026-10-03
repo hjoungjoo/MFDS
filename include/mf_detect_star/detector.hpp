@@ -36,6 +36,7 @@ struct DetectorConfig {
     float max_eccentricity = 0.94F;
     float min_separation = 4.0F;
     std::size_t max_stars = 64;
+    // Finite positive values up to 1024; sigma squared must remain nonzero.
     std::vector<float> psf_sigmas = {0.85F, 1.25F};
     bool collect_diagnostics = false;
     bool refine_original = false;

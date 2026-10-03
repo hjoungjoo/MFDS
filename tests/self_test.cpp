@@ -7,6 +7,8 @@
 #include <functional>
 #include <iomanip>
 #include <iostream>
+#include <limits>
+#include <stdexcept>
 #include <random>
 #include <string>
 #include <utility>
@@ -288,10 +290,42 @@ bool test_pyramid_compact_stars_at_coarse_pixel_phases() {
     return true;
 }
 
+bool test_invalid_config_rejected() {
+    const auto rejects = [](mf_detect_star::DetectorConfig config) {
+        try {
+            const mf_detect_star::Detector detector(std::move(config));
+        } catch (const std::invalid_argument&) {
+            return true;
+        }
+        return false;
+    };
+    for (const float value : {std::numeric_limits<float>::quiet_NaN(),
+                              std::numeric_limits<float>::infinity(),
+                              -std::numeric_limits<float>::infinity()}) {
+        mf_detect_star::DetectorConfig config;
+        config.psf_sigmas = {value};
+        if (!rejects(config)) return false;
+        config = {};
+        config.detection_sigma = value;
+        if (!rejects(config)) return false;
+        config = {};
+        config.noise_floor = value;
+        if (!rejects(config)) return false;
+    }
+    for (const float value : {0.0F, -1.0F, 1025.0F, std::numeric_limits<float>::max(),
+                              std::numeric_limits<float>::denorm_min()}) {
+        mf_detect_star::DetectorConfig config;
+        config.psf_sigmas = {value};
+        if (!rejects(config)) return false;
+    }
+    return true;
+}
+
 }  // namespace
 
 int main() {
     const std::vector<std::pair<std::string, std::function<bool()>>> tests = {
+        {"invalid_config_rejected", test_invalid_config_rejected},
         {"gradient_sky", test_gradient_sky},
         {"thin_cloud_preserves_bright_stars", test_thin_cloud_preserves_bright_stars},
         {"saturated_center_keeps_edge_stars", test_saturated_center_keeps_edge_stars},

@@ -625,14 +625,22 @@ Detector::Detector(DetectorConfig config) : config_(std::move(config)) {
         config_.binning != 4 && config_.binning != 8) {
         throw std::invalid_argument("binning must be 1, 2, 4 or 8");
     }
-    if (config_.mesh_size < 8 || config_.fit_radius < 2 ||
-        config_.detection_sigma <= 0.0F || config_.noise_floor <= 0.0F ||
+    if (config_.mesh_size < 8 || config_.fit_radius < 2 || config_.fit_radius > 32767 ||
+        !std::isfinite(config_.detection_sigma) || config_.detection_sigma <= 0.0F ||
+        !std::isfinite(config_.pixel_support_sigma) || config_.pixel_support_sigma < 0.0F ||
+        !std::isfinite(config_.noise_floor) || config_.noise_floor <= 0.0F ||
+        !std::isfinite(config_.saturation_ratio) || config_.saturation_ratio <= 0.0F || config_.saturation_ratio > 1.0F ||
+        !std::isfinite(config_.min_fwhm) || config_.min_fwhm < 0.0F ||
+        !std::isfinite(config_.max_fwhm) || config_.max_fwhm <= config_.min_fwhm ||
+        !std::isfinite(config_.max_eccentricity) || config_.max_eccentricity < 0.0F || config_.max_eccentricity > 1.0F ||
+        !std::isfinite(config_.min_separation) || config_.min_separation < 0.0F ||
         config_.psf_sigmas.empty()) {
         throw std::invalid_argument("invalid detector configuration");
     }
     for (const float sigma : config_.psf_sigmas) {
-        if (sigma <= 0.0F) {
-            throw std::invalid_argument("PSF sigma must be positive");
+        // Bounds keep kernel/radius integer arithmetic and sigma squared representable.
+        if (!std::isfinite(sigma) || sigma <= 0.0F || sigma > 1024.0F || sigma * sigma == 0.0F) {
+            throw std::invalid_argument("PSF sigma must be finite, positive and at most 1024");
         }
     }
 }
