@@ -207,7 +207,8 @@ def test_abrupt_parent_death_terminates_native_worker():
                     if handle.read().rsplit(")", 1)[1].split()[0] == "Z":
                         worker_pid = None
                         return
-            except FileNotFoundError:
+            except (FileNotFoundError, ProcessLookupError):
+                # Exit can race with either opening or reading the proc entry.
                 worker_pid = None
                 return
             time.sleep(0.01)
