@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.4.3] - 2026-10-07
+
+- Treat a process disappearing between opening and reading its procfs entry
+  as successful worker termination in the parent-death integration test.
+  This prevents intermittent Nox failures with `ProcessLookupError` while
+  retaining the deadline and failure for a surviving worker.
+- Include the corrected test in the versioned development package.
+- Native detector C ABI 1, MFDS1 protocol and detection algorithms remain unchanged.
+
 ## [0.4.2] - 2026-10-03
 
 - Reject overflowing image dimensions, RAW16 strides and byte counts before
