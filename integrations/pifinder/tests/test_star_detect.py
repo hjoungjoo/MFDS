@@ -154,3 +154,34 @@ def test_native_unavailable_uses_sep_without_hiding_invalid_configuration(monkey
     with pytest.raises(ValueError):
         star_detect.detect_stars(frame)
     sep.assert_called_once()
+
+
+@pytest.mark.parametrize("transport", ["ctypes", "process"])
+def test_preprocessed_pool_filters_foreground_before_solver_cap(monkeypatch, transport):
+    monkeypatch.setenv("MF_DETECT_TRANSPORT", transport)
+    monkeypatch.delenv("MF_DETECT_MAX_STARS", raising=False)
+    yy, xx = np.indices((400, 700))
+    original = np.full((400, 700), 500.0)
+    original[:, :300] += 350 * ((yy[:, :300] // 8 + xx[:, :300] // 8) % 2)
+    stars = np.array([[180, 420], [190, 440], [208, 424], [210, 446]])
+    for y, x in stars:
+        original += 450 * np.exp(-((yy - y) ** 2 + (xx - x) ** 2) / (2 * 1.4**2))
+    original = original.astype(np.uint16)
+    foreground = [[80 + (i // 11) * 8, 80 + (i % 11) * 8] for i in range(128)]
+    points = np.column_stack((np.vstack((foreground, stars)), np.arange(132, 0, -1)))
+    capacities = []
+
+    def native(frame, saturation, binning, sigma, mode, capacity):
+        capacities.append(capacity)
+        return points[:capacity], 1.0
+
+    module = star_detect if transport == "ctypes" else star_detect.mf_detect_process
+    monkeypatch.setattr(
+        module, "_detect_ctypes" if transport == "ctypes" else "detect", native
+    )
+    # The synthesized background alone hides the textured foreground.
+    synthetic = np.full_like(original, 500)
+    result = star_detect._detect_native(synthetic, context_frame=original, max_stars=3)
+    assert capacities == [256]
+    assert len(result.centroids) == 3
+    np.testing.assert_array_equal(result.centroids, stars[:3])

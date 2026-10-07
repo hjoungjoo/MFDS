@@ -175,6 +175,7 @@ def detect_stars(
     cluster_radius_px: float = 50.0,
     cluster_max_neighbors: int = 1,
     cloud_window_gate: bool = False,
+    context_frame: Optional[np.ndarray] = None,
 ) -> Optional[SepDetection]:
     """
     Detect stars on a raw sensor frame (uint16 mosaic, any shape).
@@ -214,11 +215,13 @@ def detect_stars(
             2026-07-28 night corpus.
         max_npix: Reject sources covering more binned pixels (stars p95
             10, cloud blobs to 188 -- same corpus; 40 = defocus headroom).
-        cluster_radius_px / cluster_max_neighbors: Drop detections with
-            more than ``cluster_max_neighbors`` others within the radius
-            (full-res px). SEP deblends a bright cloud edge into tight
-            clumps; measured real (tetra3-matched) stars had ZERO
-            neighbours within 50 px in every case, junk up to 4.
+        cluster_radius_px / cluster_max_neighbors: Crowded candidates need
+            multi-pixel core support against a smooth local background.
+            This retains compact star clusters while rejecting textured
+            foreground and deblended cloud edges (full-res coordinates).
+        context_frame: Original RAW paired with a synthesized star-only
+            image. Foreground texture must be measured before preprocessing
+            removes its background. Defaults to ``raw_frame``.
 
     Returns:
         SepDetection with centroids in full-frame (y, x) pixels, or None
@@ -309,21 +312,26 @@ def detect_stars(
 
     full_y, full_x, fluxes = full_y[keep], full_x[keep], fluxes[keep]
 
-    # Cluster gate: SEP deblends bright cloud edges into tight clumps of
-    # "sources"; real stars at this plate scale are isolated (measured 0
-    # neighbours within 50 px on every tetra3-matched star).
-    if len(full_y) > 1:
-        d2 = (full_y[:, None] - full_y[None, :]) ** 2 + (
-            full_x[:, None] - full_x[None, :]
-        ) ** 2
-        neighbours = (d2 <= cluster_radius_px**2).sum(axis=1) - 1
-        isolated = neighbours <= cluster_max_neighbors
-        full_y, full_x, fluxes = full_y[isolated], full_x[isolated], fluxes[isolated]
+    context_keep = _sky_context_mask(
+        np.column_stack((full_y, full_x)),
+        arr if context_frame is None else context_frame,
+        cluster_radius_px,
+        cluster_max_neighbors,
+    )
+    full_y, full_x, fluxes = (
+        full_y[context_keep],
+        full_x[context_keep],
+        fluxes[context_keep],
+    )
 
     cloud_selection = select_clear_window_candidates(
         background,
         np.column_stack(((full_y - 0.5) / 2.0, (full_x - 0.5) / 2.0)),
-        enabled=cloud_window_gate,
+        # A dark foreground can dominate the old brightness percentile and
+        # exclude the actual sky. A compact cluster that passed local RAW
+        # texture/core checks is evidence that brightness alone is unsafe.
+        enabled=cloud_window_gate
+        and not _contains_compact_cluster(np.column_stack((full_y, full_x))),
     )
     cloud_gated_count = int(len(full_y) - np.count_nonzero(cloud_selection.keep))
     full_y = full_y[cloud_selection.keep]
@@ -414,6 +422,69 @@ def _saturated_centroid_mask(points, frame, saturation_level):
     return rejected
 
 
+def _contains_compact_cluster(points):
+    """Input must already have passed the local sky-context/core checks."""
+    points = np.asarray(points, dtype=np.float64).reshape(-1, 2)
+    if len(points) < 3:
+        return False
+    d2 = np.sum((points[:, None] - points[None, :]) ** 2, axis=2)
+    return bool(np.any((d2 <= 50.0**2).sum(axis=1) >= 3))
+
+
+def _sky_context_mask(points, frame, cluster_radius_px, cluster_max_neighbors):
+    """Reject foreground texture without treating a compact star cluster as junk.
+
+    Average Bayer 2x2 cells first, then take a 5x5 grid of 8-sensor-pixel
+    cell medians. This ignores compact stellar cores without mistaking a
+    colour sensor's phase response for foreground texture. Subtract a local
+    plane so a smooth sky gradient is not texture.
+    The residual P90-P10 and typical within-cell IQR may span at most 20%
+    of the local background (with a 12-ADU floor). The IQR also catches
+    textures whose cell medians alias to a flat grid. Crowded sources
+    additionally need a multi-pixel core.
+    These bounds include the clipped M45 PSF wings in the obstructed field
+    replay; quality/continuity checks remain the authority for accepting a solve.
+    """
+    points = np.asarray(points, dtype=np.float64).reshape(-1, 2)
+    keep = np.ones(len(points), dtype=bool)
+    if len(points) == 0:
+        return keep
+    arr = np.asarray(frame)
+    if arr.ndim != 2:
+        raise ValueError("Centroid context must be a 2D image")
+    yy, xx = np.indices((5, 5), dtype=np.float64)
+    # The centred axes are orthogonal: plane fitting needs no matrix solver.
+    yy, xx = yy.ravel() - 2, xx.ravel() - 2
+    d2 = np.sum((points[:, None] - points[None, :]) ** 2, axis=2)
+    crowded = (d2 <= cluster_radius_px**2).sum(axis=1) - 1 > cluster_max_neighbors
+    for i, (y, x) in enumerate(points):
+        cy, cx = int(round(y)), int(round(x))
+        if cy < 20 or cx < 20 or cy + 20 > arr.shape[0] or cx + 20 > arr.shape[1]:
+            # Custom edge margins may admit sources without a full context ROI.
+            keep[i] = not crowded[i]
+            continue
+        patch = arr[cy - 20 : cy + 20, cx - 20 : cx + 20]
+        binned = bin2x2(patch)
+        tiles = binned.reshape(5, 4, 5, 4).transpose(0, 2, 1, 3).reshape(25, 16)
+        cells = np.median(tiles, axis=1)
+        q25, q75 = np.percentile(tiles, (25, 75), axis=1)
+        background = float(np.median(cells))
+        plane = cells.mean() + yy * np.dot(cells, yy) / 50 + xx * np.dot(cells, xx) / 50
+        low, high = np.percentile(cells - plane, (10, 90))
+        texture = max(float(high - low), float(np.median(q75 - q25)))
+        if not np.isfinite(texture) or texture > max(12.0, 0.2 * abs(background)):
+            keep[i] = False
+        elif crowded[i]:
+            core = bin2x2(arr[cy - 3 : cy + 3, cx - 3 : cx + 3])
+            signal = float(core.max()) - background
+            # A blank patch or one hot pixel must not rescue a dense clump.
+            keep[i] = (
+                signal > 12
+                and np.count_nonzero(core > background + max(12.0, 0.1 * signal)) >= 2
+            )
+    return keep
+
+
 def filter_plain_centroids(
     centroids_yx: np.ndarray,
     raw_frame: np.ndarray,
@@ -423,15 +494,15 @@ def filter_plain_centroids(
     warm_pixel_radius_px: float = 4.0,
     cluster_radius_px: float = 50.0,
     cluster_max_neighbors: int = 1,
+    context_frame: Optional[np.ndarray] = None,
 ) -> np.ndarray:
     """Quality-gate centroids independently of detector photometry.
 
     Applies the subset of ``detect_stars``'s filters that need no SEP
-    photometry: the edge margin, the warm-pixel map, the cluster gate
-    (dense clumps -- apartment windows, deblended cloud edges -- are not
-    sky), and a per-centroid saturation check sampled from the raw frame
-    (blown-out ground lights). Shape gates need fitted source profiles
-    and do not apply here.
+    photometry: the edge margin, warm-pixel map, local sky context and a
+    per-centroid saturation check. Crowding alone cannot reject a real star
+    cluster. Context comes from the original RAW when supplied; shape gates
+    still belong to each detector's fitted source profiles.
 
     Returns the kept centroids as an (N, 2) float array; on any internal
     error returns the input unchanged (gating must never cost a solve).
@@ -463,11 +534,14 @@ def filter_plain_centroids(
             keep &= d2 > warm_pixel_radius_px**2
 
         pts = pts[keep]
-        if len(pts) > 1:
-            d2 = (pts[:, 0:1] - pts[:, 0:1].T) ** 2 + (pts[:, 1:2] - pts[:, 1:2].T) ** 2
-            neighbours = (d2 <= cluster_radius_px**2).sum(axis=1) - 1
-            pts = pts[neighbours <= cluster_max_neighbors]
-        return pts
+        return pts[
+            _sky_context_mask(
+                pts,
+                arr if context_frame is None else context_frame,
+                cluster_radius_px,
+                cluster_max_neighbors,
+            )
+        ]
     except Exception:
         logger.exception("Plain-centroid gate failed; passing through")
         return np.asarray(centroids_yx, dtype=np.float64)

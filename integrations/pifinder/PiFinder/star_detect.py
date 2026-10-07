@@ -111,10 +111,16 @@ def _detect_native(raw_frame, **kwargs):
     binning = int(os.environ.get("MF_DETECT_BINNING", "4"))
     sigma = float(np.float32(os.environ.get("MF_DETECT_SIGMA", "4.5")))
     transport = os.environ.get("MF_DETECT_TRANSPORT", "process")
+    # Star-only synthesis can leave many bright foliage glints ahead of real
+    # stars. Inspect a larger pool before the RAW-context gates, while keeping
+    # the solver's brightest-48 and overlay limits unchanged.
+    capacity = 256 if kwargs.get("context_frame") is not None else 128
     if transport == "process":
-        output, _ = mf_detect_process.detect(arr, saturation, binning, sigma, mode)
+        output, _ = mf_detect_process.detect(
+            arr, saturation, binning, sigma, mode, capacity
+        )
     elif transport == "ctypes":
-        output, _ = _detect_ctypes(arr, saturation, binning, sigma, mode)
+        output, _ = _detect_ctypes(arr, saturation, binning, sigma, mode, capacity)
     else:
         raise ValueError("MF_DETECT_TRANSPORT must be process or ctypes")
     points = output[:, :2].astype(np.float64)
@@ -134,13 +140,18 @@ def _detect_native(raw_frame, **kwargs):
         # Do not reapply the former blanket peak rejection to those stars.
         saturation_level=None,
         warm_pixel_map=kwargs.get("warm_pixel_map"),
+        context_frame=kwargs.get("context_frame"),
     )
     filtered = np.asarray(filtered, dtype=np.float64).reshape(-1, 2)
     keep = np.asarray(
         [np.any(np.all(filtered == point, axis=1)) for point in points], dtype=bool
     )
     points, flux = points[keep], flux[keep]
-    if kwargs.get("cloud_window_gate", False) and len(points):
+    if (
+        kwargs.get("cloud_window_gate", False)
+        and len(points)
+        and not sep_detect._contains_compact_cluster(points)
+    ):
         from PiFinder.mf_cloud_gate import select_clear_window_candidates
         from PiFinder.mf_star_only_preprocess import _robust_cell_background
 

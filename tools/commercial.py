@@ -43,7 +43,7 @@ def integration_source(name, data):
         source = replace_once(source, "import ctypes\n", "")
         source = replace_once(
             source,
-            '    elif transport == "ctypes":\n        output, _ = _detect_ctypes(arr, saturation, binning, sigma, mode)\n',
+            '    elif transport == "ctypes":\n        output, _ = _detect_ctypes(arr, saturation, binning, sigma, mode, capacity)\n',
             "",
         )
         source = source.replace(

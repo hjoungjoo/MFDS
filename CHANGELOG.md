@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+## [Unreleased]
+
+## [0.4.4] - 2026-10-08
+
+- Retain compact star clusters using original-RAW sky context and multi-pixel
+  core support instead of rejecting every crowded centroid. Reject foreground
+  texture using Bayer-balanced local cells with smooth gradients removed.
+- Bypass the brightness-only cloud window for a context-validated cluster,
+  since dark foreground can otherwise exclude the actual sky. Inspect 256
+  preprocessing candidates before filtering; solver input remains capped at 48.
+- Add regressions for clustered/clipped stars, textured foreground, hot pixels,
+  paired preprocessing context and both native transports. Native ABI and
+  solver quality thresholds are unchanged.
+
 ## [0.4.3] - 2026-10-07
 
 - Treat a process disappearing between opening and reading its procfs entry

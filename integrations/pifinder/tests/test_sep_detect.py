@@ -278,3 +278,72 @@ def test_clipping_gate_retains_star_but_rejects_lamp_and_hot_pixel():
     np.testing.assert_array_equal(
         sep_detect._saturated_centroid_mask(points, frame, 4095), [False, True, True]
     )
+
+
+@pytest.mark.unit
+@pytest.mark.parametrize("peak", [400.0, 5000.0])
+def test_compact_star_cluster_survives_both_centroid_paths(peak):
+    stars = np.array([[250, 420], [260, 440], [278, 424], [280, 446]])
+    frame = _synthetic_frame(stars, peak=peak)
+    plain = sep_detect.filter_plain_centroids(stars, frame, saturation_level=4095)
+    np.testing.assert_array_equal(plain, stars)
+    result = sep_detect.detect_stars(frame, sigma=4.0, saturation_level=4095)
+    for star in stars:
+        assert np.min(np.linalg.norm(result.centroids - star, axis=1)) < 2
+
+
+@pytest.mark.unit
+def test_foreground_texture_is_rejected_even_when_candidate_is_isolated():
+    yy, xx = np.indices((256, 256))
+    frame = (500 + 350 * ((yy // 8 + xx // 8) % 2)).astype(np.uint16)
+    frame[127:130, 127:130] = 2000
+    assert len(sep_detect.filter_plain_centroids([[128, 128]], frame)) == 0
+
+
+@pytest.mark.unit
+def test_dense_blank_and_single_pixel_glints_cannot_be_rescued():
+    points = np.array([[100, 100], [100, 120], [120, 110]])
+    frame = np.full((256, 256), 500, dtype=np.uint16)
+    for y, x in points:
+        frame[y, x] = 4095
+    assert len(sep_detect.filter_plain_centroids(points, frame)) == 0
+
+
+@pytest.mark.unit
+def test_star_only_detection_uses_original_foreground_context():
+    stars = np.array([[250, 420], [260, 440], [278, 424], [280, 446]])
+    synthetic = _synthetic_frame(stars)
+    yy, xx = np.indices(synthetic.shape)
+    original = (500 + 350 * ((yy // 8 + xx // 8) % 2)).astype(np.uint16)
+    assert (
+        len(sep_detect.filter_plain_centroids(stars, synthetic, context_frame=original))
+        == 0
+    )
+    result = sep_detect.detect_stars(synthetic, sigma=4, context_frame=original)
+    assert len(result.centroids) == 0
+
+
+@pytest.mark.unit
+def test_dense_sky_cluster_cannot_be_removed_by_dark_foreground_percentile(monkeypatch):
+    from types import SimpleNamespace
+
+    stars = np.array([[250, 420], [260, 440], [278, 424], [280, 446]])
+    frame = _synthetic_frame(stars, peak=5000)
+    frame[:, :200] //= 4
+    calls = []
+
+    def cloud_gate(background, points, *, enabled: bool):
+        calls.append(enabled)
+        return SimpleNamespace(
+            keep=np.full(len(points), not enabled),
+            active=enabled,
+            contrast=1.0,
+            background_limit=None,
+            directional_coherence=0.0,
+        )
+
+    monkeypatch.setattr(sep_detect, "select_clear_window_candidates", cloud_gate)
+    result = sep_detect.detect_stars(frame, sigma=4, cloud_window_gate=True)
+    assert calls == [False]
+    for star in stars:
+        assert np.min(np.linalg.norm(result.centroids - star, axis=1)) < 2
